@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-device.h.hip"
+#else        
 // cudamatrix/cu-device.h
 
 // Copyright 2009-2012  Karel Vesely
@@ -443,3 +446,4 @@ void SynchronizeGpu();
 }  // namespace kaldi
 
 #endif  // KALDI_CUDAMATRIX_CU_DEVICE_H_
+#endif  //__IS_HIP_COMPILE__  

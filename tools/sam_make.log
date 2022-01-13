@@ -1,0 +1,513 @@
+extras/check_dependencies.sh
+cd openfst-1.7.2/ && \
+./configure --prefix=`pwd` --enable-static --enable-shared --enable-far --enable-ngram-fsts --enable-lookahead-fsts --with-pic CXX="g++" \
+	CXXFLAGS="-g -O2 " \
+	LDFLAGS="" LIBS="-ldl"
+extras/check_dependencies.sh: all OK.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for ar... ar
+checking the archiver (ar) interface... ar
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... no
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... yes
+checking if g++ static flag -static works... no
+checking if g++ supports -c -o file.o... yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+Float equality is good
+checking for dlopen in -ldl... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/include/Makefile
+config.status: creating src/lib/Makefile
+config.status: creating src/bin/Makefile
+config.status: creating src/test/Makefile
+config.status: creating src/extensions/Makefile
+config.status: creating src/extensions/compact/Makefile
+config.status: creating src/extensions/compress/Makefile
+config.status: creating src/extensions/const/Makefile
+config.status: creating src/extensions/far/Makefile
+config.status: creating src/extensions/linear/Makefile
+config.status: creating src/extensions/lookahead/Makefile
+config.status: creating src/extensions/mpdt/Makefile
+config.status: creating src/extensions/ngram/Makefile
+config.status: creating src/extensions/pdt/Makefile
+config.status: creating src/extensions/python/Makefile
+config.status: creating src/extensions/special/Makefile
+config.status: creating src/script/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: creating src/include/fst/config.h
+config.status: src/include/fst/config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+make -C openfst-1.7.2 install MAKEOVERRIDES=
+make[1]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+Making install in src
+make[2]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+Making install in include
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/include'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/include'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/install -c -m 644  fst/accumulator.h fst/add-on.h fst/arc-arena.h fst/arc-map.h fst/arc.h fst/arcfilter.h fst/arcsort.h fst/bi-table.h fst/cache.h fst/closure.h fst/compact-fst.h fst/compat.h fst/complement.h fst/compose-filter.h fst/compose.h fst/concat.h fst/config.h fst/connect.h fst/const-fst.h fst/determinize.h fst/dfs-visit.h fst/difference.h fst/disambiguate.h fst/edit-fst.h fst/encode.h fst/epsnormalize.h fst/equal.h fst/equivalent.h fst/expanded-fst.h fst/expectation-weight.h fst/factor-weight.h fst/filter-state.h fst/flags.h fst/float-weight.h fst/fst-decl.h fst/fst.h fst/fstlib.h fst/generic-register.h fst/heap.h fst/icu.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/install -c -m 644  fst/intersect.h fst/interval-set.h fst/invert.h fst/isomorphic.h fst/label-reachable.h fst/lexicographic-weight.h fst/lock.h fst/log.h fst/lookahead-filter.h fst/lookahead-matcher.h fst/map.h fst/mapped-file.h fst/matcher-fst.h fst/matcher.h fst/memory.h fst/minimize.h fst/mutable-fst.h fst/pair-weight.h fst/partition.h fst/power-weight.h fst/product-weight.h fst/project.h fst/properties.h fst/prune.h fst/push.h fst/queue.h fst/randequivalent.h fst/randgen.h fst/rational.h fst/register.h fst/relabel.h fst/replace-util.h fst/replace.h fst/reverse.h fst/reweight.h fst/rmepsilon.h fst/rmfinalepsilon.h fst/set-weight.h fst/shortest-distance.h fst/shortest-path.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/script'
+ /usr/bin/install -c -m 644  fst/script/arc-class.h fst/script/arciterator-class.h fst/script/arcsort.h fst/script/arg-packs.h fst/script/closure.h fst/script/compile-impl.h fst/script/compile.h fst/script/compose.h fst/script/concat.h fst/script/connect.h fst/script/convert.h fst/script/decode.h fst/script/determinize.h fst/script/difference.h fst/script/disambiguate.h fst/script/draw-impl.h fst/script/draw.h fst/script/encode.h fst/script/encodemapper-class.h fst/script/epsnormalize.h fst/script/equal.h fst/script/equivalent.h fst/script/fst-class.h fst/script/fstscript.h fst/script/getters.h fst/script/info-impl.h fst/script/info.h fst/script/intersect.h fst/script/invert.h fst/script/isomorphic.h fst/script/map.h fst/script/minimize.h fst/script/print-impl.h fst/script/print.h fst/script/project.h fst/script/prune.h fst/script/push.h fst/script/randequivalent.h fst/script/randgen.h fst/script/register.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/script'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/test'
+ /usr/bin/install -c -m 644  fst/test/algo_test.h fst/test/fst_test.h fst/test/rand-fst.h fst/test/weight-tester.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/test'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/install -c -m 644  fst/signed-log-weight.h fst/sparse-power-weight.h fst/sparse-tuple-weight.h fst/state-map.h fst/state-reachable.h fst/state-table.h fst/statesort.h fst/string-weight.h fst/string.h fst/symbol-table-ops.h fst/symbol-table.h fst/synchronize.h fst/test-properties.h fst/topsort.h fst/tuple-weight.h fst/types.h fst/union-find.h fst/union-weight.h fst/union.h fst/util.h fst/vector-fst.h fst/verify.h fst/visit.h fst/weight.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/script'
+ /usr/bin/install -c -m 644  fst/script/relabel.h fst/script/replace.h fst/script/reverse.h fst/script/reweight.h fst/script/rmepsilon.h fst/script/script-impl.h fst/script/shortest-distance.h fst/script/shortest-path.h fst/script/stateiterator-class.h fst/script/synchronize.h fst/script/text-io.h fst/script/topsort.h fst/script/union.h fst/script/weight-class.h fst/script/fstscript-decl.h fst/script/verify.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/script'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/extensions/ngram'
+ /usr/bin/install -c -m 644  fst/extensions/ngram/bitmap-index.h fst/extensions/ngram/ngram-fst.h fst/extensions/ngram/nthbit.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/extensions/ngram'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/extensions/far'
+ /usr/bin/install -c -m 644  fst/extensions/far/compile-strings.h fst/extensions/far/create.h fst/extensions/far/equal.h fst/extensions/far/extract.h fst/extensions/far/far.h fst/extensions/far/far-class.h fst/extensions/far/farlib.h fst/extensions/far/farscript.h fst/extensions/far/getters.h fst/extensions/far/info.h fst/extensions/far/isomorphic.h fst/extensions/far/print-strings.h fst/extensions/far/script-impl.h fst/extensions/far/stlist.h fst/extensions/far/sttable.h '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/include/fst/extensions/far'
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/include'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/include'
+Making install in lib
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/lib'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/lib'
+make[4]: Nothing to be done for 'install-data-am'.
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libfst.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+libtool: install: /usr/bin/install -c .libs/libfst.so.16.0.0 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfst.so.16.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfst.so.16.0.0 libfst.so.16 || { rm -f libfst.so.16 && ln -s libfst.so.16.0.0 libfst.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfst.so.16.0.0 libfst.so || { rm -f libfst.so && ln -s libfst.so.16.0.0 libfst.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfst.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfst.la
+libtool: install: /usr/bin/install -c .libs/libfst.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfst.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfst.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfst.a
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/lib'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/lib'
+Making install in script
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/script'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/script'
+make[4]: Nothing to be done for 'install-data-am'.
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../libtool   --mode=install /usr/bin/install -c   libfstscript.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+libtool: warning: relinking 'libfstscript.la'
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/script; /bin/sh "/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/libtool"  --tag CXX --mode=relink g++ -g -O2 -std=c++11 -version-info 16:0:0 -o libfstscript.la -rpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib arciterator-class.lo arcsort.lo closure.lo compile.lo compose.lo concat.lo connect.lo convert.lo decode.lo determinize.lo difference.lo disambiguate.lo draw.lo encode.lo encodemapper-class.lo epsnormalize.lo equal.lo equivalent.lo fst-class.lo getters.lo info-impl.lo info.lo intersect.lo invert.lo isomorphic.lo map.lo minimize.lo print.lo project.lo prune.lo push.lo randequivalent.lo randgen.lo relabel.lo replace.lo reverse.lo reweight.lo rmepsilon.lo shortest-distance.lo shortest-path.lo stateiterator-class.lo synchronize.lo text-io.lo topsort.lo union.lo weight-class.lo verify.lo ../lib/libfst.la -lm -ldl -ldl )
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: relink: g++  -fPIC -DPIC -shared -nostdlib /lib/../lib64/crti.o /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbeginS.o  .libs/arciterator-class.o .libs/arcsort.o .libs/closure.o .libs/compile.o .libs/compose.o .libs/concat.o .libs/connect.o .libs/convert.o .libs/decode.o .libs/determinize.o .libs/difference.o .libs/disambiguate.o .libs/draw.o .libs/encode.o .libs/encodemapper-class.o .libs/epsnormalize.o .libs/equal.o .libs/equivalent.o .libs/fst-class.o .libs/getters.o .libs/info-impl.o .libs/info.o .libs/intersect.o .libs/invert.o .libs/isomorphic.o .libs/map.o .libs/minimize.o .libs/print.o .libs/project.o .libs/prune.o .libs/push.o .libs/randequivalent.o .libs/randgen.o .libs/relabel.o .libs/replace.o .libs/reverse.o .libs/reweight.o .libs/rmepsilon.o .libs/shortest-distance.o .libs/shortest-path.o .libs/stateiterator-class.o .libs/synchronize.o .libs/text-io.o .libs/topsort.o .libs/union.o .libs/weight-class.o .libs/verify.o   -Wl,-rpath -Wl,/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -Wl,-rpath -Wl,/share/modules/gcc/9.3.0/lib/../lib64 -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -lfst -L/share/modules/gcc/9.3.0/lib64/../lib64 -ldl -L/share/modules/gcc/9.3.0/lib/../lib64 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/share/modules/cuda/11.3.0/lib64 -L/share/modules/gcc/9.3.0/lib64 -L/share/modules/gcc/9.3.0/lib -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. -lstdc++ -lm -lc -lgcc_s /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtendS.o /lib/../lib64/crtn.o  -g -O2   -Wl,-soname -Wl,libfstscript.so.16 -o .libs/libfstscript.so.16.0.0
+libtool: install: /usr/bin/install -c .libs/libfstscript.so.16.0.0T /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstscript.so.16.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstscript.so.16.0.0 libfstscript.so.16 || { rm -f libfstscript.so.16 && ln -s libfstscript.so.16.0.0 libfstscript.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstscript.so.16.0.0 libfstscript.so || { rm -f libfstscript.so && ln -s libfstscript.so.16.0.0 libfstscript.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfstscript.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstscript.la
+libtool: install: /usr/bin/install -c .libs/libfstscript.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstscript.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstscript.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstscript.a
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/script'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/script'
+Making install in bin
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/bin'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/bin'
+make[4]: Nothing to be done for 'install-data-am'.
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin'
+  /bin/sh ../../libtool   --mode=install /usr/bin/install -c fstarcsort fstclosure fstcompile fstcompose fstconcat fstconnect fstconvert fstdeterminize fstdifference fstdisambiguate fstdraw fstencode fstepsnormalize fstequal fstequivalent fstinfo fstintersect fstinvert fstisomorphic fstmap fstminimize fstprint fstproject fstprune fstpush fstrandgen fstrelabel fstreplace fstreverse fstreweight fstrmepsilon fstshortestdistance fstshortestpath fstsymbols fstsynchronize fsttopsort fstunion '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin'
+libtool: install: /usr/bin/install -c .libs/fstarcsort /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstarcsort
+libtool: install: /usr/bin/install -c .libs/fstclosure /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstclosure
+libtool: install: /usr/bin/install -c .libs/fstcompile /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstcompile
+libtool: install: /usr/bin/install -c .libs/fstcompose /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstcompose
+libtool: install: /usr/bin/install -c .libs/fstconcat /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstconcat
+libtool: install: /usr/bin/install -c .libs/fstconnect /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstconnect
+libtool: install: /usr/bin/install -c .libs/fstconvert /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstconvert
+libtool: install: /usr/bin/install -c .libs/fstdeterminize /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstdeterminize
+libtool: install: /usr/bin/install -c .libs/fstdifference /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstdifference
+libtool: install: /usr/bin/install -c .libs/fstdisambiguate /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstdisambiguate
+libtool: install: /usr/bin/install -c .libs/fstdraw /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstdraw
+libtool: install: /usr/bin/install -c .libs/fstencode /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstencode
+libtool: install: /usr/bin/install -c .libs/fstepsnormalize /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstepsnormalize
+libtool: install: /usr/bin/install -c .libs/fstequal /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstequal
+libtool: install: /usr/bin/install -c .libs/fstequivalent /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstequivalent
+libtool: install: /usr/bin/install -c .libs/fstinfo /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstinfo
+libtool: install: /usr/bin/install -c .libs/fstintersect /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstintersect
+libtool: install: /usr/bin/install -c .libs/fstinvert /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstinvert
+libtool: install: /usr/bin/install -c .libs/fstisomorphic /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstisomorphic
+libtool: install: /usr/bin/install -c .libs/fstmap /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstmap
+libtool: install: /usr/bin/install -c .libs/fstminimize /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstminimize
+libtool: install: /usr/bin/install -c .libs/fstprint /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstprint
+libtool: install: /usr/bin/install -c .libs/fstproject /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstproject
+libtool: install: /usr/bin/install -c .libs/fstprune /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstprune
+libtool: install: /usr/bin/install -c .libs/fstpush /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstpush
+libtool: install: /usr/bin/install -c .libs/fstrandgen /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstrandgen
+libtool: install: /usr/bin/install -c .libs/fstrelabel /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstrelabel
+libtool: install: /usr/bin/install -c .libs/fstreplace /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstreplace
+libtool: install: /usr/bin/install -c .libs/fstreverse /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstreverse
+libtool: install: /usr/bin/install -c .libs/fstreweight /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstreweight
+libtool: install: /usr/bin/install -c .libs/fstrmepsilon /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstrmepsilon
+libtool: install: /usr/bin/install -c .libs/fstshortestdistance /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstshortestdistance
+libtool: install: /usr/bin/install -c .libs/fstshortestpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstshortestpath
+libtool: install: /usr/bin/install -c .libs/fstsymbols /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstsymbols
+libtool: install: /usr/bin/install -c .libs/fstsynchronize /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstsynchronize
+libtool: install: /usr/bin/install -c .libs/fsttopsort /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fsttopsort
+libtool: install: /usr/bin/install -c .libs/fstunion /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/fstunion
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/bin'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/bin'
+Making install in test
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/test'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/test'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/test'
+Making install in extensions
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+Making install in far
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far'
+make[5]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far'
+make[5]: Nothing to be done for 'install-data-am'.
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libfstfar.la libfstfarscript.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+libtool: warning: relinking 'libfstfar.la'
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far; /bin/sh "/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/libtool"  --tag CXX --mode=relink g++ -g -O2 -std=c++11 -version-info 16:0:0 -o libfstfar.la -rpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib sttable.lo stlist.lo ../../lib/libfst.la -lm -ldl -ldl )
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: relink: g++  -fPIC -DPIC -shared -nostdlib /lib/../lib64/crti.o /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbeginS.o  .libs/sttable.o .libs/stlist.o   -Wl,-rpath -Wl,/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -Wl,-rpath -Wl,/share/modules/gcc/9.3.0/lib/../lib64 -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -lfst -L/share/modules/gcc/9.3.0/lib64/../lib64 -ldl -L/share/modules/gcc/9.3.0/lib/../lib64 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/share/modules/cuda/11.3.0/lib64 -L/share/modules/gcc/9.3.0/lib64 -L/share/modules/gcc/9.3.0/lib -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. -lstdc++ -lm -lc -lgcc_s /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtendS.o /lib/../lib64/crtn.o  -g -O2   -Wl,-soname -Wl,libfstfar.so.16 -o .libs/libfstfar.so.16.0.0
+libtool: install: /usr/bin/install -c .libs/libfstfar.so.16.0.0T /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfar.so.16.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstfar.so.16.0.0 libfstfar.so.16 || { rm -f libfstfar.so.16 && ln -s libfstfar.so.16.0.0 libfstfar.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstfar.so.16.0.0 libfstfar.so || { rm -f libfstfar.so && ln -s libfstfar.so.16.0.0 libfstfar.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfstfar.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfar.la
+libtool: warning: relinking 'libfstfarscript.la'
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far; /bin/sh "/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/libtool"  --tag CXX --mode=relink g++ -g -O2 -std=c++11 -version-info 16:0:0 -o libfstfarscript.la -rpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib far-class.lo farscript.lo getters.lo script-impl.lo strings.lo libfstfar.la ../../script/libfstscript.la ../../lib/libfst.la -lm -ldl -ldl )
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: relink: g++  -fPIC -DPIC -shared -nostdlib /lib/../lib64/crti.o /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbeginS.o  .libs/far-class.o .libs/farscript.o .libs/getters.o .libs/script-impl.o .libs/strings.o   -Wl,-rpath -Wl,/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -Wl,-rpath -Wl,/share/modules/gcc/9.3.0/lib/../lib64 -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/lib/.libs -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -lfstfar -L/share/modules/gcc/9.3.0/lib64/../lib64 -lfstscript -lfst -ldl -L/share/modules/gcc/9.3.0/lib/../lib64 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/share/modules/cuda/11.3.0/lib64 -L/share/modules/gcc/9.3.0/lib64 -L/share/modules/gcc/9.3.0/lib -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. -lstdc++ -lm -lc -lgcc_s /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtendS.o /lib/../lib64/crtn.o  -g -O2   -Wl,-soname -Wl,libfstfarscript.so.16 -o .libs/libfstfarscript.so.16.0.0
+libtool: install: /usr/bin/install -c .libs/libfstfarscript.so.16.0.0T /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfarscript.so.16.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstfarscript.so.16.0.0 libfstfarscript.so.16 || { rm -f libfstfarscript.so.16 && ln -s libfstfarscript.so.16.0.0 libfstfarscript.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstfarscript.so.16.0.0 libfstfarscript.so || { rm -f libfstfarscript.so && ln -s libfstfarscript.so.16.0.0 libfstfarscript.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfstfarscript.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfarscript.la
+libtool: install: /usr/bin/install -c .libs/libfstfar.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfar.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfar.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfar.a
+libtool: install: /usr/bin/install -c .libs/libfstfarscript.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfarscript.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfarscript.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstfarscript.a
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin'
+  /bin/sh ../../../libtool   --mode=install /usr/bin/install -c farcompilestrings farcreate farequal farextract farinfo farisomorphic farprintstrings '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin'
+libtool: install: /usr/bin/install -c .libs/farcompilestrings /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farcompilestrings
+libtool: install: /usr/bin/install -c .libs/farcreate /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farcreate
+libtool: install: /usr/bin/install -c .libs/farequal /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farequal
+libtool: install: /usr/bin/install -c .libs/farextract /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farextract
+libtool: install: /usr/bin/install -c .libs/farinfo /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farinfo
+libtool: install: /usr/bin/install -c .libs/farisomorphic /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farisomorphic
+libtool: install: /usr/bin/install -c .libs/farprintstrings /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/bin/farprintstrings
+make[5]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far'
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/far'
+Making install in lookahead
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/lookahead'
+make[5]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/lookahead'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libfstlookahead.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   arc_lookahead-fst.la ilabel_lookahead-fst.la olabel_lookahead-fst.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst'
+libtool: install: /usr/bin/install -c .libs/arc_lookahead-fst.so.0.0.0 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/arc_lookahead-fst.so.0.0.0
+libtool: warning: relinking 'libfstlookahead.la'
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/lookahead; /bin/sh "/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/libtool"  --tag CXX --mode=relink g++ -g -O2 -std=c++11 -version-info 16:0:0 -o libfstlookahead.la -rpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib arc_lookahead-fst.lo ilabel_lookahead-fst.lo olabel_lookahead-fst.lo ../../lib/libfst.la -lm -ldl -ldl )
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f arc_lookahead-fst.so.0.0.0 arc_lookahead-fst.so.0 || { rm -f arc_lookahead-fst.so.0 && ln -s arc_lookahead-fst.so.0.0.0 arc_lookahead-fst.so.0; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f arc_lookahead-fst.so.0.0.0 arc_lookahead-fst.so || { rm -f arc_lookahead-fst.so && ln -s arc_lookahead-fst.so.0.0.0 arc_lookahead-fst.so; }; })
+libtool: install: /usr/bin/install -c .libs/arc_lookahead-fst.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/arc_lookahead-fst.la
+libtool: install: /usr/bin/install -c .libs/ilabel_lookahead-fst.so.0.0.0 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ilabel_lookahead-fst.so.0.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f ilabel_lookahead-fst.so.0.0.0 ilabel_lookahead-fst.so.0 || { rm -f ilabel_lookahead-fst.so.0 && ln -s ilabel_lookahead-fst.so.0.0.0 ilabel_lookahead-fst.so.0; }; })
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f ilabel_lookahead-fst.so.0.0.0 ilabel_lookahead-fst.so || { rm -f ilabel_lookahead-fst.so && ln -s ilabel_lookahead-fst.so.0.0.0 ilabel_lookahead-fst.so; }; })
+libtool: install: /usr/bin/install -c .libs/ilabel_lookahead-fst.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ilabel_lookahead-fst.la
+libtool: install: /usr/bin/install -c .libs/olabel_lookahead-fst.so.0.0.0 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/olabel_lookahead-fst.so.0.0.0
+libtool: relink: g++  -fPIC -DPIC -shared -nostdlib /lib/../lib64/crti.o /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbeginS.o  .libs/arc_lookahead-fst.o .libs/ilabel_lookahead-fst.o .libs/olabel_lookahead-fst.o   -Wl,-rpath -Wl,/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -Wl,-rpath -Wl,/share/modules/gcc/9.3.0/lib/../lib64 -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -lfst -L/share/modules/gcc/9.3.0/lib64/../lib64 -ldl -L/share/modules/gcc/9.3.0/lib/../lib64 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/share/modules/cuda/11.3.0/lib64 -L/share/modules/gcc/9.3.0/lib64 -L/share/modules/gcc/9.3.0/lib -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. -lstdc++ -lm -lc -lgcc_s /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtendS.o /lib/../lib64/crtn.o  -g -O2   -Wl,-soname -Wl,libfstlookahead.so.16 -o .libs/libfstlookahead.so.16.0.0
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f olabel_lookahead-fst.so.0.0.0 olabel_lookahead-fst.so.0 || { rm -f olabel_lookahead-fst.so.0 && ln -s olabel_lookahead-fst.so.0.0.0 olabel_lookahead-fst.so.0; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f olabel_lookahead-fst.so.0.0.0 olabel_lookahead-fst.so || { rm -f olabel_lookahead-fst.so && ln -s olabel_lookahead-fst.so.0.0.0 olabel_lookahead-fst.so; }; })
+libtool: install: /usr/bin/install -c .libs/olabel_lookahead-fst.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/olabel_lookahead-fst.la
+libtool: install: /usr/bin/install -c .libs/arc_lookahead-fst.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/arc_lookahead-fst.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/arc_lookahead-fst.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/arc_lookahead-fst.a
+libtool: install: /usr/bin/install -c .libs/ilabel_lookahead-fst.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ilabel_lookahead-fst.a
+libtool: install: /usr/bin/install -c .libs/libfstlookahead.so.16.0.0T /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstlookahead.so.16.0.0
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ilabel_lookahead-fst.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ilabel_lookahead-fst.a
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstlookahead.so.16.0.0 libfstlookahead.so.16 || { rm -f libfstlookahead.so.16 && ln -s libfstlookahead.so.16.0.0 libfstlookahead.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstlookahead.so.16.0.0 libfstlookahead.so || { rm -f libfstlookahead.so && ln -s libfstlookahead.so.16.0.0 libfstlookahead.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfstlookahead.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstlookahead.la
+libtool: install: /usr/bin/install -c .libs/libfstlookahead.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstlookahead.a
+libtool: install: /usr/bin/install -c .libs/olabel_lookahead-fst.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/olabel_lookahead-fst.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/olabel_lookahead-fst.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/olabel_lookahead-fst.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstlookahead.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstlookahead.a
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/lookahead'
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/lookahead'
+Making install in ngram
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/ngram'
+make[5]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/ngram'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst'
+ /usr/bin/mkdir -p '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   libfstngram.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib'
+ /bin/sh ../../../libtool   --mode=install /usr/bin/install -c   ngram-fst.la '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst'
+libtool: install: /usr/bin/install -c .libs/ngram-fst.so.0.0.0 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ngram-fst.so.0.0.0
+libtool: warning: relinking 'libfstngram.la'
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/ngram; /bin/sh "/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/libtool"  --tag CXX --mode=relink g++ -g -O2 -std=c++11 -version-info 16:0:0 -o libfstngram.la -rpath /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib bitmap-index.lo ngram-fst.lo nthbit.lo ../../lib/libfst.la -lm -ldl -ldl )
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f ngram-fst.so.0.0.0 ngram-fst.so.0 || { rm -f ngram-fst.so.0 && ln -s ngram-fst.so.0.0.0 ngram-fst.so.0; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst && { ln -s -f ngram-fst.so.0.0.0 ngram-fst.so || { rm -f ngram-fst.so && ln -s ngram-fst.so.0.0.0 ngram-fst.so; }; })
+libtool: install: /usr/bin/install -c .libs/ngram-fst.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ngram-fst.la
+libtool: install: /usr/bin/install -c .libs/ngram-fst.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ngram-fst.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ngram-fst.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst/ngram-fst.a
+libtool: warning: '/share/modules/gcc/9.3.0/lib64/../lib64/libstdc++.la' seems to be moved
+libtool: relink: g++  -fPIC -DPIC -shared -nostdlib /lib/../lib64/crti.o /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtbeginS.o  .libs/bitmap-index.o .libs/ngram-fst.o .libs/nthbit.o   -Wl,-rpath -Wl,/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -Wl,-rpath -Wl,/share/modules/gcc/9.3.0/lib/../lib64 -L/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib -lfst -L/share/modules/gcc/9.3.0/lib64/../lib64 -ldl -L/share/modules/gcc/9.3.0/lib/../lib64 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0 -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/share/modules/cuda/11.3.0/lib64 -L/share/modules/gcc/9.3.0/lib64 -L/share/modules/gcc/9.3.0/lib -L/share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/../../.. -lstdc++ -lm -lc -lgcc_s /share/modules/gcc/9.3.0/lib/gcc/x86_64-pc-linux-gnu/9.3.0/crtendS.o /lib/../lib64/crtn.o  -g -O2   -Wl,-soname -Wl,libfstngram.so.16 -o .libs/libfstngram.so.16.0.0
+libtool: install: /usr/bin/install -c .libs/libfstngram.so.16.0.0T /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstngram.so.16.0.0
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/fst
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstngram.so.16.0.0 libfstngram.so.16 || { rm -f libfstngram.so.16 && ln -s libfstngram.so.16.0.0 libfstngram.so.16; }; })
+libtool: install: (cd /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib && { ln -s -f libfstngram.so.16.0.0 libfstngram.so || { rm -f libfstngram.so && ln -s libfstngram.so.16.0.0 libfstngram.so; }; })
+libtool: install: /usr/bin/install -c .libs/libfstngram.lai /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstngram.la
+libtool: install: /usr/bin/install -c .libs/libfstngram.a /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstngram.a
+libtool: install: chmod 644 /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstngram.a
+libtool: install: ranlib /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib/libfstngram.a
+libtool: finish: PATH="/home/sfantao/lumi-builds/kaldi/miniconda3/envs/kaldi/bin:/share/modules/cuda/11.3.0/bin:/share/modules/patch/2.7.6/bin:/share/modules/cmake/3.20.0/bin:/share/modules/gcc/9.3.0/bin:/home/sfantao/miniconda3/condabin:/home/sfantao/tools/bin:/home/sfantao/.local/bin:/home/sfantao/bin:/share/opt/slurm/current/bin:/share/opt/thera/bin:/share/modules/tmux/3.2/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin" ldconfig -n /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[5]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/ngram'
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions/ngram'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+make[5]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src/extensions'
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+make[4]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+make[2]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2/src'
+make[2]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+make[3]: Entering directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+make[2]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+make[1]: Leaving directory '/home/sfantao/lumi-builds/kaldi/src/tools/openfst-1.7.2'
+rm -f openfst
+ln -s openfst-1.7.2 openfst
+
+
+
+Warning: IRSTLM is not installed by default anymore. If you need IRSTLM
+Warning: use the script extras/install_irstlm.sh
+All done OK.

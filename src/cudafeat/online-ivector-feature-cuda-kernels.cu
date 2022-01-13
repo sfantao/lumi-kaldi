@@ -18,6 +18,36 @@
 #include <cub/cub.cuh>
 #include "cudafeat/online-ivector-feature-cuda-kernels.h"
 #include "cudamatrix/cu-common.h"
+
+#ifdef __CDT_PARSER__
+#define __global__
+#define __device__
+#define __shared__
+
+namespace {
+dim3 threadIdx;
+dim3 blockIdx;
+dim3 blockDim;
+dim3 gridDim;
+int warpSize;
+
+template <typename T>
+__device__ T __shfl_down_sync(unsigned mask, T var, unsigned int delta,
+                              int width = warpSize);
+
+void __syncthreads(void);
+
+//double atomicAdd(double *address, double val);
+//unsigned long long int atomicCAS(unsigned long long int *address,
+//                                 unsigned long long int compare,
+//                                 unsigned long long int val);
+
+#define __launch_bounds__(x,...)
+
+} // namespace
+
+#endif //__CDT_PARSER__
+
 namespace kaldi {
 
 // Meant to be called with blockDim= 32x32

@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cuda-decoder-kernels.h.hip"
+#else        
 //
 // Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
 // Hugo Braun, Justin Luitjens, Ryan Leary
@@ -204,3 +207,4 @@ typedef unsigned char BinId;
 }  // namespace kaldi
 
 #endif  // KALDI_CUDA_DECODER_CUDA_DECODER_KERNELS_H_
+#endif  //__IS_HIP_COMPILE__  

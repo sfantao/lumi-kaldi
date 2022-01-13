@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-common.h.hip"
+#else        
 // cudamatrix/cu-common.h
 
 // Copyright 2009-2011  Karel Vesely
@@ -163,3 +166,4 @@ template<typename Real> class CuBlockMatrix; // this has no non-CU counterpart.
 }  // namespace kaldi
 
 #endif  // KALDI_CUDAMATRIX_CU_COMMON_H_
+#endif  //__IS_HIP_COMPILE__  

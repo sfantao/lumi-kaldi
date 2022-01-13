@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "feature-window-cuda.h.hip"
+#else        
 // cudafeat/feature-window-cuda.h
 //
 // Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
@@ -36,3 +39,4 @@ struct CudaFeatureWindowFunction {
 }  // namespace kaldi
 
 #endif  // KALDI_CUDAFEAT_FEATURE_WINDOW_CUDA_H_
+#endif  //__IS_HIP_COMPILE__  

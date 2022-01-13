@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "feature-spectral-cuda.h.hip"
+#else        
 // cudafeat/feature-spectral-cuda.h
 //
 // Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
@@ -117,3 +120,4 @@ class CudaSpectralFeatures : public MfccComputer {
 }
 
 #endif
+#endif  //__IS_HIP_COMPILE__  

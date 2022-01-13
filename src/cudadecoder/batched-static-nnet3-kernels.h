@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "batched-static-nnet3-kernels.h.hip"
+#else        
 // cudadecoder/batched-static-nnet3-kernels.h
 //
 // Copyright (c) 2019; NVIDIA CORPORATION.  All rights reserved.
@@ -85,3 +88,4 @@ void SaveContextFromBatchKernel(const dim3 &grid, const dim3 &block,
 
 #endif  // KALDI_CUDA_DECODER_BATCHED_STATIC_NNET3_KERNELS_H_
 #endif  // HAVE_CUDA
+#endif  //__IS_HIP_COMPILE__  

@@ -1,0 +1,12 @@
+  warning: src/src/cudamatrix/cu-value.h:#44 :                         hipMemcpyDeviceToDevice, cudaStreamPerThread));
+  warning: src/src/cudamatrix/cu-value.h:#58 :             hipMemcpyHostToDevice, cudaStreamPerThread));
+  warning: src/src/cudamatrix/cu-value.h:#59 :       CU_SAFE_CALL(hipStreamSynchronize(cudaStreamPerThread));
+  warning: src/src/cudamatrix/cu-value.h:#78 :                  hipMemcpyDeviceToHost, cudaStreamPerThread));
+  warning: src/src/cudamatrix/cu-value.h:#79 :     CU_SAFE_CALL(hipStreamSynchronize(cudaStreamPerThread));
+  info: converted 8 CUDA->HIP refs ( error:0 init:0 version:0 device:0 context:0 module:0 memory:3 virtual_memory:0 addressing:0 stream:2 event:0 external_resource_interop:0 stream_memory:0 execution:0 graph:0 occupancy:0 texture:0 surface:0 peer:0 graphics:0 profiler:0 openGL:0 D3D9:0 D3D10:0 D3D11:0 VDPAU:0 EGL:0 thread:0 complex:0 library:0 device_library:0 device_function:0 include:0 include_cuda_main_header:0 type:0 literal:0 numeric_literal:3 define:0 extern_shared:0 kernel_launch:0 )
+  warn:5 LOC:94 in 'src/src/cudamatrix/cu-value.h'
+  hipMemcpyAsync 3
+  hipStreamSynchronize 2
+  hipMemcpyDeviceToDevice 1
+  hipMemcpyHostToDevice 1
+  hipMemcpyDeviceToHost 1

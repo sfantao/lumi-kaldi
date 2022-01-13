@@ -1,0 +1,264 @@
+  warning: src/src/cudamatrix/cu-kernels.h:#45 :   cudaD_add_row_sum_mat(result, mat, scratch, d, alpha, beta);
+  warning: src/src/cudamatrix/cu-kernels.h:#50 :   cudaF_add_row_sum_mat(result, mat, scratch, d, alpha, beta);
+  warning: src/src/cudamatrix/cu-kernels.h:#55 :   cudaD_add_col_sum_mat(Gr, Bl, result, mat, d, alpha, beta);
+  warning: src/src/cudamatrix/cu-kernels.h:#60 :   cudaF_add_col_sum_mat(Gr, Bl, result, mat, d, alpha, beta);
+  warning: src/src/cudamatrix/cu-kernels.h:#65 :   cudaD_add_cols(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#70 :   cudaF_add_cols(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#76 :   cudaD_add_diag_mat_mat_MN(Gr, Bl, alpha, M, stride_M, N, dim_N, beta, v);
+  warning: src/src/cudamatrix/cu-kernels.h:#82 :   cudaF_add_diag_mat_mat_MN(Gr, Bl, alpha, M, stride_M, N, dim_N, beta, v);
+  warning: src/src/cudamatrix/cu-kernels.h:#88 :   cudaD_add_diag_mat_mat_MNT(Gr, Bl, alpha, M, dim_M, N, stride_N, beta, v);
+  warning: src/src/cudamatrix/cu-kernels.h:#94 :   cudaF_add_diag_mat_mat_MNT(Gr, Bl, alpha, M, dim_M, N, stride_N, beta, v);
+  warning: src/src/cudamatrix/cu-kernels.h:#101 :   cudaD_add_diag_mat_mat_MTN(Gr, Bl, alpha, M, stride_M, N, dim_N, beta, v,
+  warning: src/src/cudamatrix/cu-kernels.h:#109 :   cudaF_add_diag_mat_mat_MTN(Gr, Bl, alpha, M, stride_M, N, dim_N, beta, v,
+  warning: src/src/cudamatrix/cu-kernels.h:#114 :   cudaD_add_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#118 :   cudaF_add_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#124 :   cudaD_add_diag_vec_mat(Gr, Bl, alpha, mat, mat_dim, vec, mat2,
+  warning: src/src/cudamatrix/cu-kernels.h:#131 :   cudaF_add_diag_vec_mat(Gr, Bl, alpha, mat, mat_dim, vec, mat2,
+  warning: src/src/cudamatrix/cu-kernels.h:#135 :   cudaD_add(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#138 :   cudaF_add(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#147 :   cudaD_add_mat_blockmat(Gr, Bl, data, d, Adata, A_num_rows, A_num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#158 :   cudaF_add_mat_blockmat(Gr, Bl, data, d, Adata, A_num_rows, A_num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#166 :   cudaD_add_mat_blocks(Gr, Bl, alpha, src, num_row_blocks, num_col_blocks, dst,
+  warning: src/src/cudamatrix/cu-kernels.h:#173 :   cudaF_add_mat_blocks(Gr, Bl, alpha, src, num_row_blocks, num_col_blocks, dst,
+  warning: src/src/cudamatrix/cu-kernels.h:#179 :   cudaD_add_mat_repeated(Gr, Bl, alpha, src, src_dim, dst, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#184 :   cudaF_add_mat_repeated(Gr, Bl, alpha, src, src_dim, dst, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#190 :   cudaD_add_mat_diag_vec(Gr, Bl, alpha, mat, mat_dim, mat2, mat2_row_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#197 :   cudaF_add_mat_diag_vec(Gr, Bl, alpha, mat, mat_dim, mat2, mat2_row_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#203 :   cudaD_add_mat(Gr, Bl, alpha, src, dst, d, src_stride, A_trans);
+  warning: src/src/cudamatrix/cu-kernels.h:#207 :   cudaF_add_mat(Gr, Bl, alpha, src, dst, d, src_stride, A_trans);
+  warning: src/src/cudamatrix/cu-kernels.h:#214 :   cudaD_add_mat_mat_elements(Gr, Bl, data, srcA_data, srcB_data, dim,
+  warning: src/src/cudamatrix/cu-kernels.h:#222 :   cudaF_add_mat_mat_elements(Gr, Bl, data, srcA_data, srcB_data, dim,
+  warning: src/src/cudamatrix/cu-kernels.h:#228 :   cudaD_add_row_ranges(Gr, Bl, data, dim, src_data, src_dim, indexes);
+  warning: src/src/cudamatrix/cu-kernels.h:#233 :   cudaF_add_row_ranges(Gr, Bl, data, dim, src_data, src_dim, indexes);
+  warning: src/src/cudamatrix/cu-kernels.h:#237 :   cudaD_add_rows_direct(Gr, Bl, alpha, dst, src, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#241 :   cudaF_add_rows_direct(Gr, Bl, alpha, dst, src, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#246 :   cudaD_add_rows(Gr, Bl, alpha, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#251 :   cudaF_add_rows(Gr, Bl, alpha, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#256 :   cudaD_mul_rows(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#261 :   cudaF_mul_rows(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#266 :   cudaD_add_smat(Gr, Bl, mat, mat_dim, alpha, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#272 :   cudaF_add_smat(Gr, Bl, mat, mat_dim, alpha, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#280 :   cudaD_add_smat_trans(Gr, Bl, mat, mat_dim, alpha, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#287 :   cudaF_add_smat_trans(Gr, Bl, mat, mat_dim, alpha, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#293 :   cudaD_add_to_rows_direct(Gr, Bl, alpha, dst, src, src_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#297 :   cudaF_add_to_rows_direct(Gr, Bl, alpha, dst, src, src_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#303 :   cudaD_add_to_rows(Gr, Bl, alpha, dst, src, reorder, src_dim, dst_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#309 :   cudaF_add_to_rows(Gr, Bl, alpha, dst, src, reorder, src_dim, dst_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#313 :   cudaD_add_vec2(Gr, Bl, mat, vec, alpha, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#317 :   cudaF_add_vec2(Gr, Bl, mat, vec, alpha, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#322 :   cudaD_add_vec_to_cols(Gr, Bl, alpha, col, beta, dst, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#327 :   cudaF_add_vec_to_cols(Gr, Bl, alpha, col, beta, dst, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#332 :   cudaD_add_vec_to_rows(Gr, Bl, alpha, row, beta, dst, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#337 :   cudaF_add_vec_to_rows(Gr, Bl, alpha, row, beta, dst, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#342 :   cudaD_add_vec_vec(Gr, Bl, alpha, v, x, y, beta, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#347 :   cudaF_add_vec_vec(Gr, Bl, alpha, v, x, y, beta, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#365 :   cudaD_block_add_mat_mat(Gr, Bl, B_cu_data, num_blocks, C_data, C_num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#375 :   cudaF_block_add_mat_mat(Gr, Bl, B_cu_data, num_blocks, C_data, C_num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#383 :   cudaD_calc_group_max_deriv(Gr, Bl, y, x1, x2, y_dim, x1_stride, x2_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#390 :   cudaF_calc_group_max_deriv(Gr, Bl, y, x1, x2, y_dim, x1_stride, x2_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#396 :   cudaD_comp_obj_deriv(Gr, Bl, x, size, z, d, z2, d2, t);
+  warning: src/src/cudamatrix/cu-kernels.h:#401 :   cudaF_comp_obj_deriv(Gr, Bl, x, size, z, d, z2, d2, t);
+  warning: src/src/cudamatrix/cu-kernels.h:#406 :   cudaD_copy_col_from_mat_df(Gr, Bl, v, col, mat, dmat, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#411 :   cudaF_copy_col_from_mat_df(Gr, Bl, v, col, mat, dmat, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#416 :   cudaD_copy_col_from_mat_fd(Gr, Bl, v, col, mat, dmat, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#421 :   cudaF_copy_col_from_mat_fd(Gr, Bl, v, col, mat, dmat, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#426 :   cudaD_copy_cols(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#431 :   cudaF_copy_cols(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#435 :   cudaD_copy_cols_from_vec(Gr, Bl, mat_out, d_out, v_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#439 :   cudaF_copy_cols_from_vec(Gr, Bl, mat_out, d_out, v_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#444 :   cudaD_copy(Gr, Bl, y, x, copy_from, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#449 :   cudaF_copy(Gr, Bl, y, x, copy_from, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#553 :   cudaD_copy_from_sp(Gr, Bl, x, y, d_out);
+  warning: src/src/cudamatrix/cu-kernels.h:#557 :   cudaF_copy_from_sp(Gr, Bl, x, y, d_out);
+  warning: src/src/cudamatrix/cu-kernels.h:#561 :   cudaD_copy_from_tp(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#565 :   cudaDF_copy_from_tp(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#569 :   cudaFD_copy_from_tp(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#573 :   cudaF_copy_from_tp(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#577 :   cudaD_copy_from_tp_trans(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#581 :   cudaDF_copy_from_tp_trans(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#585 :   cudaFD_copy_from_tp_trans(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#589 :   cudaF_copy_from_tp_trans(Gr, Bl, A, B, dmat);
+  warning: src/src/cudamatrix/cu-kernels.h:#592 :   cudaD_copy_low_upp(Gr, Bl, A, dimA);
+  warning: src/src/cudamatrix/cu-kernels.h:#595 :   cudaF_copy_low_upp(Gr, Bl, A, dimA);
+  warning: src/src/cudamatrix/cu-kernels.h:#599 :   cudaD_copy_rows_direct(Gr, Bl, dst, src, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#604 :   cudaD_copy_rows(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#608 :   cudaF_copy_rows_direct(Gr, Bl, dst, src, dst_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#613 :   cudaF_copy_rows(Gr, Bl, dst, src, reorder, dst_dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#617 :   cudaD_copy_rows_from_vec(Gr, Bl, mat_out, d_out, v_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#621 :   cudaF_copy_rows_from_vec(Gr, Bl, mat_out, d_out, v_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#625 :   cudaD_copy_to_rows_direct(Gr, Bl, dst, src, src_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#629 :   cudaF_copy_to_rows_direct(Gr, Bl, dst, src, src_dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#632 :   cudaD_copy_upp_low(Gr, Bl, A, dimA);
+  warning: src/src/cudamatrix/cu-kernels.h:#635 :   cudaF_copy_upp_low(Gr, Bl, A, dimA);
+  warning: src/src/cudamatrix/cu-kernels.h:#642 :   cudaD_diff_group_pnorm(Gr, Bl, id, iv, ov, od, id_dim, iv_stride, ov_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#650 :   cudaF_diff_group_pnorm(Gr, Bl, id, iv, ov, od, id_dim, iv_stride, ov_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#660 :   cudaD_diff_log_softmax(Gr, Bl, in_deriv_dim, out_value, out_value_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#669 :   cudaF_diff_log_softmax(Gr, Bl, in_deriv_dim, out_value, out_value_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#693 :   cudaD_diff_lstm_nonlinearity(Gr, Bl, cell_dim, have_dropout_mask, num_rows,
+  warning: src/src/cudamatrix/cu-kernels.h:#725 :   cudaF_diff_lstm_nonlinearity(Gr, Bl, cell_dim, have_dropout_mask,
+  warning: src/src/cudamatrix/cu-kernels.h:#741 :   cudaD_diff_normalize_per_row(Gr, Bl, id, id_stride, iv, iv_dim, od, od_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#749 :   cudaF_diff_normalize_per_row(Gr, Bl, id, id_stride, iv, iv_dim, od, od_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#756 :   cudaD_diff_parametric_relu(Gr, Bl, eout, e, y, d, e_stride, y_stride, a, b);
+  warning: src/src/cudamatrix/cu-kernels.h:#762 :   cudaF_diff_parametric_relu(Gr, Bl, eout, e, y, d, e_stride, y_stride, a, b);
+  warning: src/src/cudamatrix/cu-kernels.h:#767 :   cudaD_diff_sigmoid(Gr, Bl, eout, e, y, d, e_stride, y_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#772 :   cudaF_diff_sigmoid(Gr, Bl, eout, e, y, d, e_stride, y_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#777 :   cudaD_diff_softmax(Gr, Bl, x, dim, value, value_stride, diff, diff_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#782 :   cudaF_diff_softmax(Gr, Bl, x, dim, value, value_stride, diff, diff_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#787 :   cudaD_diff_tanh(Gr, Bl, eout, e, y, d, e_stride, y_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#792 :   cudaF_diff_tanh(Gr, Bl, eout, e, y, d, e_stride, y_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#796 :   cudaD_ensure_nonzero(Gr, Bl, x, d, epsilon, y_stride, y);
+  warning: src/src/cudamatrix/cu-kernels.h:#800 :   cudaF_ensure_nonzero(Gr, Bl, x, d, epsilon, y_stride, y);
+  warning: src/src/cudamatrix/cu-kernels.h:#805 :   cudaD_diff_xent(Gr, Bl, vec_tgt, mat_net_out, vec_log_post, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#810 :   cudaF_diff_xent(Gr, Bl, vec_tgt, mat_net_out, vec_log_post, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#814 :   cudaD_div_elements(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#818 :   cudaF_div_elements(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#822 :   cudaD_div_rows_vec(Gr, Bl, mat, vec_div, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#826 :   cudaF_div_rows_vec(Gr, Bl, mat, vec_div, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#832 :   cudaD_equal_element_mask(Gr, Bl, mat1, mat2, mask, mat1_dim, mat2_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#839 :   cudaF_equal_element_mask(Gr, Bl, mat1, mat2, mask, mat1_dim, mat2_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#845 :   cudaD_find_row_max_id(Gr, Bl, mat, vec_val, vec_id, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#850 :   cudaF_find_row_max_id(Gr, Bl, mat, vec_val, vec_id, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#854 :   cudaD_group_max(Gr, Bl, y, x, d, src_stride, group_size);
+  warning: src/src/cudamatrix/cu-kernels.h:#858 :   cudaF_group_max(Gr, Bl, y, x, d, src_stride, group_size);
+  warning: src/src/cudamatrix/cu-kernels.h:#863 :   cudaD_group_pnorm(Gr, Bl, y, x, d, src_stride, group_size, power);
+  warning: src/src/cudamatrix/cu-kernels.h:#868 :   cudaF_group_pnorm(Gr, Bl, y, x, d, src_stride, group_size, power);
+  warning: src/src/cudamatrix/cu-kernels.h:#873 :   cudaD_group_spec_pnorm(Gr, Bl, y, x, d, src_stride, group_size, power);
+  warning: src/src/cudamatrix/cu-kernels.h:#878 :   cudaF_group_spec_pnorm(Gr, Bl, y, x, d, src_stride, group_size, power);
+  warning: src/src/cudamatrix/cu-kernels.h:#882 :   cudaD_heaviside(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#886 :   cudaF_heaviside(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#890 :   cudaD_exp(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#894 :   cudaF_exp(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#898 :   cudaD_pow(Gr, Bl, y, x, power, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#902 :   cudaF_pow(Gr, Bl, y, x, power, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#906 :   cudaD_ceiling(Gr, Bl, y, x, ceiling_val, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#910 :   cudaF_ceiling(Gr, Bl, y, x, ceiling_val, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#914 :   cudaD_floor(Gr, Bl, y, x, floor_val, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#918 :   cudaF_floor(Gr, Bl, y, x, floor_val, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#922 :   cudaD_exp_limited(Gr, Bl, y, x, lower_limit, upper_limit, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#926 :   cudaF_exp_limited(Gr, Bl, y, x, lower_limit, upper_limit, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#930 :   cudaD_exp_special(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#934 :   cudaF_exp_special(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#937 :   cudaD_log(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#940 :   cudaF_log(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#944 :   cudaD_pow_abs(Gr, Bl, y, x, power, include_sign, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#948 :   cudaF_pow_abs(Gr, Bl, y, x, power, include_sign, dim, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#951 :   cudaD_invert_elements(Gr, Bl, data, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#954 :   cudaF_invert_elements(Gr, Bl, data, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#959 :   cudaD_log_softmax_reduce(Gr, Bl, y, x, y_dim, x_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#964 :   cudaF_log_softmax_reduce(Gr, Bl, y, x, y_dim, x_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#972 :   cudaD_lstm_nonlinearity(Gr, Bl, in, in_stride, params, params_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#982 :   cudaF_lstm_nonlinearity(Gr, Bl, in, in_stride, params, params_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#990 :   cudaD_matrix_add_elements(Gr, Bl, data, dim, alpha, x, num_elements);
+  warning: src/src/cudamatrix/cu-kernels.h:#996 :   cudaF_matrix_add_elements(Gr, Bl, data, dim, alpha, x, num_elements);
+  warning: src/src/cudamatrix/cu-kernels.h:#1003 :   cudaD_matrix_add_indexed_values(Gr, Bl, dim, alpha, indices, x, s, data);
+  warning: src/src/cudamatrix/cu-kernels.h:#1009 :   cudaF_matrix_add_indexed_values(Gr, Bl, dim, alpha, indices, x, s, data);
+  warning: src/src/cudamatrix/cu-kernels.h:#1014 :   cudaD_matrix_add_to_elements(Gr, Bl, alpha, mat, dim, elements);
+  warning: src/src/cudamatrix/cu-kernels.h:#1019 :   cudaF_matrix_add_to_elements(Gr, Bl, alpha, mat, dim, elements);
+  warning: src/src/cudamatrix/cu-kernels.h:#1024 :   cudaD_matrix_lookup(Gr, Bl, data, dim, indices, indices_size, output);
+  warning: src/src/cudamatrix/cu-kernels.h:#1029 :   cudaF_matrix_lookup(Gr, Bl, data, dim, indices, indices_size, output);
+  warning: src/src/cudamatrix/cu-kernels.h:#1035 :   cudaD_vector_copy_elements(Gr, Bl, data, dim, src_mat, mat_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#1042 :   cudaF_vector_copy_elements(Gr, Bl, data, dim, src_mat, mat_stride,
+  warning: src/src/cudamatrix/cu-kernels.h:#1047 :   cudaD_max(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1051 :   cudaF_max(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1055 :   cudaD_max_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1059 :   cudaF_max_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1063 :   cudaD_min(Gr, Bl, mat, other, mat_d, other_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1067 :   cudaF_min(Gr, Bl, mat, other, mat_d, other_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1071 :   cudaD_min_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1075 :   cudaF_min_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1079 :   cudaD_mul_cols_vec(Gr, Bl, mat, scale, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1083 :   cudaF_mul_cols_vec(Gr, Bl, mat, scale, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1087 :   cudaD_mul_elements(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1091 :   cudaF_mul_elements(Gr, Bl, mat, A, dst_d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1096 :   cudaD_mul_rows_group_mat(Gr, Bl, y, x, d, src_stride, group_size);
+  warning: src/src/cudamatrix/cu-kernels.h:#1101 :   cudaF_mul_rows_group_mat(Gr, Bl, y, x, d, src_stride, group_size);
+  warning: src/src/cudamatrix/cu-kernels.h:#1105 :   cudaD_mul_rows_vec(Gr, Bl, mat, scale, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1109 :   cudaF_mul_rows_vec(Gr, Bl, mat, scale, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1114 :   cudaD_normalize_per_row(Gr, Bl, y, y_stride, x, x_d, target_rms,
+  warning: src/src/cudamatrix/cu-kernels.h:#1120 :   cudaF_normalize_per_row(Gr, Bl, y, y_stride, x, x_d, target_rms,
+  warning: src/src/cudamatrix/cu-kernels.h:#1124 :   cudaD_one(Gr, Bl, x, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1127 :   cudaF_one(Gr, Bl, x, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1132 :   cudaD_parametric_relu(Gr, Bl, y, x, d, src_stride, a, b);
+  warning: src/src/cudamatrix/cu-kernels.h:#1137 :   cudaF_parametric_relu(Gr, Bl, y, x, d, src_stride, a, b);
+  warning: src/src/cudamatrix/cu-kernels.h:#1142 :   cudaD_randomize(Gr, Bl, y, x, copy_from, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1147 :   cudaF_randomize(Gr, Bl, y, x, copy_from, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1152 :   cudaD_regularize_l1(Gr, Bl, wei, grad, l1, lr, d, stride_grad);
+  warning: src/src/cudamatrix/cu-kernels.h:#1157 :   cudaF_regularize_l1(Gr, Bl, wei, grad, l1, lr, d, stride_grad);
+  warning: src/src/cudamatrix/cu-kernels.h:#1161 :   cudaD_replace_value(Gr, Bl, v, dim, orig, changed);
+  warning: src/src/cudamatrix/cu-kernels.h:#1165 :   cudaF_replace_value(Gr, Bl, v, dim, orig, changed);
+  warning: src/src/cudamatrix/cu-kernels.h:#1177 :   cudaD_scale_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1181 :   cudaF_scale_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1185 :   cudaD_scale(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1188 :   cudaF_scale(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1195 :   cudaD_select_rows(Gr, Bl, out_row_ptr, out_col_idx, out_val, row_indexes,
+  warning: src/src/cudamatrix/cu-kernels.h:#1203 :   cudaF_select_rows(Gr, Bl, out_row_ptr, out_col_idx, out_val, row_indexes,
+  warning: src/src/cudamatrix/cu-kernels.h:#1209 :   cudaD_set_bias_params(Gr, Bl, v, a, param_1, param_2, param_3, flag, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1214 :   cudaF_set_bias_params(Gr, Bl, v, a, param_1, param_2, param_3, flag, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1218 :   cudaD_set_const(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1222 :   cudaF_set_const(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1226 :   cudaD_set_diag(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1230 :   cudaF_set_diag(Gr, Bl, mat, value, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1234 :   cudaD_set_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1238 :   cudaF_set_diag_packed(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1244 :   cudaD_set_mat_mat_div_mat(Gr, Bl, A, B, C, dst, d, stride_a, stride_b,
+  warning: src/src/cudamatrix/cu-kernels.h:#1251 :   cudaF_set_mat_mat_div_mat(Gr, Bl, A, B, C, dst, d, stride_a, stride_b,
+  warning: src/src/cudamatrix/cu-kernels.h:#1256 :   cudaD_set_zero_above_diag(Gr, Bl, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1260 :   cudaF_set_zero_above_diag(Gr, Bl, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1268 :   cudaD_sigmoid(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1272 :   cudaF_sigmoid(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1276 :   cudaD_soft_hinge(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1280 :   cudaF_soft_hinge(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1284 :   cudaD_softmax_reduce(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1288 :   cudaF_softmax_reduce(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1293 :   cudaD_splice(Gr, Bl, y, x, off, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1298 :   cudaF_splice(Gr, Bl, y, x, off, d_out, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1304 :   cudaD_sum_column_ranges(Gr, Bl, data, dim, src_data, src_dim, indices);
+  warning: src/src/cudamatrix/cu-kernels.h:#1309 :   cudaF_sum_column_ranges(Gr, Bl, data, dim, src_data, src_dim, indices);
+  warning: src/src/cudamatrix/cu-kernels.h:#1313 :   cudaD_sum_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1317 :   cudaF_sum_mat_cols(Gr, Bl, result, mat, d);
+  warning: src/src/cudamatrix/cu-kernels.h:#1322 :   cudaD_sy_add_tr2(Gr, Bl, alpha, beta, T, tdim, S, sdim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1327 :   cudaF_sy_add_tr2(Gr, Bl, alpha, beta, T, tdim, S, sdim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1331 :   cudaD_take_lower(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1335 :   cudaF_take_lower(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1339 :   cudaD_take_mean(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1343 :   cudaF_take_mean(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1347 :   cudaD_take_upper(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1351 :   cudaF_take_upper(Gr, Bl, x, y, d_in);
+  warning: src/src/cudamatrix/cu-kernels.h:#1355 :   cudaD_tanh(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1359 :   cudaF_tanh(Gr, Bl, y, x, d, src_stride);
+  warning: src/src/cudamatrix/cu-kernels.h:#1362 :   cudaD_trace(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1365 :   cudaF_trace(Gr, Bl, mat, value, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1370 :   cudaD_trace_mat_mat(Gr, Bl, A, B, dA, B_stride, value);
+  warning: src/src/cudamatrix/cu-kernels.h:#1374 :   cudaF_trace_mat_mat(Gr, Bl, A, B, dA, B_stride, value);
+  warning: src/src/cudamatrix/cu-kernels.h:#1379 :   cudaD_trace_mat_mat_trans(A, B, dA, B_stride, value);
+  warning: src/src/cudamatrix/cu-kernels.h:#1384 :   cudaF_trace_mat_mat_trans(A, B, dA, B_stride, value);
+  warning: src/src/cudamatrix/cu-kernels.h:#1390 :   cudaD_trace_mat_smat(Gr, Bl, mat, mat_dim, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#1397 :   cudaF_trace_mat_smat(Gr, Bl, mat, mat_dim, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#1406 :   cudaD_trace_mat_smat_trans(Gr, Bl, mat, mat_dim, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#1414 :   cudaF_trace_mat_smat_trans(Gr, Bl, mat, mat_dim, smat_row_ptr, smat_col_idx,
+  warning: src/src/cudamatrix/cu-kernels.h:#1419 :   cudaD_vec_apply_ceiling(Gr, Bl, v, floor_val, num, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1423 :   cudaF_vec_apply_ceiling(Gr, Bl, v, floor_val, num, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1426 :   cudaD_vec_apply_exp(Gr, Bl, v, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1429 :   cudaF_vec_apply_exp(Gr, Bl, v, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1433 :   cudaD_vec_apply_floor(Gr, Bl, v, floor_val, num, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1437 :   cudaF_vec_apply_floor(Gr, Bl, v, floor_val, num, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1441 :   cudaD_vec_apply_log(Gr, Bl, v, flag, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1444 :   cudaF_vec_apply_log(Gr, Bl, v, flag, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1448 :   cudaD_vec_copy_diag_from_packed(Gr, Bl, dst, src, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1452 :   cudaF_vec_copy_diag_from_packed(Gr, Bl, dst, src, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1456 :   cudaD_vec_max(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1460 :   cudaF_vec_max(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1464 :   cudaD_vec_min(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1468 :   cudaF_vec_min(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1472 :   cudaD_vec_mul_elements(Gr, Bl, v, a, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1476 :   cudaF_vec_mul_elements(Gr, Bl, v, a, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1479 :   cudaD_vec_soft_max(Gr, Bl, v, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1482 :   cudaF_vec_soft_max(Gr, Bl, v, dim);
+  warning: src/src/cudamatrix/cu-kernels.h:#1486 :   cudaD_vec_sum(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1490 :   cudaF_vec_sum(Gr, Bl, v, value, dim, inc);
+  warning: src/src/cudamatrix/cu-kernels.h:#1564 :   cudaD_mat_copy_range_clamped(row_start, row_end, num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#1573 :   cudaF_mat_copy_range_clamped(row_start, row_end, num_cols,
+  warning: src/src/cudamatrix/cu-kernels.h:#1580 :   cudaF_batched_copy_mats(num_mats, num_rows, num_cols, inputs, ldi,
+  warning: src/src/cudamatrix/cu-kernels.h:#1587 :   cudaD_batched_copy_mats(num_mats, num_rows, num_cols, inputs, ldi,
+  info: converted 12 CUDA->HIP refs ( error:0 init:0 version:0 device:0 context:0 module:0 memory:0 virtual_memory:0 addressing:0 stream:0 event:0 external_resource_interop:0 stream_memory:0 execution:0 graph:0 occupancy:0 texture:0 surface:0 peer:0 graphics:0 profiler:0 openGL:0 D3D9:0 D3D10:0 D3D11:0 VDPAU:0 EGL:0 thread:0 complex:0 library:4 device_library:0 device_function:0 include:0 include_cuda_main_header:0 type:8 literal:0 numeric_literal:0 define:0 extern_shared:0 kernel_launch:0 )
+  warn:262 LOC:1596 in 'src/src/cudamatrix/cu-kernels.h'

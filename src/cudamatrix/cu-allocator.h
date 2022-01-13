@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-allocator.h.hip"
+#else        
 // cudamatrix/cu-allocator.h
 
 // Copyright 2015   Johns Hopkins University (author: Daniel Povey)
@@ -364,3 +367,4 @@ extern CuMemoryAllocator g_cuda_allocator;
 
 
 #endif
+#endif  //__IS_HIP_COMPILE__  

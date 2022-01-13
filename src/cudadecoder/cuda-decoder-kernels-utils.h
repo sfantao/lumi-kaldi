@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cuda-decoder-kernels-utils.h.hip"
+#else        
 // cudadecoder/cuda-decoder-kernels-utils.h
 //
 // Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
@@ -262,3 +265,4 @@ __device__ __inline__ void GetFSTStateHashIndex(FSTStateHashIndex &hash_idx,
 }  // end namespace kaldi
 
 #endif  // KALDI_CUDA_DECODER_CUDA_DECODER_KERNELS_UTILS_H_
+#endif  //__IS_HIP_COMPILE__  

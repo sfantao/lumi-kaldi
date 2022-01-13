@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cuda-decoder-common.h.hip"
+#else        
 // cudadecoder/cuda-decoder-common.h
 //
 // Copyright (c) 2019, NVIDIA CORPORATION.  All rights reserved.
@@ -597,3 +600,4 @@ struct PartialHypothesis {
 }  // end namespace kaldi
 
 #endif  // KALDI_CUDA_DECODER_CUDA_DECODER_UTILS_H_
+#endif  //__IS_HIP_COMPILE__  
