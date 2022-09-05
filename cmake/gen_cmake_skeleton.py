@@ -92,8 +92,22 @@ def get_exe_additional_depends(t):
         "gmm-decode-*": ["decoder"],
         "gmm-align": ["decoder"],
         "gmm-align-compiled": ["decoder"],
-        "gmm-est-fmllr-gpost": ["sgmm2", "hmm"],
+        "gmm-est-fmllr-gpost": ["hmm"],
         "gmm-rescore-lattice": ["hmm", "lat"],
+
+        # solve fgmmbin
+        "fgmm-global-acc-stats-post": ["gmm", "hmm"],
+        "fgmm-global-acc-stats": ["gmm"],
+        "fgmm-global-copy": ["gmm"],
+        "fgmm-global-est": ["gmm"],
+        "fgmm-global-get-frame-likes": ["gmm"],
+        "fgmm-global-gselect-to-post": ["gmm", "hmm"],
+        "fgmm-global-info": ["gmm", "hmm"],
+        "fgmm-global-init-from-accs": ["gmm"],
+        "fgmm-global-merge": ["gmm"],
+        "fgmm-global-sum-accs": ["gmm"],
+        "fgmm-global-to-gmm": ["gmm"],
+        "fgmm-gselect": ["gmm", "hmm"],
 
         # solve fstbin
         "make-grammar-fst": ["decoder"],
@@ -129,11 +143,11 @@ def get_exe_additional_depends(t):
         "generate-proxy-keywords": ["fstext"],
         "transcripts-to-fsts": ["fstext"],
     }
-    l = []
+    libs = []
     for pattern in additional.keys():
         if fnmatch.fnmatch(t, pattern):
-            l.extend(list(map(lambda name: lib_dir_name_to_lib_target(name), additional[pattern])))
-    return sorted(list(set(l)))
+            libs.extend(list(map(lambda name: lib_dir_name_to_lib_target(name), additional[pattern])))
+    return sorted(list(set(libs)))
 
 def disable_for_win32(t):
     disabled = [
@@ -180,7 +194,7 @@ class CMakeListsHeaderLibrary(object):
         ret.append("""
 install(TARGETS {tgt} EXPORT kaldi-targets)
 
-install(FILES ${{PUBLIC_HEADERS}} DESTINATION include/kaldi/{dir})
+install(FILES ${{PUBLIC_HEADERS}} DESTINATION include/kaldi/{dir} COMPONENT kaldi)
 """.format(tgt=self.target_name, dir=self.dir_name))
 
         return "\n".join(ret)
@@ -219,8 +233,8 @@ class CMakeListsLibrary(object):
                 return
             libs = makefile.split("ADDLIBS")[-1].split("\n\n")[0]
             libs = re.findall("[^\s\\\\=]+", libs)
-            for l in libs:
-                self.depends.append(os.path.splitext(os.path.basename(l))[0])
+            for lib in libs:
+                self.depends.append(os.path.splitext(os.path.basename(lib))[0])
 
     def gen_code(self):
         ret = []
@@ -235,7 +249,7 @@ class CMakeListsLibrary(object):
             self.source_list.append("${CUDA_OBJS}")
             ret.append("if(CUDA_FOUND)")
             ret.append("    cuda_include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)")
-            ret.append("    cuda_compile(CUDA_OBJS")
+            ret.append("    cuda_compile(CUDA_OBJS SHARED")
             for f in self.cuda_source_list:
                 ret.append("        " + f)
             ret.append("    )")
@@ -278,12 +292,11 @@ class CMakeListsLibrary(object):
         ret.append("""
 install(TARGETS {tgt}
     EXPORT kaldi-targets
-    ARCHIVE DESTINATION ${{CMAKE_INSTALL_LIBDIR}}
-    LIBRARY DESTINATION ${{CMAKE_INSTALL_LIBDIR}}
-    RUNTIME DESTINATION ${{CMAKE_INSTALL_BINDIR}}
+    ARCHIVE DESTINATION ${{CMAKE_INSTALL_LIBDIR}} COMPONENT kaldi
+    LIBRARY DESTINATION ${{CMAKE_INSTALL_LIBDIR}} COMPONENT kaldi
+    RUNTIME DESTINATION ${{CMAKE_INSTALL_BINDIR}} COMPONENT kaldi
 )
-
-install(FILES ${{PUBLIC_HEADERS}} DESTINATION include/kaldi/{dir})
+install(FILES ${{PUBLIC_HEADERS}} DESTINATION include/kaldi/{dir} COMPONENT kaldi)
 """.format(tgt=self.target_name, dir=self.dir_name))
 
         return "\n".join(ret)
@@ -303,7 +316,10 @@ class CMakeListsExecutable(object):
     def gen_code(self):
         ret = []
         for exe_name, file_name, depend in self.list:
-            depends = (depend + " " + " ".join(get_exe_additional_depends(exe_name))).strip()
+            if exe_name.startswith('fgmm'):
+                depends =(" ".join(get_exe_additional_depends(exe_name))).strip()
+            else:
+                depends = (depend + " " + " ".join(get_exe_additional_depends(exe_name))).strip()
             ret.extend(wrap_notwin32_condition(disable_for_win32(exe_name),
                        "add_kaldi_executable(NAME " + exe_name + " SOURCES " + file_name + " DEPENDS " + depends + ")"))
 
