@@ -1,0 +1,476 @@
+/opt/rocm-5.0.2/bin/hipcc -c nnet-optimize.cc.hip -o nnet-optimize.cc.o -I/opt/rocm-5.0.2/include -I/opt/rocm-5.0.2/hiprand/include -I/opt/rocm-5.0.2/rocrand/include -I.. -isystem /home/users/braconth/SAM/HIP/src/tools/openfst-1.7.2/include -E --offload-arch=gfx908 -fPIC -DHAVE_CUDA=1 -D__IS_HIP_COMPILE__=1 -D__CUDACC_VER_MAJOR__=11 -D__CUDA_ARCH__=800 -DCUDA_VERSION=11000 -DKALDI_DOUBLEPRECISION=0 -std=c++14 -DCUDA_API_PER_THREAD_DEFAULT_STREAM  -I../
+c++ -std=c++14 -I.. -isystem /home/users/braconth/SAM/HIP/src/tools/openfst-1.7.2/include -O1 -Wall -Wno-sign-compare -Wno-unused-local-typedefs -Wno-deprecated-declarations -Winit-self -DKALDI_DOUBLEPRECISION=0 -DHAVE_EXECINFO_H=1 -DHAVE_CXXABI_H -DHAVE_MKL -I/home/users/braconth/SAM/HIP/miniconda3/envs/kaldi/include -m64 -msse -msse2 -pthread -g -DNDEBUG -O3 -DNDEBUG -DHAVE_CUDA=1 -D__IS_HIP_COMPILE__=1 -D__HIP_PLATFORM_AMD__=1 -I/opt/rocm-5.0.2/include -I/opt/rocm-5.0.2/hiprand/include -I/opt/rocm-5.0.2/rocrand/include -fPIC -pthread -isystem /home/users/braconth/SAM/HIP/src/tools/openfst-1.7.2/include -DKALDI_NO_EXPF   -c -o nnet-computation.o nnet-computation.cc
+In file included from ../cudamatrix/cu-common.h.hip:36:0,
+                 from ../cudamatrix/cu-common.h:2,
+                 from ../cudamatrix/cu-vector.h:32,
+                 from ../cudamatrix/cu-matrix-lib.h:25,
+                 from ../nnet3/nnet-common.h:28,
+                 from ../nnet3/nnet-computation.h:24,
+                 from nnet-computation.cc:23:
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:73:9: error: ‘hiprandGenerator_st’ does not name a type
+ typedef hiprandGenerator_st * hiprandGenerator_t;
+         ^~~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:78:9: error: ‘hiprandDiscreteDistribution_st’ does not name a type
+ typedef hiprandDiscreteDistribution_st * hiprandDiscreteDistribution_t;
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:24: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                        ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:24: note: suggested alternative: ‘hiprandStatus_t’
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                        ^~~~~~~~~~~~~~~~~~
+                        hiprandStatus_t
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:45: error: ‘generator’ was not declared in this scope
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                             ^~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:45: note: suggested alternative: ‘operator&’
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                             ^~~~~~~~~
+                                             operator&
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:73: error: expected primary-expression before ‘rng_type’
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                                         ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:172:81: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandCreateGenerator(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                                                 ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:28: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                            ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:28: note: suggested alternative: ‘hiprandStatus_t’
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                            ^~~~~~~~~~~~~~~~~~
+                            hiprandStatus_t
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:49: error: ‘generator’ was not declared in this scope
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                 ^~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:49: note: suggested alternative: ‘operator&’
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                 ^~~~~~~~~
+                                                 operator&
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:77: error: expected primary-expression before ‘rng_type’
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                                             ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:206:85: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandCreateGeneratorHost(hiprandGenerator_t * generator, hiprandRngType_t rng_type);
+                                                                                     ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:220:25: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandDestroyGenerator(hiprandGenerator_t generator);
+                         ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:220:25: note: suggested alternative: ‘hiprandStatus_t’
+ hiprandDestroyGenerator(hiprandGenerator_t generator);
+                         ^~~~~~~~~~~~~~~~~~
+                         hiprandStatus_t
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:241:17: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerate(hiprandGenerator_t generator,
+                 ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:241:17: note: suggested alternative: ‘hiprandGenerate’
+ hiprandGenerate(hiprandGenerator_t generator,
+                 ^~~~~~~~~~~~~~~~~~
+                 hiprandGenerate
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:242:17: error: expected primary-expression before ‘unsigned’
+                 unsigned int * output_data, size_t n);
+                 ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:242:52: error: expected primary-expression before ‘n’
+                 unsigned int * output_data, size_t n);
+                                                    ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:242:53: error: expression list treated as compound expression in initializer [-fpermissive]
+                 unsigned int * output_data, size_t n);
+                                                     ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:263:21: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateChar(hiprandGenerator_t generator,
+                     ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:263:21: note: suggested alternative: ‘hiprandGenerate’
+ hiprandGenerateChar(hiprandGenerator_t generator,
+                     ^~~~~~~~~~~~~~~~~~
+                     hiprandGenerate
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:264:21: error: expected primary-expression before ‘unsigned’
+                     unsigned char * output_data, size_t n);
+                     ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:264:57: error: expected primary-expression before ‘n’
+                     unsigned char * output_data, size_t n);
+                                                         ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:264:58: error: expression list treated as compound expression in initializer [-fpermissive]
+                     unsigned char * output_data, size_t n);
+                                                          ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:285:22: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateShort(hiprandGenerator_t generator,
+                      ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:285:22: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateShort(hiprandGenerator_t generator,
+                      ^~~~~~~~~~~~~~~~~~
+                      hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:286:22: error: expected primary-expression before ‘unsigned’
+                      unsigned short * output_data, size_t n);
+                      ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:286:59: error: expected primary-expression before ‘n’
+                      unsigned short * output_data, size_t n);
+                                                           ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:286:60: error: expression list treated as compound expression in initializer [-fpermissive]
+                      unsigned short * output_data, size_t n);
+                                                            ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:309:24: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateUniform(hiprandGenerator_t generator,
+                        ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:309:24: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateUniform(hiprandGenerator_t generator,
+                        ^~~~~~~~~~~~~~~~~~
+                        hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:310:24: error: expected primary-expression before ‘float’
+                        float * output_data, size_t n);
+                        ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:310:52: error: expected primary-expression before ‘n’
+                        float * output_data, size_t n);
+                                                    ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:310:53: error: expression list treated as compound expression in initializer [-fpermissive]
+                        float * output_data, size_t n);
+                                                     ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:338:30: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateUniformDouble(hiprandGenerator_t generator,
+                              ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:338:30: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateUniformDouble(hiprandGenerator_t generator,
+                              ^~~~~~~~~~~~~~~~~~
+                              hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:339:30: error: expected primary-expression before ‘double’
+                              double * output_data, size_t n);
+                              ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:339:59: error: expected primary-expression before ‘n’
+                              double * output_data, size_t n);
+                                                           ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:339:60: error: expression list treated as compound expression in initializer [-fpermissive]
+                              double * output_data, size_t n);
+                                                            ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:362:28: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateUniformHalf(hiprandGenerator_t generator,
+                            ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:362:28: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateUniformHalf(hiprandGenerator_t generator,
+                            ^~~~~~~~~~~~~~~~~~
+                            hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:363:33: error: expected primary-expression before ‘*’ token
+                            half * output_data, size_t n);
+                                 ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:363:35: error: ‘output_data’ was not declared in this scope
+                            half * output_data, size_t n);
+                                   ^~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:363:55: error: expected primary-expression before ‘n’
+                            half * output_data, size_t n);
+                                                       ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:363:56: error: expression list treated as compound expression in initializer [-fpermissive]
+                            half * output_data, size_t n);
+                                                        ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:386:23: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateNormal(hiprandGenerator_t generator,
+                       ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:386:23: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateNormal(hiprandGenerator_t generator,
+                       ^~~~~~~~~~~~~~~~~~
+                       hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:387:23: error: expected primary-expression before ‘float’
+                       float * output_data, size_t n,
+                       ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:387:51: error: expected primary-expression before ‘n’
+                       float * output_data, size_t n,
+                                                   ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:388:23: error: expected primary-expression before ‘float’
+                       float mean, float stddev);
+                       ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:388:35: error: expected primary-expression before ‘float’
+                       float mean, float stddev);
+                                   ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:388:47: error: expression list treated as compound expression in initializer [-fpermissive]
+                       float mean, float stddev);
+                                               ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:411:29: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateNormalDouble(hiprandGenerator_t generator,
+                             ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:411:29: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateNormalDouble(hiprandGenerator_t generator,
+                             ^~~~~~~~~~~~~~~~~~
+                             hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:412:29: error: expected primary-expression before ‘double’
+                             double * output_data, size_t n,
+                             ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:412:58: error: expected primary-expression before ‘n’
+                             double * output_data, size_t n,
+                                                          ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:413:29: error: expected primary-expression before ‘double’
+                             double mean, double stddev);
+                             ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:413:42: error: expected primary-expression before ‘double’
+                             double mean, double stddev);
+                                          ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:413:55: error: expression list treated as compound expression in initializer [-fpermissive]
+                             double mean, double stddev);
+                                                       ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:436:27: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateNormalHalf(hiprandGenerator_t generator,
+                           ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:436:27: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateNormalHalf(hiprandGenerator_t generator,
+                           ^~~~~~~~~~~~~~~~~~
+                           hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:437:32: error: expected primary-expression before ‘*’ token
+                           half * output_data, size_t n,
+                                ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:437:34: error: ‘output_data’ was not declared in this scope
+                           half * output_data, size_t n,
+                                  ^~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:437:54: error: expected primary-expression before ‘n’
+                           half * output_data, size_t n,
+                                                      ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:438:32: error: expected primary-expression before ‘mean’
+                           half mean, half stddev);
+                                ^~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:438:43: error: expected primary-expression before ‘stddev’
+                           half mean, half stddev);
+                                           ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:438:49: error: expression list treated as compound expression in initializer [-fpermissive]
+                           half mean, half stddev);
+                                                 ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:461:26: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateLogNormal(hiprandGenerator_t generator,
+                          ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:461:26: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateLogNormal(hiprandGenerator_t generator,
+                          ^~~~~~~~~~~~~~~~~~
+                          hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:462:26: error: expected primary-expression before ‘float’
+                          float * output_data, size_t n,
+                          ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:462:54: error: expected primary-expression before ‘n’
+                          float * output_data, size_t n,
+                                                      ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:463:26: error: expected primary-expression before ‘float’
+                          float mean, float stddev);
+                          ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:463:38: error: expected primary-expression before ‘float’
+                          float mean, float stddev);
+                                      ^~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:463:50: error: expression list treated as compound expression in initializer [-fpermissive]
+                          float mean, float stddev);
+                                                  ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:486:32: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateLogNormalDouble(hiprandGenerator_t generator,
+                                ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:486:32: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateLogNormalDouble(hiprandGenerator_t generator,
+                                ^~~~~~~~~~~~~~~~~~
+                                hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:487:32: error: expected primary-expression before ‘double’
+                                double * output_data, size_t n,
+                                ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:487:61: error: expected primary-expression before ‘n’
+                                double * output_data, size_t n,
+                                                             ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:488:32: error: expected primary-expression before ‘double’
+                                double mean, double stddev);
+                                ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:488:45: error: expected primary-expression before ‘double’
+                                double mean, double stddev);
+                                             ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:488:58: error: expression list treated as compound expression in initializer [-fpermissive]
+                                double mean, double stddev);
+                                                          ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:511:30: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateLogNormalHalf(hiprandGenerator_t generator,
+                              ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:511:30: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateLogNormalHalf(hiprandGenerator_t generator,
+                              ^~~~~~~~~~~~~~~~~~
+                              hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:512:35: error: expected primary-expression before ‘*’ token
+                              half * output_data, size_t n,
+                                   ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:512:37: error: ‘output_data’ was not declared in this scope
+                              half * output_data, size_t n,
+                                     ^~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:512:57: error: expected primary-expression before ‘n’
+                              half * output_data, size_t n,
+                                                         ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:513:35: error: expected primary-expression before ‘mean’
+                              half mean, half stddev);
+                                   ^~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:513:46: error: expected primary-expression before ‘stddev’
+                              half mean, half stddev);
+                                              ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:513:52: error: expression list treated as compound expression in initializer [-fpermissive]
+                              half mean, half stddev);
+                                                    ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:535:24: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGeneratePoisson(hiprandGenerator_t generator,
+                        ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:535:24: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGeneratePoisson(hiprandGenerator_t generator,
+                        ^~~~~~~~~~~~~~~~~~
+                        hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:536:24: error: expected primary-expression before ‘unsigned’
+                        unsigned int * output_data, size_t n,
+                        ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:536:59: error: expected primary-expression before ‘n’
+                        unsigned int * output_data, size_t n,
+                                                           ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:537:24: error: expected primary-expression before ‘double’
+                        double lambda);
+                        ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:537:37: error: expression list treated as compound expression in initializer [-fpermissive]
+                        double lambda);
+                                     ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:558:22: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandGenerateSeeds(hiprandGenerator_t generator);
+                      ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:558:22: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandGenerateSeeds(hiprandGenerator_t generator);
+                      ^~~~~~~~~~~~~~~~~~
+                      hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:574:18: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandSetStream(hiprandGenerator_t generator, hipStream_t stream);
+                  ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:574:18: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandSetStream(hiprandGenerator_t generator, hipStream_t stream);
+                  ^~~~~~~~~~~~~~~~~~
+                  hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:574:60: error: expected primary-expression before ‘stream’
+ hiprandSetStream(hiprandGenerator_t generator, hipStream_t stream);
+                                                            ^~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:574:66: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandSetStream(hiprandGenerator_t generator, hipStream_t stream);
+                                                                  ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:593:37: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandSetPseudoRandomGeneratorSeed(hiprandGenerator_t generator, unsigned long long seed);
+                                     ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:593:37: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandSetPseudoRandomGeneratorSeed(hiprandGenerator_t generator, unsigned long long seed);
+                                     ^~~~~~~~~~~~~~~~~~
+                                     hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:593:67: error: expected primary-expression before ‘unsigned’
+ hiprandSetPseudoRandomGeneratorSeed(hiprandGenerator_t generator, unsigned long long seed);
+                                                                   ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:593:90: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandSetPseudoRandomGeneratorSeed(hiprandGenerator_t generator, unsigned long long seed);
+                                                                                          ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:616:27: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandSetGeneratorOffset(hiprandGenerator_t generator, unsigned long long offset);
+                           ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:616:27: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandSetGeneratorOffset(hiprandGenerator_t generator, unsigned long long offset);
+                           ^~~~~~~~~~~~~~~~~~
+                           hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:616:57: error: expected primary-expression before ‘unsigned’
+ hiprandSetGeneratorOffset(hiprandGenerator_t generator, unsigned long long offset);
+                                                         ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:616:82: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandSetGeneratorOffset(hiprandGenerator_t generator, unsigned long long offset);
+                                                                                  ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:637:42: error: ‘hiprandGenerator_t’ was not declared in this scope
+ hiprandSetQuasiRandomGeneratorDimensions(hiprandGenerator_t generator, unsigned int dimensions);
+                                          ^~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:637:42: note: suggested alternative: ‘hiprandGenerateShort’
+ hiprandSetQuasiRandomGeneratorDimensions(hiprandGenerator_t generator, unsigned int dimensions);
+                                          ^~~~~~~~~~~~~~~~~~
+                                          hiprandGenerateShort
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:637:72: error: expected primary-expression before ‘unsigned’
+ hiprandSetQuasiRandomGeneratorDimensions(hiprandGenerator_t generator, unsigned int dimensions);
+                                                                        ^~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:637:95: error: expression list treated as compound expression in initializer [-fpermissive]
+ hiprandSetQuasiRandomGeneratorDimensions(hiprandGenerator_t generator, unsigned int dimensions);
+                                                                                               ^
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:669:49: error: ‘hiprandDiscreteDistribution_t’ has not been declared
+ hiprandCreatePoissonDistribution(double lambda, hiprandDiscreteDistribution_t * discrete_distribution);
+                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:684:28: error: ‘hiprandDiscreteDistribution_t’ was not declared in this scope
+ hiprandDestroyDistribution(hiprandDiscreteDistribution_t discrete_distribution);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm-5.0.2/hiprand/include/hiprand.h:684:28: note: suggested alternative: ‘hiprandDestroyDistribution’
+ hiprandDestroyDistribution(hiprandDiscreteDistribution_t discrete_distribution);
+                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            hiprandDestroyDistribution
+In file included from ../cudamatrix/cu-device.h:2:0,
+                 from ../cudamatrix/cu-value.h.hip:25,
+                 from ../cudamatrix/cu-value.h:2,
+                 from ../cudamatrix/cu-vector.h:33,
+                 from ../cudamatrix/cu-matrix-lib.h:25,
+                 from ../nnet3/nnet-common.h:28,
+                 from ../nnet3/nnet-computation.h:24,
+                 from nnet-computation.cc:23:
+../cudamatrix/cu-device.h.hip:98:3: error: ‘hiprandGenerator_t’ does not name a type; did you mean ‘hiprandGenerateShort’?
+   hiprandGenerator_t GetCurandHandle() const { return curand_handle_; }
+   ^~~~~~~~~~~~~~~~~~
+   hiprandGenerateShort
+../cudamatrix/cu-device.h.hip:375:3: error: ‘hiprandGenerator_t’ does not name a type; did you mean ‘hiprandGenerateShort’?
+   hiprandGenerator_t curand_handle_;
+   ^~~~~~~~~~~~~~~~~~
+   hiprandGenerateShort
+../cudamatrix/cu-device.h.hip: In member function ‘void* kaldi::CuDevice::GetCusolverDnHandle() const’:
+../cudamatrix/cu-device.h.hip:101:38: error: ‘CUDA_VERSION’ was not declared in this scope
+     KALDI_ERR << "CUDA VERSION '" << CUDA_VERSION << "' not new enough to support "
+                                      ^~~~~~~~~~~~
+../cudamatrix/cu-device.h.hip:101:38: note: suggested alternative: ‘_SC_VERSION’
+     KALDI_ERR << "CUDA VERSION '" << CUDA_VERSION << "' not new enough to support "
+                                      ^~~~~~~~~~~~
+                                      _SC_VERSION
+In file included from ../cudamatrix/cu-common.h:2:0,
+                 from ../cudamatrix/cu-vector.h:32,
+                 from ../cudamatrix/cu-matrix-lib.h:25,
+                 from ../nnet3/nnet-common.h:28,
+                 from ../nnet3/nnet-computation.h:24,
+                 from nnet-computation.cc:23:
+../cudamatrix/cu-device.h.hip: In member function ‘void kaldi::CuDevice::SeedGpu()’:
+../cudamatrix/cu-device.h.hip:120:13: error: ‘curand_handle_’ was not declared in this scope
+             curand_handle_, RandInt(128, RAND_MAX)));
+             ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+../cudamatrix/cu-device.h.hip:120:13: note: suggested alternative: ‘cublas_handle_’
+             curand_handle_, RandInt(128, RAND_MAX)));
+             ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+../cudamatrix/cu-device.h.hip:120:51: error: ‘hiprandSetPseudoRandomGeneratorSeed’ cannot be used as a function
+             curand_handle_, RandInt(128, RAND_MAX)));
+                                                   ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+../cudamatrix/cu-device.h.hip:121:50: error: ‘curand_handle_’ was not declared in this scope
+       CURAND_SAFE_CALL(hiprandSetGeneratorOffset(curand_handle_, 0));
+                                                  ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+../cudamatrix/cu-device.h.hip:121:50: note: suggested alternative: ‘cublas_handle_’
+       CURAND_SAFE_CALL(hiprandSetGeneratorOffset(curand_handle_, 0));
+                                                  ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+../cudamatrix/cu-device.h.hip:121:67: error: ‘hiprandSetGeneratorOffset’ cannot be used as a function
+       CURAND_SAFE_CALL(hiprandSetGeneratorOffset(curand_handle_, 0));
+                                                                   ^
+../cudamatrix/cu-common.h.hip:84:15: note: in definition of macro ‘CURAND_SAFE_CALL’
+   if ((ret = (fun)) != 0) { \
+               ^~~
+In file included from ../cudamatrix/cu-device.h:2:0,
+                 from ../cudamatrix/cu-value.h.hip:25,
+                 from ../cudamatrix/cu-value.h:2,
+                 from ../cudamatrix/cu-vector.h:33,
+                 from ../cudamatrix/cu-matrix-lib.h:25,
+                 from ../nnet3/nnet-common.h:28,
+                 from ../nnet3/nnet-computation.h:24,
+                 from nnet-computation.cc:23:
+../cudamatrix/cu-device.h.hip: In static member function ‘static bool kaldi::CuDevice::EnableTf32Compute(bool)’:
+../cudamatrix/cu-device.h.hip:261:13: error: ‘CUDA_VERSION’ was not declared in this scope
+             CUDA_VERSION >= 11000 && enable);
+             ^~~~~~~~~~~~
+../cudamatrix/cu-device.h.hip:261:13: note: suggested alternative: ‘_SC_VERSION’
+             CUDA_VERSION >= 11000 && enable);
+             ^~~~~~~~~~~~
+             _SC_VERSION
+../cudamatrix/cu-device.h.hip: At global scope:
+../cudamatrix/cu-device.h.hip:411:8: error: ‘hiprandGenerator_t’ does not name a type; did you mean ‘hiprandGenerateShort’?
+ inline hiprandGenerator_t GetCurandHandle() {
+        ^~~~~~~~~~~~~~~~~~
+        hiprandGenerateShort
+make: *** [<builtin>: nnet-computation.o] Error 1
