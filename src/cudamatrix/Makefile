@@ -9,11 +9,21 @@ TESTFILES = cu-vector-test cu-matrix-test cu-math-test cu-test cu-sp-matrix-test
             cu-block-matrix-test cu-matrix-speed-test cu-vector-speed-test cu-sp-matrix-speed-test cu-array-test \
 	    cu-sparse-matrix-test cu-device-test cu-rand-speed-test cu-compressed-matrix-test
 
+ifeq ($(ROCM), true)
+OBJFILES = cu-device.cc.o cu-math.cc.o cu-rand.cc.o cu-matrix.cc.o cu-packed-matrix.cc.o cu-sp-matrix.cc.o \
+           cu-vector.cc.o cu-common.cc.o cu-tp-matrix.cc.o cu-block-matrix.cc.o \
+           cu-sparse-matrix.cc.o cu-allocator.cc.o cu-array.cc.o cu-compressed-matrix.cc.o
+endif
+ifeq ($(CUDA), true)
 OBJFILES = cu-device.o cu-math.o cu-rand.o cu-matrix.o cu-packed-matrix.o cu-sp-matrix.o \
            cu-vector.o cu-common.o cu-tp-matrix.o cu-block-matrix.o \
            cu-sparse-matrix.o cu-allocator.o cu-array.o cu-compressed-matrix.o
+endif 
 ifeq ($(CUDA), true)
   OBJFILES += cu-kernels.o
+endif
+ifeq ($(ROCM), true)
+  OBJFILES += cu-kernels.cu.o
 endif
 
 LIBNAME = kaldi-cudamatrix
@@ -27,8 +37,16 @@ ifeq ($(CUDA), true)
   endif
 endif
 
+ifeq ($(CUDA), true)
 # Implicit rule for kernel compilation,
 %.o : %.cu
 	$(CUDATKDIR)/bin/nvcc -c $< -o $@ $(CUDA_INCLUDE) $(CUDA_FLAGS) $(CUDA_ARCH) -I../
+endif
+
+ifeq ($(ROCM), true)
+# Implicit rule for kernel compilation,
+%.o : %.hip
+	$(ROCMDIR)/bin/hipcc -c $< -o $@ $(ROCM_INCLUDE) $(ROCM_FLAGS) $(CUDA_ARCH) -I../
+endif
 
 include ../makefiles/default_rules.mk

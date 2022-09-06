@@ -140,9 +140,15 @@ valgrind: .valgrind
 
 # Build up dependency commands.
 CC_SRCS=$(wildcard *.cc)
+ifneq ($(ROCM), true)
+CUCC_SRCS=$(wildcard *.cc.cu)
+endif
 # Check if any .cc sources exist to run dependency commands on.
 ifneq ($(CC_SRCS),)
 CC_DEP_COMMAND=$(CXX) -M $(CXXFLAGS) $(CC_SRCS)
+endif
+ifneq ($(CUCC_SRCS),)
+CUCC_DEP_COMMAND=$(CXX) -M $(CXXFLAGS) $(CUCC_SRCS)
 endif
 
 ifeq ($(CUDA), true)
@@ -153,14 +159,37 @@ NVCC_DEP_COMMAND = $(CUDATKDIR)/bin/nvcc -M $(CUDA_FLAGS) $(CUDA_INCLUDE) $(CUDA
 endif
 endif
 
+ifeq ($(ROCM), true)
+HIP_SRCS=$(wildcard *.cu.hip)
+# Check if any HIP .cu.hip sources exist to run dependency commands on.
+ifneq ($(HIP_SRCS),)
+HIPCC_DEP_COMMAND = $(ROCMDIR)/bin/hipcc -M $(ROCM_FLAGS) $(ROCM_INCLUDE) $(HIP_SRCS)
+endif
+CCHIP_SRCS=$(wildcard *.cc.hip)
+# Check if any HIP .cc.hip sources exist to run dependency commands on.
+ifneq ($(CCHIP_SRCS),)
+#CCHIPCC_DEP_COMMAND = $(ROCMDIR)/bin/hipcc -M $(ROCM_FLAGS) $(ROCM_INCLUDE) $(HIP_SRCS)
+CCHIPCC_DEP_COMMAND = $(ROCMDIR)/bin/hipcc -M $(ROCM_FLAGS) $(ROCM_INCLUDE) $(CCHIP_SRCS)
+endif
+endif
+
 .PHONY: depend
 depend:
 	rm -f .depend.mk
 ifneq ($(CC_DEP_COMMAND),)
 	-$(CC_DEP_COMMAND) >> .depend.mk
 endif
+ifneq ($(CUCC_DEP_COMMAND),)
+	-$(CUCC_DEP_COMMAND) >> .depend.mk
+endif
 ifneq ($(NVCC_DEP_COMMAND),)
 	-$(NVCC_DEP_COMMAND) >> .depend.mk
+endif
+ifneq ($(HIPCC_DEP_COMMAND),)
+	-$(HIPCC_DEP_COMMAND) >> .depend.mk
+endif
+ifneq ($(CCHIPCC_DEP_COMMAND),)
+	-$(CCHIPCC_DEP_COMMAND) >> .depend.mk
 endif
 
 # removing automatic making of "depend" as it's quite slow.

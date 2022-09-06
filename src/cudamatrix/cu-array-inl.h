@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-array-inl.h.hip"
+#else
 // cudamatrix/cu-array-inl.h
 
 // Copyright 2009-2016  Karel Vesely
@@ -347,3 +350,4 @@ void CuArray<T>::Swap(CuArray<T> *other) {
 } // namespace kaldi
 
 #endif
+#endif  //__IS_HIP_COMPILE__

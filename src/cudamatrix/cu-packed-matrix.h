@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-packed-matrix.h.hip"
+#else
 // cudamatrix/cu-packed-matrix.h
 
 // Copyright 2009-2013  Johns Hopkins University (author: Daniel Povey)
@@ -175,3 +178,4 @@ std::ostream &operator << (std::ostream &out, const CuPackedMatrix<Real> &mat);
 
 
 #endif
+#endif  //__IS_HIP_COMPILE__

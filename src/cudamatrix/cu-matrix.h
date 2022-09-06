@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-matrix.h.hip"
+#else
 // cudamatrix/cu-matrix.h
 
 // Copyright 2009-2012  Karel Vesely
@@ -984,3 +987,4 @@ void MatrixBase<Real>::CopyFromMat(const CuMatrixBase<OtherReal> &cu,
 #include "cudamatrix/cu-matrix-inl.h"
 
 #endif
+#endif  //__IS_HIP_COMPILE__

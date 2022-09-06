@@ -24,6 +24,7 @@ BINFILES = nnet3-init nnet3-info nnet3-get-egs nnet3-copy-egs nnet3-subset-egs \
    nnet3-latgen-faster-lookahead cuda-gpu-available cuda-compiled \
    nnet3-latgen-faster-looped-parallel
 
+BINFILES = nnet3-latgen-faster-looped-parallel
 OBJFILES =
 
 # Add this dependency to force cuda-compiled.o to be rebuilt when we reconfigure.

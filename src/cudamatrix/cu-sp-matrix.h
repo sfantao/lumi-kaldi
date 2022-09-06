@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-sp-matrix.h.hip"
+#else
 // cudamatrix/cu-sp-matrix.h
 
 // Copyright 2009-2013  Karel Vesely
@@ -161,3 +164,4 @@ SpMatrix<Real>::SpMatrix(const CuSpMatrix<Real> &cu) {
 } // namespace
 
 #endif
+#endif  //__IS_HIP_COMPILE__

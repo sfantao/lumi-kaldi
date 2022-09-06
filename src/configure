@@ -69,11 +69,13 @@ Configuration options:
   --version             Display the version of 'configure' and exit
   --static              Build and link against static libraries [default=no]
   --shared              Build and link against shared libraries [default=no]
-  --use-cuda            Build with CUDA [default=yes]
+  --use-cuda            Build with CUDA
   --with-cudadecoder    Build with CUDA decoder [default=yes]
   --cudatk-dir=DIR      CUDA toolkit directory
   --cuda-arch=FLAGS     Override the default CUDA_ARCH flags. See:
          https://docs.nvidia.com/cuda/cuda-compiler-driver-nvcc/index.html#nvcc-examples.
+  --use-rocm            Build with ROCM
+  --rocm-dir=DIR        ROCM directory
   --debug-level=N       Use assertion level 0 (disabled), 1, or 2 [default=1]
   --double-precision    Build with BaseFloat set to double if yes [default=no],
                         mostly useful for testing purposes.
@@ -247,6 +249,63 @@ function check_for_slow_expf {
     )
   fi
 }
+
+# ROCM is used only in selected directories including src/cudamatrix, src/nnet*
+# and src/chain*. It is used to accelerate the neural network training.
+# The rest of Kaldi runs on CPUs.
+
+function configure_rocm {
+  # Check for ROCM in the system
+  if [ ! -d "$ROCMDIR" ]; then
+    for base in /opt/rocm /usr/local/rocm /usr/; do
+      if [ -f $base/bin/hipcc ]; then
+        ROCMDIR=$base
+      fi
+    done
+  fi
+
+  if [ -d "$ROCMDIR" ]; then
+    if [ ! -f $ROCMDIR/bin/hipcc ]; then
+      failure "Cannnot find hipcc in ROCMDIR=$ROCMDIR"
+    fi
+  fi
+  echo "Using ROCM $ROCMDIR (hipcc compiler and runtime libraries)"
+    echo >> kaldi.mk
+    echo "# ROCM configuration" >> kaldi.mk
+    echo >> kaldi.mk
+    echo ROCM = true >> kaldi.mk
+    echo ROCMDIR = $ROCMDIR >> kaldi.mk
+#    echo "CXX = $ROCMDIR/bin/hipcc" >> kaldi.mk 
+    echo "CUDA_ARCH = " >> kaldi.mk
+    echo "HOST_ARCH = `uname -m`" >> kaldi.mk
+    echo >> kaldi.mk
+
+    # 64bit/32bit? We do not support cross compilation with CUDA so, use direct
+    # calls to uname -m here
+    if [ "`uname -m`" == "x86_64" ]; then
+      if [ "`uname`" == "Darwin" ]; then
+        sed 's/lib64/lib/g' < makefiles/cuda_64bit.mk >> kaldi.mk
+      else
+        cat makefiles/hip_64bit.mk >> kaldi.mk
+      fi
+    elif [ "`uname -m`" == "aarch64" ]; then
+      cat makefiles/hip_64bit.mk >> kaldi.mk
+    elif [ "`uname -m`" == "ppc64le" ]; then
+      cat makefiles/hip_64bit.mk >> kaldi.mk
+    else
+      echo "\
+WARNING: ROCM will not be used!
+         ROCM is not supported with 32-bit builds."
+      exit 1;
+    fi
+
+    #add cusolver flags for newer toolkits
+    if [ "$CUSOLVER" == "true" ]; then
+      echo "ROCM_LDLIBS += -lcusolver" >> kaldi.mk
+    fi
+}
+
+
 
 # CUDA is used only in selected directories including src/cudamatrix, src/nnet*
 # and src/chain*. It is used to accelerate the neural network training.
@@ -602,7 +661,8 @@ ENV_LDLIBS=$LDLIBS
 debug_level=1
 double_precision=false
 dynamic_kaldi=false
-use_cuda=true
+use_cuda=false
+use_rocm=false
 with_cudadecoder=true
 static_fst=false
 static_math=false
@@ -651,8 +711,11 @@ do
   --atlas-root=*)
     GetSwitchExistingPathOrDie ATLASROOT "$1"
     shift ;;
-  --use-cuda)
-    use_cuda=true;
+  --use-rocm)
+    use_rocm=true;
+    shift ;;
+  --use-rocm=no)
+    use_rocm=false;
     shift ;;
   --use-cuda=yes)
     use_cuda=true;
@@ -728,6 +791,10 @@ do
     shift ;;
   --mathlib=*)
     GetSwitchValueOrDie MATHLIB "$1"
+    shift ;;
+  --rocm-dir=*)
+    # ROCM is used in src/cudamatrix and src/nnet{,bin} only.
+    GetSwitchExistingPathOrDie ROCMDIR "$1"
     shift ;;
   --cudatk-dir=*)
     # CUDA is used in src/cudamatrix and src/nnet{,bin} only.
@@ -1304,6 +1371,7 @@ or try another math library, e.g. --mathlib=OPENBLAS (Kaldi may be slower)."
     failure "Unsupported linear algebra library '$MATHLIB'"
   fi
   $use_cuda && configure_cuda
+  $use_rocm && configure_rocm
   linux_configure_speex
 else
   failure "Could not detect the platform or we have not yet worked out the

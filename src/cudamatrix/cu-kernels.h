@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-kernels.h.hip"
+#else
 // cudamatrix/cu-kernels.h
 
 // Copyright 2009-2012  Karel Vesely
@@ -1594,3 +1597,4 @@ inline void cuda_batched_copy_mats(int32_t num_mats, int32_t *num_rows,
 #endif // HAVE_CUDA
 
 #endif
+#endif  //__IS_HIP_COMPILE__

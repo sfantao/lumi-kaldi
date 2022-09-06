@@ -1,3 +1,6 @@
+#ifdef __IS_HIP_COMPILE__
+#include "cu-value.h.hip"
+#else
 // cudamatrix/cu-value.h
 
 // Copyright      2013  Johns Hopkins University (author: Daniel Povey)
@@ -92,3 +95,4 @@ class CuValue {
 
 
 #endif  // KALDI_CUDAMATRIX_CU_VALUE_H_
+#endif  //__IS_HIP_COMPILE__
