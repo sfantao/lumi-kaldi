@@ -482,6 +482,7 @@ void TwvMetrics::GetOracleMeasures(float *final_mtwv,
             mtwv_sweep[decision_threshold] * (nof_kw)/(nof_kw + 1.0);
     }
     KALDI_ASSERT(local_otwv_threshold >= 0);
+    (void)local_otwv_threshold;
     otwv = otwv * (nof_kw)/(nof_kw + 1.0) + local_otwv / (nof_kw + 1.0);
     nof_kw++;
   }

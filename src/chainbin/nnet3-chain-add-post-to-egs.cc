@@ -58,7 +58,6 @@ void ComputeChainOccupancies(const ChainTrainingOptions &opts,
     DenominatorComputation denominator(opts, den_graph,
                                        supervision.num_sequences,
                                        nnet_output);
-    BaseFloat den_logprob_weighted = supervision.weight * denominator.Forward();
     denominator_ok = denominator.Backward(den_scale, gamma);
     if (!denominator_ok) KALDI_ERR << "den failed";
   }
@@ -152,7 +151,7 @@ int main(int argc, char *argv[]) {
     }
     chain::DenominatorGraph den_graph(den_fst, num_pdfs);
 
-    int64 num_read = 0, num_written = 0, num_err = 0;
+    int64 num_read = 0, num_written = 0;
     for (; !example_reader.Done(); example_reader.Next(), num_read++) {
       const std::string &key = example_reader.Key();
       NnetChainExample eg(example_reader.Value());

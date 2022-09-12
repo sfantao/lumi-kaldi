@@ -255,8 +255,8 @@ void OnlinePreconditioner::ReorthogonalizeXt1(
 void OnlinePreconditioner::SelfTest() const {
   KALDI_ASSERT(rho_t_ >= epsilon_);
   BaseFloat d_t_max = d_t_.Max(), d_t_min = d_t_.Min();
-  KALDI_ASSERT(d_t_min >= epsilon_);
-  KALDI_ASSERT(d_t_min > 0.9 * delta_ * d_t_max);
+  KALDI_ASSERT(d_t_min >= epsilon_); (void)d_t_min;
+  KALDI_ASSERT(d_t_min > 0.9 * delta_ * d_t_max); (void)d_t_max;
   KALDI_ASSERT(rho_t_ > 0.9 * delta_ * d_t_max);
 
   int32 D = W_t_.NumCols(), R = W_t_.NumRows();
@@ -438,6 +438,7 @@ void OnlinePreconditioner::PreconditionDirectionsInternal(
     tr_Xt_XtT += L_t_cpu(i, i) * (2.0 - e_t(i));
   if (self_debug_) {
     KALDI_ASSERT(ApproxEqual(tr_Xt_XtT, tr_Xt_XtT_check));
+    (void)tr_Xt_XtT_check;
   }
   BaseFloat gamma_t = (tr_Xhat_XhatT == 0.0 ? 1.0 :
                        sqrt(tr_Xt_XtT / tr_Xhat_XhatT));

@@ -35,7 +35,7 @@ void ModifyNnetIvectorPeriod(int32 ivector_period,
     std::string s = config_lines[i];
     ConfigLine config_line;
     bool b = config_line.ParseLine(config_lines[i]);
-    KALDI_ASSERT(b && "Could not parse config line.");
+    KALDI_ASSERT(b && "Could not parse config line."); (void)b;
     if (config_line.FirstToken() == "component-node") {
       // What we're trying to do here is: find a line like:
       //  component-node name=foo component=foo input=Append(bar, ReplaceIndex(ivector, t, 0))

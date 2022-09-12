@@ -126,7 +126,7 @@ std::string SummarizeVector(const VectorBase<float> &vec) {
     std::vector<int32> percentiles;
     bool ans = SplitStringToIntegers(percentiles_str, ", ", false,
                                      &percentiles);
-    KALDI_ASSERT(ans);
+    KALDI_ASSERT(ans); (void)ans;
     os << "[percentiles(" << percentiles_str << ")=(";
     Vector<BaseFloat> vec_sorted(vec);
     std::sort(vec_sorted.Data(), vec_sorted.Data() + vec_sorted.Dim());

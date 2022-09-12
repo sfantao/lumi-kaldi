@@ -74,7 +74,7 @@ InverseLeftBiphoneContextFst::InverseLeftBiphoneContextFst(
   vector<int32> empty_vec;
   Label epsilon_label = FindLabel(empty_vec);
   // Make sure that a label is assigned for epsilon.
-  KALDI_ASSERT(epsilon_label == 0);
+  KALDI_ASSERT(epsilon_label == 0); (void)epsilon_label;
 }
 
 

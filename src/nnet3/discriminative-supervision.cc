@@ -125,11 +125,13 @@ void DiscriminativeSupervision::Check() const {
   int32 num_frames_subsampled = num_ali.size();
   KALDI_ASSERT(num_frames_subsampled ==
                num_sequences * frames_per_sequence);
+  (void)num_frames_subsampled;
 
   {
     std::vector<int32> state_times;
     int32 max_time = LatticeStateTimes(den_lat, &state_times);
     KALDI_ASSERT(max_time == num_frames_subsampled);
+    (void)max_time;
   }
 }
 
@@ -150,14 +152,16 @@ DiscriminativeSupervisionSplitter::DiscriminativeSupervisionSplitter(
 
   int32 num_states = den_lat_.NumStates(),
         num_frames = supervision_.frames_per_sequence * supervision_.num_sequences;
-  KALDI_ASSERT(num_states > 0);
+  KALDI_ASSERT(num_states > 0); (void)num_states;
   int32 start_state = den_lat_.Start();
   // Lattice should be top-sorted and connected, so start-state must be 0.
   KALDI_ASSERT(start_state == 0 && "Expecting start-state to be 0");
+  (void)start_state;
 
   KALDI_ASSERT(num_states == den_lat_scores_.state_times.size());
   KALDI_ASSERT(den_lat_scores_.state_times[start_state] == 0);
   KALDI_ASSERT(den_lat_scores_.state_times.back() == num_frames);
+  (void)num_frames;
 }
 
 // Make sure that for any given pdf-id and any given frame, the den-lat has

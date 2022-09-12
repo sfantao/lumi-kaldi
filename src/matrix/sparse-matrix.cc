@@ -363,6 +363,7 @@ void SparseMatrix<Real>::CopyToMat(MatrixBase<OtherReal> *other,
     MatrixIndexT other_stride = other->Stride(),
         num_rows = NumRows(), num_cols = NumCols();
     KALDI_ASSERT(num_rows == other->NumCols() && num_cols == other->NumRows());
+    (void)num_cols;
     other->SetZero();
     for (MatrixIndexT row = 0; row < num_rows; row++, other_col_data++) {
       const SparseVector<Real> &svec = rows_[row];
@@ -508,6 +509,7 @@ void SparseMatrix<Real>::AddToMat(BaseFloat alpha,
     MatrixIndexT other_stride = other->Stride(),
         num_rows = NumRows(), num_cols = NumCols();
     KALDI_ASSERT(num_rows == other->NumCols() && num_cols == other->NumRows());
+    (void)num_cols;
     for (MatrixIndexT row = 0; row < num_rows; row++, other_col_data++) {
       const SparseVector<Real> &svec = rows_[row];
       MatrixIndexT num_elems = svec.NumElements();
@@ -713,7 +715,7 @@ Real TraceMatSmat(const MatrixBase<Real> &A,
   } else {
     const Real *A_col_data = A.Data();
     MatrixIndexT Astride = A.Stride(), Acols = A.NumCols(), Arows = A.NumRows();
-    KALDI_ASSERT(Arows == B.NumCols() && Acols == B.NumRows());
+    KALDI_ASSERT(Arows == B.NumCols() && Acols == B.NumRows()); (void)Arows;
     sum = 0.0;
     for (MatrixIndexT i = 0; i < Acols; i++, A_col_data++) {
       Real col_sum = 0.0;

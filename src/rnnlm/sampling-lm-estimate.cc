@@ -59,6 +59,7 @@ void SamplingLmEstimator::ProcessLine(BaseFloat corpus_weight,
     int32 this_word = sentence[i];
     // note: 0 is reserved for <eps>.
     KALDI_ASSERT(this_word > 0 && this_word < vocab_size);
+    (void)vocab_size;
     AddCount(history, this_word, corpus_weight);
     history.push_back(this_word);
   }
@@ -658,6 +659,7 @@ void SamplingLmEstimator::ComputeUnigramDistribution() {
   double sum = std::accumulate(unigram_probs_.begin(),
                                unigram_probs_.end(), 0.0);
   KALDI_ASSERT(fabs(sum - 1.0) < 0.01);
+  (void)sum;
 }
 
 SamplingLmEstimator::~SamplingLmEstimator() {

@@ -87,6 +87,7 @@ class MaxPoolingComponent : public Component {
     int32 num_pools = 1 + (num_patches - pool_size_) / pool_step_;
     // check output dim:
     KALDI_ASSERT(output_dim_ == num_pools * pool_stride_);
+    (void)num_pools;
     //
   }
 

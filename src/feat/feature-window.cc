@@ -180,6 +180,8 @@ void ExtractWindow(int64 sample_offset,
   if (opts.snip_edges) {
     KALDI_ASSERT(start_sample >= sample_offset &&
                  end_sample <= num_samples);
+    (void)num_samples;
+    (void)end_sample;
   } else {
     KALDI_ASSERT(sample_offset == 0 || start_sample >= sample_offset);
   }

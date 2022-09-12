@@ -56,6 +56,7 @@ class KlHmm : public Component {
       // Check if there are posteriors in the Matrix (check on first row),
       BaseFloat post_sum = in_tmp.Row(0).Sum();
       KALDI_ASSERT(ApproxEqual(post_sum, 1.0));
+      (void)post_sum;
       // Get a tmp Matrix of the stats
       Matrix<BaseFloat> kl_stats_tmp(kl_stats_);
       // Init a vector to get the sum of the rows (for normalization)

@@ -424,7 +424,7 @@ SupervisionSplitter::SupervisionSplitter(
   int32 num_frames = supervision_.frames_per_sequence *
                      supervision_.num_sequences;
   int32 ans = ComputeFstStateTimes(fst, &frame_);
-  KALDI_ASSERT(ans == num_frames);
+  KALDI_ASSERT(ans == num_frames); (void)num_frames; (void) ans;
 }
 
 void SupervisionSplitter::GetFrameRange(int32 begin_frame, int32 num_frames,
@@ -701,7 +701,7 @@ int32 ComputeFstStateTimes(const fst::StdVectorFst &fst,
     int32 cur_t = *iter;
     ++iter;
     int32 next_t = *iter;
-    KALDI_ASSERT(next_t >= cur_t);
+    KALDI_ASSERT(next_t >= cur_t); (void)next_t; (void)cur_t;
   }
   if (total_length < 0)
     KALDI_ERR << "Input FST does not have required properties.";
@@ -730,6 +730,7 @@ void MergeSupervisionE2e(const std::vector<const Supervision*> &input,
     KALDI_ASSERT(input[i]->e2e_fsts.size() == 1);
     KALDI_ASSERT(input[i]->frames_per_sequence ==
                  frames_per_sequence);
+    (void)frames_per_sequence;
     output_supervision->e2e_fsts.push_back(input[i]->e2e_fsts[0]);
   }
   output_supervision->alignment_pdfs.clear();
@@ -754,6 +755,7 @@ void MergeSupervision(const std::vector<const Supervision*> &input,
   for (int32 i = 1; i < num_inputs; i++) {
     KALDI_ASSERT(input[i]->label_dim == label_dim &&
                  "Trying to append incompatible Supervision objects");
+    (void)label_dim;
     KALDI_ASSERT(input[i]->alignment_pdfs.empty());
   }
   *output_supervision = *(input[num_inputs-1]);
@@ -1017,7 +1019,7 @@ bool ConvertSupervisionToUnconstrained(
         // First replace all output labels with epsilon.
         arc.olabel = 0;
         int32 transition_id = arc.ilabel;
-        KALDI_ASSERT(transition_id <= num_transition_ids);
+        KALDI_ASSERT(transition_id <= num_transition_ids); (void)num_transition_ids;
         // Then remove all self-loop transitions except those on the 1st frame
         // (which must come from the start state, since the FST was epsilon free).
         // The reason for allowing them on the 1st frame, if they were already

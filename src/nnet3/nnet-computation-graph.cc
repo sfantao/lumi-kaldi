@@ -261,7 +261,7 @@ void ComputationGraphBuilder::AddInputs() {
     NodeType t = nnet_.GetNode(n).node_type;
     KALDI_ASSERT((t == kInput || t == kComponent) &&
                  "Inputs to graph only allowed for Input and Component nodes.");
-
+    (void)t;
     for (int32 j = 0; j < request_->inputs[i].indexes.size(); j++) {
       Cindex cindex(n, request_->inputs[i].indexes[j]);
       bool is_input = true, is_new;
@@ -392,6 +392,7 @@ void ComputationGraphBuilder::PruneDependencies(int32 cindex_id) {
       CindexSet cindex_set(*graph_, cindex_info_, dont_care);
       std::vector<Cindex> used_cindexes;
       bool ans = desc.IsComputable(index, cindex_set, &used_cindexes);
+      (void)ans;
       // If the next assert fails it could be a failure in the assumption that
       // making more inputs available will never change something from not being
       // computable to being computable; or it could be a bug elsewhere.
@@ -421,7 +422,7 @@ void ComputationGraphBuilder::PruneDependencies(int32 cindex_id) {
       // If the next assert fails it could be a failure in the assumption that
       // making more inputs available will never change something from not being
       // computable to being computable; or it could be a bug elsewhere.
-      KALDI_ASSERT(ans);
+      KALDI_ASSERT(ans); (void)ans;
       size_t size = used_indexes.size();
       used_cindex_ids.resize(size);
       for (size_t i = 0; i < size; i++) {
@@ -507,6 +508,7 @@ void ComputationGraphBuilder::Check(int32 start_cindex_id) const {
         // make sure appears in appropriate dependencies array.
         const std::vector<int32> &dep = graph_->dependencies[other_cindex_id];
         KALDI_ASSERT(std::count(dep.begin(), dep.end(), cindex_id) == 1);
+        (void)dep;
       }
     }
     if (cindex_info_[cindex_id].dependencies_computed) {
@@ -521,6 +523,7 @@ void ComputationGraphBuilder::Check(int32 start_cindex_id) const {
           // make sure appears in appropriate depend_on_this_ array.
           const std::vector<int32> &dep = depend_on_this_[dep_cindex_id];
           KALDI_ASSERT(std::count(dep.begin(), dep.end(), cindex_id) == 1);
+          (void)dep;
         }
       }
     }
@@ -539,6 +542,7 @@ void ComputationGraphBuilder::Check(int32 start_cindex_id) const {
           usable_count_recomputed++;
       }
       KALDI_ASSERT(usable_count == usable_count_recomputed);
+      (void)usable_count;
     }
     // check `computable`.
     if (cindex_info_[cindex_id].dependencies_computed) {
@@ -1003,6 +1007,7 @@ void AddInputToGraph(const ComputationRequest &request,
     NodeType t = nnet.GetNode(n).node_type;
     KALDI_ASSERT((t == kInput || t == kComponent) &&
                  "Inputs to graph only allowed for Input and Component nodes.");
+    (void)t;
 
     for (int32 j = 0; j < request.inputs[i].indexes.size(); j++) {
       Cindex cindex(n, request.inputs[i].indexes[j]);
@@ -1234,7 +1239,7 @@ void ComputeComputationGraph(const Nnet &nnet,
   }
 }
 
-
+#ifndef NDEBUG
 static int32 SumVectorSizes(const std::vector<std::vector<int32> > &vec) {
   int32 ans = 0;
   std::vector<std::vector<int32> >::const_iterator iter = vec.begin(),
@@ -1244,12 +1249,14 @@ static int32 SumVectorSizes(const std::vector<std::vector<int32> > &vec) {
   return ans;
 }
 
+
 static int32 SumVectorSizes(const std::vector<std::vector<std::vector<int32> > > &vec) {
   int32 ans = 0;
   for (size_t i = 0; i < vec.size(); i++)
     ans += SumVectorSizes(vec[i]);
   return ans;
 }
+#endif
 
 
 /*
@@ -1577,6 +1584,8 @@ void ComputationStepsComputer::ProcessInputOrOutputStep(
     const Cindex &cindex = sub_phase[i];
     int32 cindex_id = graph_->GetCindexId(cindex);
     KALDI_ASSERT(cindex_id >= 0 && (*locations_)[cindex_id].first == step_index);
+    (void)cindex_id;
+    (void)step_index;
   }
 }
 
@@ -1645,6 +1654,7 @@ int32 ComputationStepsComputer::AddStep(std::vector<int32> *cindex_ids) {
   for (; iter != end; ++iter, ++row_index) {
     int32 cindex_id = *iter;
     KALDI_ASSERT(static_cast<size_t>(cindex_id) < num_cindexes);
+    (void)num_cindexes;
     locations[cindex_id].first = step_index;
     locations[cindex_id].second = row_index;
   }
@@ -1663,6 +1673,7 @@ void ComputationStepsComputer::ConvertToCindexes(
   for (; iter != end; ++iter, ++out_iter) {
     int32 cindex_id = *iter;
     KALDI_ASSERT(static_cast<size_t>(cindex_id) < num_cindexes);
+    (void)num_cindexes;
     *out_iter = graph_->cindexes[cindex_id];
   }
 }
@@ -1817,6 +1828,7 @@ void ComputationStepsComputer::ConvertToLocations(
   for (; iter != end; ++iter, ++out_iter) {
     int32 cindex_id = *iter;
     KALDI_ASSERT(static_cast<size_t>(cindex_id) < num_cindexes);
+    (void)num_cindexes;
     int32 step = locations_ptr[cindex_id].first,
         row = locations_ptr[cindex_id].second;
     KALDI_ASSERT(step >= 0);

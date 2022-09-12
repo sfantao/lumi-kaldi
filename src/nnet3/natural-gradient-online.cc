@@ -279,8 +279,8 @@ void OnlineNaturalGradient::ReorthogonalizeRt1(
 void OnlineNaturalGradient::SelfTest() const {
   KALDI_ASSERT(rho_t_ >= epsilon_);
   BaseFloat d_t_max = d_t_.Max(), d_t_min = d_t_.Min();
-  KALDI_ASSERT(d_t_min >= epsilon_);
-  KALDI_ASSERT(d_t_min > 0.9 * delta_ * d_t_max);
+  KALDI_ASSERT(d_t_min >= epsilon_); (void) d_t_min;
+  KALDI_ASSERT(d_t_min > 0.9 * delta_ * d_t_max); (void) d_t_max;
   KALDI_ASSERT(rho_t_ > 0.9 * delta_ * d_t_max);
 
   int32 D = W_t_.NumCols(), R = W_t_.NumRows();

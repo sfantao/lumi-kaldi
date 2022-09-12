@@ -46,7 +46,7 @@ void test(const char* filename, int dim) {
 
   int i = 0;
   for (auto d : arr) {
-    KALDI_ASSERT(i == d);
+    KALDI_ASSERT(i == d); (void)d;
     i++;
   }
 }
@@ -99,7 +99,7 @@ void test_vector() {
   KALDI_ASSERT(arr.NumElements() == v.Dim());
   int i = 0;
   for (auto d : arr) {
-    KALDI_ASSERT(d == v(i));
+    KALDI_ASSERT(d == v(i)); (void)d;
     i += 1;
   }
 

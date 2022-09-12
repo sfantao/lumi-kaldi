@@ -135,7 +135,7 @@ EventMap *DoTableSplit(const EventMap &orig, EventKeyType key,  const BuildTreeS
       // first work out the possible values the name takes.
       std::vector<EventValueType> vals;  // vals are put here, sorted.
       bool all_present = PossibleValues(key, split_stats[leaf], &vals);
-      KALDI_ASSERT(all_present);  // currently do not support mapping undefined values.
+      KALDI_ASSERT(all_present); (void)all_present; // currently do not support mapping undefined values.
       KALDI_ASSERT(!vals.empty() && vals.front() >= 0);  // don't support mapping negative values
       // at present time-- would need different EventMap type, not TableEventMap.
       std::vector<EventMap*> table(vals.back()+1, (EventMap*)NULL);
@@ -190,7 +190,7 @@ void SplitStatsByMap(const BuildTreeStatsType &stats, const EventMap &e, std::ve
     const EventType &evec = iter->first;
     EventAnswerType ans;
     bool b = e.Map(evec, &ans);
-    KALDI_ASSERT(b);
+    KALDI_ASSERT(b); (void)b;
     (*stats_out)[ans].push_back(*iter);
   }
 }

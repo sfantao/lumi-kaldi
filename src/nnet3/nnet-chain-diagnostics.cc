@@ -230,7 +230,7 @@ bool NnetChainComputeProb::PrintTotalStats() const {
   for (; iter != end; ++iter) {
     const std::string &name = iter->first;
     int32 node_index = nnet_.GetNodeIndex(name);
-    KALDI_ASSERT(node_index >= 0);
+    KALDI_ASSERT(node_index >= 0); (void) node_index;
     const ChainObjectiveInfo &info = iter->second;
     BaseFloat like = (info.tot_like / info.tot_weight),
         l2_term = (info.tot_l2_term / info.tot_weight),

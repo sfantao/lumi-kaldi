@@ -107,6 +107,8 @@ void UnitTestSparseVectorVecSvec() {
     Real product2 = VecVec(other_vec, vec);
 
     KALDI_ASSERT(fabs(product1 - product2) < 1.0e-04);
+    (void)product1;
+    (void)product2;
   }
 }
 

@@ -282,7 +282,7 @@ template<class Weight, class IntType> class LatticeDeterminizer {
     }
     for (StateId s = 0;s < nStates;s++) {
       OutputStateId news = ofst->AddState();
-      assert(news == s);
+      assert(news == s); (void)news;
     }
     ofst->SetStart(0);
     // now process transitions.

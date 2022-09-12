@@ -59,7 +59,7 @@ void SpMatrix<Real>::SymPosSemiDefEig(VectorBase<Real> *s,
                                       Real tolerance) const {
   Eig(s, P);
   Real max = s->Max(), min = s->Min();
-  KALDI_ASSERT(-min <= tolerance * max);
+  KALDI_ASSERT(-min <= tolerance * max); (void)max; (void)min;
   s->ApplyFloor(0.0);
 }
 
@@ -995,7 +995,7 @@ void SpMatrix<Real>::AddMat2Sp(
   MatrixIndexT M_other_dim = (transM == kNoTrans ? M.NumCols() : M.NumRows()),
       M_same_dim = (transM == kNoTrans ? M.NumRows() : M.NumCols()),
       M_stride = M.Stride(), dim = this->NumRows();
-  KALDI_ASSERT(M_same_dim == dim);
+  KALDI_ASSERT(M_same_dim == dim); (void)M_same_dim;
 
   const Real *M_data = M.Data();
 

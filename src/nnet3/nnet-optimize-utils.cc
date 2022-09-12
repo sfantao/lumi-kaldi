@@ -795,6 +795,7 @@ static NnetComputation::SubMatrixInfo GetSubMatrixOfSubMatrix(
   const NnetComputation::MatrixInfo &a_mat =
       computation.matrices[a.matrix_index];
   KALDI_ASSERT(a_mat.num_rows == b.num_rows && a_mat.num_cols == b.num_cols);
+  (void)a_mat;
   NnetComputation::SubMatrixInfo ans;
   ans.matrix_index = b.matrix_index;
   ans.row_offset = a.row_offset + b.row_offset;
@@ -1780,6 +1781,7 @@ void DerivativeTimeLimiter::MapIndexesCommand(NnetComputation::Command *c) {
       // we can do the following assert because the RowIsKept command
       // would have turned it into a -1 if not.
       KALDI_ASSERT(mapped_index >= 0 && mapped_index < new_num_input_rows);
+      (void)new_num_input_rows;
       new_indexes[i] = mapped_index;
       must_keep_command = true;
     }
@@ -1841,6 +1843,7 @@ void DerivativeTimeLimiter::MapIndexesMultiCommand(NnetComputation::Command *c) 
     // the above assert is there because if it was going to be outside the
     // kept range, RowIsKept should have returned false above.
     KALDI_ASSERT(this_row_mapped >= 0 && this_row_mapped < this_num_rows);
+    (void)this_num_rows;
     this_pair.first = this_submatrix_mapped;
     this_pair.second = this_row_mapped;
     must_keep_command = true;
@@ -1911,6 +1914,7 @@ void DerivativeTimeLimiter::MapAddRowRangesCommand(
         // the next assert is because if we were outside the 'kept' part of the
         // submatrix, RowIsKept() should have instructed us to modify the value.
         KALDI_ASSERT(start >= 0 && end <= src_num_rows && start < end);
+        (void)src_num_rows;
       }
     }
     this_pair.first = start;
@@ -2301,6 +2305,7 @@ bool ReplaceRowWithMatrixOps(NnetComputation *computation) {
       case kCopyRows: case kAddRows: {
         int32 indexes_index = c.arg3;
         KALDI_ASSERT(indexes_index < num_indexes);
+        (void)num_indexes;
         const std::vector<int32> &indexes = computation->indexes[indexes_index];
         if (IndexesHaveSpecialStructure(indexes,
                                         &first_nonnegative_pos,
@@ -3346,11 +3351,12 @@ void ComputationExpander::ExpandRowsCommand(
         KALDI_ASSERT(ans);  // source should also be for n==0, because we don't
                             // (or at least shouldn't) create computations that
                             // mix up the 'n' values
-
+        (void)ans;
         int32 new_i1 = new_i1_n0, new_i2 = new_i2_n0;
         for (int32 n = 0; n < num_n_values;
              ++n, new_i1 += n_stride1, new_i2 += n_stride2) {
           KALDI_ASSERT(new_i1 < new_s1_size && new_i2 < new_s2_size);
+          (void)new_s2_size;
           new_indexes[new_i1] = new_i2;
         }
       }
@@ -3408,7 +3414,7 @@ void ComputationExpander::ExpandRowsMultiCommand(
         KALDI_ASSERT(ans);  // source should also be for n==0, because we don't
                             // (or at least shouldn't) create computations that
                             // mix up the 'n' values
-
+        (void)ans;
         int32 new_i1 = new_i1_n0, new_i2 = new_i2_n0;
 
         for (int32 n = 0; n < num_n_values;
@@ -3479,6 +3485,8 @@ void ComputationExpander::ExpandRowRangesCommand(
                                           &n_stride2);
       KALDI_ASSERT(ans1 && ans2 && new_i2_n0_last >= new_i2_n0_begin &&
                    new_i2_n0_begin >= 0 && n_stride1 > 0 && n_stride2 > 0);
+      (void)ans1;
+      (void)ans2;
       // source should also be for n==0, because we don't (or at least
       // shouldn't) create computations that mix up the 'n' values
 
@@ -3558,6 +3566,7 @@ void ComputationExpander::InitStrideInfo() {
     int32 num_rows = computation_.matrices[m].num_rows;
     const NnetComputation::MatrixDebugInfo &debug_info = computation_.matrix_debug_info[m];
     KALDI_ASSERT(debug_info.cindexes.size() == num_rows);
+    (void)num_rows;
     bool full_check = true;  // TODO: eventually change this to false.
     int32 n_stride = FindNStride(debug_info.cindexes, full_check);
     if (n_stride == 0) {
@@ -3780,6 +3789,7 @@ int32 ComputationExpander::GetNewMatrixLocationInfo(
       computation_.matrix_debug_info[matrix_index].cindexes;
   KALDI_ASSERT(old_n_value == cindexes[old_row_index].second.n &&
                (old_n_value == 0 || old_n_value == 1));
+  (void)cindexes;
   // Search for CAVEAT in the comment for this function to see what this is
   // about.  Mapping old_n_value == 1 -> new_n_value == new_num_n_values - 1
   // just happens to be useful for the way we use this function... it maps the
@@ -4095,6 +4105,8 @@ int32 ComputationLoopedOptimizer::FindTimeShift(
       &command3 = computation.commands[first_output_command_seg3];
   int32 seg2_node = command2.arg2, seg3_node = command3.arg2;
   KALDI_ASSERT(seg2_node == seg3_node);
+  (void)seg2_node;
+  (void)seg3_node;
   int32 seg2_submatrix = command2.arg1,
       seg3_submatrix = command3.arg1;
   KALDI_ASSERT(computation.IsWholeMatrix(seg2_submatrix) &&
@@ -4204,6 +4216,7 @@ void ComputationLoopedOptimizer::ConvertListsToPairLists(
         out_iter = this_active_pair_list.begin();
     for (; iter != end; ++iter, ++out_iter) {
       KALDI_ASSERT(*iter > 0 && *iter < num_matrices);
+      (void)num_matrices;
       *out_iter = matrix_to_pair[*iter];
     }
   }
@@ -4344,6 +4357,8 @@ void ComputationLoopedOptimizer::CheckIdentifiedMatrices(
     KALDI_ASSERT(matrix_info1.num_rows == matrix_info2.num_rows &&
                  matrix_info1.num_cols == matrix_info2.num_cols &&
                  matrix_info1.stride_type == matrix_info2.stride_type);
+    (void)matrix_info1;
+    (void)matrix_info2;
     const NnetComputation::MatrixDebugInfo
         &debug_info1 = computation.matrix_debug_info[m1],
         &debug_info2 = computation.matrix_debug_info[m2];
@@ -4442,6 +4457,7 @@ void ComputationLoopedOptimizer::AddMatrixSwapCommands(
     int32 m1 = swaps[i].first, m2 = swaps[i].second;
     KALDI_ASSERT(static_cast<size_t>(m1) < num_matrices &&
                  static_cast<size_t>(m2) < num_matrices);
+    (void)num_matrices;
     int32 s1 = whole_submatrices[m1], s2 = whole_submatrices[m2];
     computation->commands.push_back(
         NnetComputation::Command(kSwapMatrix, s1, s2));

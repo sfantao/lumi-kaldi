@@ -88,6 +88,7 @@ RnnlmExampleSampler::RnnlmExampleSampler(
   KALDI_ASSERT(std::fabs(sum - 1.0) < 0.01 &&
                "Unigram distribution from ARPA does not sum "
                "to (close to) 1");
+  (void)sum;
   int32 num_words = unigram_distribution.size();
   if (config_.uniform_prob_mass > 0.0) {
     BaseFloat x = config_.uniform_prob_mass / (num_words - 1);
@@ -232,6 +233,7 @@ void RnnlmExampleSampler::RenumberOutputWordsForGroup(
     // note: output_word is > 0 because epsilon won't ever occur there,
     // although in a sense 0 is a valid output-word id.
     KALDI_ASSERT(output_word > 0 && output_word < vocab_size);
+    (void)vocab_size;
     const int32 *sampled_words_ptr = std::lower_bound(sampled_words_begin,
                                                       sampled_words_end,
                                                       output_word);
@@ -662,6 +664,9 @@ void RnnlmExampleCreator::CheckSequence(
     // and similar scenarios.
     KALDI_ASSERT(words[i] != bos_symbol && words[i] != brk_symbol &&
                  words[i] > 0 && words[i] < vocab_size);
+    (void)bos_symbol;
+    (void)brk_symbol;
+    (void)vocab_size;
   }
   if (!words.empty() && words.back() == eos_symbol) {
     // we may rate-limit this warning eventually if people legitimately need to

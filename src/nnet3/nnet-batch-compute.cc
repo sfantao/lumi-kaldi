@@ -722,6 +722,7 @@ void GetOutputFrameInfoForTasks(
       KALDI_ASSERT(task.num_used_output_frames +
                    task.num_initial_unused_output_frames <=
                    task.num_output_frames);
+      (void)task;
     }
   }
 }

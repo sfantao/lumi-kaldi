@@ -1333,7 +1333,7 @@ void VectorBase<Real>::AddDiagMatMat(
   MatrixIndexT dim = this->dim_,
       M_col_dim = (transM == kTrans ? M.NumRows() : M.NumCols()),
       N_row_dim = (transN == kTrans ? N.NumCols() : N.NumRows());
-  KALDI_ASSERT(M_col_dim == N_row_dim); // this is the dimension we sum over
+  KALDI_ASSERT(M_col_dim == N_row_dim); (void)N_row_dim; // this is the dimension we sum over
   MatrixIndexT M_row_stride = M.Stride(), M_col_stride = 1;
   if (transM == kTrans) std::swap(M_row_stride, M_col_stride);
   MatrixIndexT N_row_stride = N.Stride(), N_col_stride = 1;

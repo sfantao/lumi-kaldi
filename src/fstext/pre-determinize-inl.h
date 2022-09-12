@@ -449,7 +449,7 @@ void PreDeterminize(MutableFst<Arc> *fst,
           std::pair<std::pair<StateId, ArcId>, StateId>
               this_pair(std::pair<StateId, ArcId>(s, arc_id), arc.nextstate);
           bool inserted = (arc_hash[arc.ilabel].insert(this_pair)).second;
-          assert(inserted);  // Otherwise we had a duplicate.
+          assert(inserted); (void)inserted; // Otherwise we had a duplicate.
         }
       }
     }
@@ -515,7 +515,7 @@ void PreDeterminize(MutableFst<Arc> *fst,
   {  // (D)(vi): Check that for each state in the FST, d(s) = true.
     for (StateIterator<MutableFst<Arc> > siter(*fst); ! siter.Done(); siter.Next()) {
       StateId val = siter.Value();
-      assert(d_vec[val] == true);
+      assert(d_vec[val] == true); (void)val;
     }
   }
 
@@ -630,7 +630,9 @@ template<class Arc> void AddSelfLoops(MutableFst<Arc> *fst, std::vector<typename
       // If one of the following asserts fails, it means that the input FST already had the symbols
       // we are inserting.  This is contrary to the preconditions of this algorithm.
       assert(!(arc.ilabel>=isyms_min && arc.ilabel<=isyms_max && isyms_set.count(arc.ilabel) != 0));
+      (void)isyms_min; (void)isyms_max;
       assert(!(arc.olabel>=osyms_min && arc.olabel<=osyms_max && osyms_set.count(arc.olabel) != 0));
+      (void)osyms_min; (void)osyms_max;
       if (arc.olabel != 0) // Has non-epsilon output label -> need self loops.
         this_state_needs_self_loops = true;
     }

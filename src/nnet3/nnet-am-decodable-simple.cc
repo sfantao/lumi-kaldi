@@ -110,6 +110,8 @@ void DecodableNnetSimple::EnsureFrameIsComputed(int32 subsampled_frame) {
   KALDI_ASSERT(subsampled_frame < current_subsampled_offset ||
                subsampled_frame >= current_subsampled_offset +
                current_subsampled_frames_computed);
+  (void)current_subsampled_frames_computed;
+  (void)current_subsampled_offset;
 
   // all subsampled frames pertain to the output of the network,
   // they are output frames divided by opts_.frame_subsampling_factor.

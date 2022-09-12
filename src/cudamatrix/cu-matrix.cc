@@ -29,7 +29,7 @@
 #if HAVE_CUDA == 1
 #ifdef __IS_HIP_COMPILE__
 #include <hip/hip_runtime_api.h>
-#include <hipblas/hipblas.h>
+#include <hipblas.h>
 #include "hipify.h"
 #else
 #include <cuda_runtime_api.h>
@@ -1320,7 +1320,7 @@ void CuMatrixBase<Real>::AddMatMat(
 
     KALDI_ASSERT(m == NumCols());
     KALDI_ASSERT(n == NumRows());
-    KALDI_ASSERT(k == k1);
+    KALDI_ASSERT(k == k1); (void)k1;
 
     if (m == 0) return;
 
@@ -1685,6 +1685,8 @@ void CuMatrix<Real>::CompObjfAndDeriv(const std::vector<MatrixElement<Real> >& s
     for (Iter iter = sv_labels.begin(); iter != sv_labels.end(); ++iter) {
       KALDI_ASSERT(iter->row < num_rows && iter->row >= 0 &&
                    iter->column < num_cols && iter->column >= 0);
+      (void)num_rows;
+      (void)num_cols;
     }
   }
 
@@ -2257,7 +2259,7 @@ void AddMatMatBatched(const Real alpha, std::vector<CuSubMatrix<Real>* > &C,
 
   KALDI_ASSERT(m == C[0]->NumCols());
   KALDI_ASSERT(n == C[0]->NumRows());
-  KALDI_ASSERT(k == k1);
+  KALDI_ASSERT(k == k1); (void)k1;
 
   if (m == 0) return;
 
@@ -3303,6 +3305,8 @@ void CuMatrixBase<Real>::AddElements(Real alpha,
   for (int32 i = 0; i < input.size(); ++i) {
     KALDI_ASSERT(input[i].row < num_rows && input[i].row >= 0 &&
                  input[i].column < num_cols && input[i].column >= 0);
+    (void)num_rows;
+    (void)num_cols;
   }
 #if HAVE_CUDA == 1
   if (CuDevice::Instantiate().Enabled()) {
@@ -3357,6 +3361,8 @@ void CuMatrixBase<Real>::AddElements(Real alpha, const CuArrayBase<Int32Pair> &i
     for (int32 i = 0; i < indexes.Dim(); i++) {
       KALDI_ASSERT(index[i].first < num_rows && index[i].first >= 0 &&
                    index[i].second < num_cols && index[i].second >= 0);
+      (void)num_rows;
+      (void)num_cols;
       (*this)(index[i].first, index[i].second) += alpha * input[i];
     }
   }
@@ -3396,6 +3402,8 @@ void CuMatrixBase<Real>::Lookup(const std::vector<Int32Pair> &indices,
   for (int32 i = 0; i < indices.size(); ++i) {
     KALDI_ASSERT(indices[i].first < num_rows && indices[i].first >= 0 &&
                  indices[i].second < num_cols && indices[i].second >= 0);
+    (void)num_rows;
+    (void)num_cols;
   }
   if (indices.size() == 0) return;
   KALDI_ASSERT(output != NULL);
@@ -3441,6 +3449,8 @@ void CuMatrixBase<Real>::Lookup(const CuArrayBase<Int32Pair> &indices,
     for (int32 i = 0; i < num_elements; i++) {
       KALDI_ASSERT(index[i].first < num_rows && index[i].first >= 0 &&
                    index[i].second < num_cols && index[i].second >= 0);
+      (void)num_rows;
+      (void)num_cols;
       output[i] = (*this)(index[i].first, index[i].second);
     }
   }

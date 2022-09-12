@@ -813,6 +813,7 @@ void OnlinePitchFeatureImpl::UpdateRemainder(
     // is less than the frame shift.
     int32 full_frame_length = opts_.NccfWindowSize() + nccf_last_lag_;
     KALDI_ASSERT(full_frame_length < frame_shift && "Code error");
+    (void)full_frame_length;
     downsampled_signal_remainder_.Resize(0);
   } else {
     Vector<BaseFloat> new_remainder(next_downsampled_samples_processed -

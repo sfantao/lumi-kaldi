@@ -341,7 +341,8 @@ void ComposeDeterministicOnDemand(const Fst<Arc> &fst1,
   // state in fst_composed.
   std::pair<const StatePair, StateId> start_map(start_pair, start_state);
   std::pair<IterType, bool> result = state_map.insert(start_map);
-  KALDI_ASSERT(result.second == true);
+  KALDI_ASSERT(result.second == true); (void)result;
+
 
   while (!state_queue.empty()) {
     StatePair q = state_queue.front();
@@ -384,7 +385,7 @@ void ComposeDeterministicOnDemand(const Fst<Arc> &fst1,
         std::pair<IterType, bool> result = state_map.insert(new_state);
         // Since we already checked if state_map contained new_state,
         // it should always be added if we reach here.
-        KALDI_ASSERT(result.second == true);
+        KALDI_ASSERT(result.second == true); (void)result;
         state_queue.push(next_pair);
       // If sitr != state_map.end() then the next state is already in
       // the state_map.
@@ -434,7 +435,7 @@ void ComposeDeterministicOnDemandInverse(const Fst<Arc> &right,
   // state in fst_composed.
   std::pair<const StatePair, StateId> start_map(start_pair, start_state);
   std::pair<IterType, bool> result = state_map.insert(start_map);
-  KALDI_ASSERT(result.second == true);
+  KALDI_ASSERT(result.second == true); (void)result;
 
   while (!state_queue.empty()) {
     StatePair q = state_queue.front();
@@ -482,7 +483,7 @@ void ComposeDeterministicOnDemandInverse(const Fst<Arc> &right,
         std::pair<IterType, bool> result = state_map.insert(new_state);
         // Since we already checked if state_map contained new_state,
         // it should always be added if we reach here.
-        KALDI_ASSERT(result.second == true);
+        KALDI_ASSERT(result.second == true); (void)result;
         state_queue.push(next_pair);
       // If sitr != state_map.end() then the next state is already in
       // the state_map.

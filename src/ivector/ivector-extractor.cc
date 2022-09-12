@@ -872,6 +872,7 @@ void IvectorExtractorUtteranceStats::AccStats(
       int32 i = iter->first; // Gaussian index.
       KALDI_ASSERT(i >= 0 && i < num_gauss &&
                    "Out-of-range Gaussian (mismatched posteriors?)");
+      (void)num_gauss;
       double weight = iter->second;
       gamma_(i) += weight;
       X_.Row(i).AddVec(weight, frame);
@@ -1109,6 +1110,8 @@ void IvectorExtractorStats::CheckDims(const IvectorExtractor &extractor) const {
   KALDI_ASSERT(static_cast<int32>(Y_.size()) == I);
   for (int32 i = 0; i < I; i++)
     KALDI_ASSERT(Y_[i].NumRows() == D && Y_[i].NumCols() == S);
+  (void)S;
+  (void)D;
   KALDI_ASSERT(R_.NumRows() == I && R_.NumCols() == S*(S+1)/2);
   if (extractor.IvectorDependentWeights()) {
     KALDI_ASSERT(Q_.NumRows() == I && Q_.NumCols() == S*(S+1)/2);
@@ -1321,7 +1324,7 @@ double IvectorExtractorStats::UpdateProjection(
     int32 i,
     IvectorExtractor *extractor) const {
   int32 I = extractor->NumGauss(), S = extractor->IvectorDim();
-  KALDI_ASSERT(i >= 0 && i < I);
+  KALDI_ASSERT(i >= 0 && i < I); (void)I;
   /*
     For Gaussian index i, maximize the auxiliary function
        Q_i(x) = tr(M_i^T Sigma_i^{-1} Y_i)  - 0.5 tr(Sigma_i^{-1} M_i R_i M_i^T)
@@ -1544,7 +1547,7 @@ double IvectorExtractorStats::UpdateWeight(
 
   int32 num_gauss = extractor->NumGauss(),
       ivector_dim = extractor->IvectorDim();
-  KALDI_ASSERT(i >= 0 && i < num_gauss);
+  KALDI_ASSERT(i >= 0 && i < num_gauss); (void)num_gauss;
 
   SolverOptions solver_opts;
   solver_opts.diagonal_precondition = true;

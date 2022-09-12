@@ -398,7 +398,7 @@ void LanguageModelEstimator::OutputToFst(
   fst::Connect(fst);
   // Make sure that Connect does not delete any states.
   int32 num_states_connected = fst->NumStates();
-  KALDI_ASSERT(num_states_connected == num_states);
+  KALDI_ASSERT(num_states_connected == num_states); (void)num_states_connected;
   // arc-sort.  ilabel or olabel doesn't matter, it's an acceptor.
   fst::ArcSort(fst, fst::ILabelCompare<fst::StdArc>());
   KALDI_LOG << "Created phone language model with " << num_states

@@ -1604,7 +1604,7 @@ class ModelCollapser {
     //  Append(Offset(Offset(bar, -1), -1), Offset(Offset(bar, -1), 1)).
     bool b = DescriptorTokenize(src_replaced_os.str(),
                                   &tokens);
-    KALDI_ASSERT(b);
+    KALDI_ASSERT(b); (void)b;
     // 'tokens' might now contain something like [ "Append", "(", "Offset", ..., ")" ].
     tokens.push_back("end of input");
     const std::string *next_token = &(tokens[0]);

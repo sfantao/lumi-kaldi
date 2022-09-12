@@ -274,6 +274,8 @@ void Nnet::Check() const {
     int32 output_dim = components_[i]->OutputDim(),
       next_input_dim = components_[i+1]->InputDim();
     KALDI_ASSERT(output_dim == next_input_dim);
+    (void)output_dim;
+    (void)next_input_dim;
     KALDI_ASSERT(components_[i]->Index() == static_cast<int32>(i));
   }
 }

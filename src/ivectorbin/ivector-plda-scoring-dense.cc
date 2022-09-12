@@ -105,6 +105,7 @@ void ApplyPca(const Matrix<BaseFloat> &ivectors_in,
         feat_dim = ivectors_in.NumCols();
   ivectors_out->Resize(ivectors_in.NumRows(), transform_rows);
   KALDI_ASSERT(transform_cols == feat_dim);
+  (void)transform_cols; (void)feat_dim;
   ivectors_out->AddMatMat(1.0, ivectors_in, kNoTrans,
     pca_mat, kTrans, 0.0);
 }

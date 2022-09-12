@@ -458,6 +458,7 @@ void* StatisticsExtractionComponent::Propagate(
                indexes->forward_indexes.Dim() == num_rows_out &&
                in.NumCols() == input_dim_ &&
                out->NumCols() == OutputDim());
+  (void)num_rows_out;
   out->SetZero();
   // store the counts.
   out->CopyColFromVec(indexes->counts, 0);
@@ -1064,6 +1065,7 @@ BackpropTruncationComponent::PrecomputeIndexes(
   int32 num_input_indexes = input_indexes.size(),
       num_output_indexes = output_indexes.size();
   KALDI_ASSERT(num_input_indexes == num_output_indexes);
+  (void)num_input_indexes;
   Vector<BaseFloat> zeroing_cpu(num_output_indexes);
 
   for (int32 i = 0; i < num_output_indexes; i++) {
@@ -1517,7 +1519,7 @@ Component* DropoutMaskComponent::Copy() const {
 void DropoutMaskComponent::InitFromConfig(ConfigLine *cfl) {
   output_dim_ = 0;
   bool ok = cfl->GetValue("output-dim", &output_dim_);
-  KALDI_ASSERT(ok && output_dim_ > 0);
+  KALDI_ASSERT(ok && output_dim_ > 0); (void)ok;
   dropout_proportion_ = 0.5;
   cfl->GetValue("dropout-proportion", &dropout_proportion_);
   continuous_ = false;
@@ -1705,7 +1707,7 @@ Component* GeneralDropoutComponent::Copy() const {
 void GeneralDropoutComponent::InitFromConfig(ConfigLine *cfl) {
   dim_ = 0;
   bool ok = cfl->GetValue("dim", &dim_);
-  KALDI_ASSERT(ok && dim_ > 0);
+  KALDI_ASSERT(ok && dim_ > 0); (void)ok;
   block_dim_ = dim_;
   cfl->GetValue("block-dim", &block_dim_);
   if (!(block_dim_ > 0 && dim_ % block_dim_ == 0))
@@ -1953,7 +1955,7 @@ void SpecAugmentTimeMaskComponent::Backprop(
 
   const SpecAugmentTimeMaskComponentPrecomputedIndexes *indexes =
     dynamic_cast<const SpecAugmentTimeMaskComponentPrecomputedIndexes*>(indexes_in);
-  KALDI_ASSERT(indexes != NULL && memo != NULL);
+  KALDI_ASSERT(indexes != NULL && memo != NULL); (void)indexes;
   CuVector<BaseFloat> *mask = reinterpret_cast<CuVector<BaseFloat>*>(memo);
 
   in_deriv->MulRowsVec(*mask);
@@ -1996,7 +1998,7 @@ Component* SpecAugmentTimeMaskComponent::Copy() const {
 void SpecAugmentTimeMaskComponent::InitFromConfig(ConfigLine *cfl) {
   dim_ = 0;
   bool ok = cfl->GetValue("dim", &dim_);
-  KALDI_ASSERT(ok && dim_ > 0);
+  KALDI_ASSERT(ok && dim_ > 0); (void)ok;
   zeroed_proportion_ = 0.25;
   cfl->GetValue("zeroed-proportion", &zeroed_proportion_);
   time_mask_max_frames_ = 10;

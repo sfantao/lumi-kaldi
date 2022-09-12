@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
           SubVector<BaseFloat> data(mat, i);
           const std::vector<int32> &this_gselect = gselect[i];
           int32 gselect_size = this_gselect.size();
-          KALDI_ASSERT(gselect_size > 0);
+          KALDI_ASSERT(gselect_size > 0); (void)gselect_size;
           Vector<BaseFloat> loglikes;
           gmm.LogLikelihoodsPreselect(data, this_gselect, &loglikes);
           file_like += weight * loglikes.ApplySoftMax();

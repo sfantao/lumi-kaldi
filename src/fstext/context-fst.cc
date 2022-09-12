@@ -61,6 +61,8 @@ InverseContextFst::InverseContextFst(
   StateId start_state = FindState(epsilon_vec);
 
   KALDI_ASSERT(epsilon_label == 0 && start_state == 0);
+  (void)epsilon_label;
+  (void)start_state;
 
   if (context_width_ > central_position_ + 1 && !disambig_syms_.empty()) {
     // We add a symbol whose sequence representation is [ 0 ], and whose

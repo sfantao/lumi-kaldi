@@ -224,7 +224,7 @@ void DiscriminativeComputation::LookupNnetOutput(
   // Denominator probabilities to look up from denominator lattice
   std::vector<int32> state_times;
   int32 T = LatticeStateTimes(den_lat_, &state_times);
-  KALDI_ASSERT(T == num_frames);
+  KALDI_ASSERT(T == num_frames); (void)T;
 
   StateId num_states = den_lat_.NumStates();
   for (StateId s = 0; s < num_states; s++) {
@@ -249,7 +249,7 @@ void DiscriminativeComputation::LookupNnetOutput(
             idx = t % supervision_.frames_per_sequence;
       int32 tid = supervision_.num_ali[t],
                   pdf_id = tmodel_.TransitionIdToPdf(tid);
-      KALDI_ASSERT(pdf_id >= 0 && pdf_id < num_pdfs);
+      KALDI_ASSERT(pdf_id >= 0 && pdf_id < num_pdfs); (void)num_pdfs;
       requested_indexes->push_back(MakePair(idx * supervision_.num_sequences + seq, pdf_id));
     }
   }
@@ -362,6 +362,7 @@ void DiscriminativeComputation::Compute() {
 
   int32 num_pdfs = nnet_output_.NumCols();
   KALDI_ASSERT(log_priors_.Dim() == 0 || num_pdfs == log_priors_.Dim());
+  (void)num_pdfs;
 
   // We need to look up the nnet output for some pdf-ids.
   // Rather than looking them all up using operator (), which is

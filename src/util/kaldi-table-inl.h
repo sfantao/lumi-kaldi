@@ -101,7 +101,7 @@ template<class Holder>  class SequentialTableReaderScriptImpl:
     rspecifier_ = rspecifier;
     RspecifierType rs = ClassifyRspecifier(rspecifier, &script_rxfilename_,
                                            &opts_);
-    KALDI_ASSERT(rs == kScriptRspecifier);
+    KALDI_ASSERT(rs == kScriptRspecifier); (void)rs;
     if (!script_input_.Open(script_rxfilename_, &binary)) {  // Failure on Open
       KALDI_WARN << "Failed to open script file "
                  << PrintableRxfilename(script_rxfilename_);
@@ -501,7 +501,7 @@ template<class Holder>  class SequentialTableReaderArchiveImpl:
     RspecifierType rs = ClassifyRspecifier(rspecifier,
                                            &archive_rxfilename_,
                                            &opts_);
-    KALDI_ASSERT(rs == kArchiveRspecifier);
+    KALDI_ASSERT(rs == kArchiveRspecifier); (void)rs;
 
     bool ans;
     // NULL means don't expect binary-mode header
@@ -1013,7 +1013,7 @@ class TableWriterArchiveImpl: public TableWriterImplBase<Holder> {
                                            &archive_wxfilename_,
                                            NULL,
                                            &opts_);
-    KALDI_ASSERT(ws == kArchiveWspecifier);  // or wrongly called.
+    KALDI_ASSERT(ws == kArchiveWspecifier); (void)ws; // or wrongly called.
 
     if (output_.Open(archive_wxfilename_, opts_.binary, false)) {  // false
                                                       // means no binary header.
@@ -1151,7 +1151,7 @@ class TableWriterScriptImpl: public TableWriterImplBase<Holder> {
                                            NULL,
                                            &script_rxfilename_,
                                            &opts_);
-    KALDI_ASSERT(ws == kScriptWspecifier);  // or wrongly called.
+    KALDI_ASSERT(ws == kScriptWspecifier); (void)ws; // or wrongly called.
     KALDI_ASSERT(script_.empty());  // no way it could be nonempty at this point.
 
     if (!ReadScriptFile(script_rxfilename_,
@@ -1306,7 +1306,7 @@ class TableWriterBothImpl: public TableWriterImplBase<Holder> {
                                            &archive_wxfilename_,
                                            &script_wxfilename_,
                                            &opts_);
-    KALDI_ASSERT(ws == kBothWspecifier);  // or wrongly called.
+    KALDI_ASSERT(ws == kBothWspecifier); (void)ws;  // or wrongly called.
     if (ClassifyWxfilename(archive_wxfilename_) != kFileOutput)
       KALDI_WARN << "When writing to both archive and script, the script file "
           "will generally not be interpreted correctly unless the archive is "
@@ -1609,7 +1609,7 @@ class RandomAccessTableReaderScriptImpl:
     RspecifierType rs = ClassifyRspecifier(rspecifier,
                                            &script_rxfilename_,
                                            &opts_);
-    KALDI_ASSERT(rs == kScriptRspecifier);  // or wrongly called.
+    KALDI_ASSERT(rs == kScriptRspecifier); (void)rs;  // or wrongly called.
     KALDI_ASSERT(script_.empty());  // no way it could be nonempty at this point
 
     if (!ReadScriptFile(script_rxfilename_,
@@ -1908,7 +1908,7 @@ class RandomAccessTableReaderArchiveImplBase:
     rspecifier_ = rspecifier;
     RspecifierType rs = ClassifyRspecifier(rspecifier, &archive_rxfilename_,
                                            &opts_);
-    KALDI_ASSERT(rs == kArchiveRspecifier);
+    KALDI_ASSERT(rs == kArchiveRspecifier); (void)rs;
 
     // NULL means don't expect binary-mode header
     bool ans;

@@ -197,9 +197,9 @@ GetHmmAsFsaSimple(std::vector<int32> phone_window,
       self_loop_pdf = kNoPdf;
     } else {
       bool ans = ctx_dep.Compute(phone_window, forward_pdf_class, &forward_pdf);
-      KALDI_ASSERT(ans && "Context-dependency computation failed.");
+      KALDI_ASSERT(ans && "Context-dependency computation failed."); (void)ans;
       ans = ctx_dep.Compute(phone_window, self_loop_pdf_class, &self_loop_pdf);
-      KALDI_ASSERT(ans && "Context-dependency computation failed.");
+      KALDI_ASSERT(ans && "Context-dependency computation failed."); (void)ans;
     }
     int32 trans_idx;
     for (trans_idx = 0;
@@ -361,7 +361,7 @@ void GetIlabelMapping (const std::vector<std::vector<int32> > &ilabel_info_old,
     if (vec.size() == 1 && vec[0] <= 0) {  // disambig.
       old2old_map[i] = i;
     } else {
-      KALDI_ASSERT(vec.size() == static_cast<size_t>(N));
+      KALDI_ASSERT(vec.size() == static_cast<size_t>(N)); (void)N;
       // work out the vector of context-dependent phone
       int32 central_phone = vec[P];
       int32 num_pdf_classes = trans_model.GetTopo().NumPdfClasses(central_phone);
@@ -1252,7 +1252,7 @@ void GetRandomAlignmentForPhone(const ContextDependencyInterface &ctx_dep,
   std::vector<int32> symbol_sequence;
   bool ans = fst::GetLinearSymbolSequence<Arc, int32>(
       single_path_fst, &symbol_sequence, NULL, NULL);
-  KALDI_ASSERT(ans && symbol_sequence.size() == length);
+  KALDI_ASSERT(ans && symbol_sequence.size() == length); (void)ans;
   symbol_sequence.swap(*alignment);
   delete fst;
 }

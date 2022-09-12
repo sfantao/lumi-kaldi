@@ -198,7 +198,8 @@ template<class F> class DeterminizerStar {
       std::vector<Element> vec;
       vec.push_back(elem);
       OutputStateId cur_id = SubsetToStateId(vec);
-      assert(cur_id == 0 && "Do not call Determinize twice.");
+
+      assert(cur_id == 0 && "Do not call Determinize twice."); (void)cur_id;
     }
     while (!Q_.empty()) {
       std::pair<std::vector<Element>*, OutputStateId> cur_pair = Q_.front();
@@ -561,7 +562,7 @@ template<class F> class DeterminizerStar {
       bool ans = hash_.insert(std::pair<const std::vector<Element>*,
                                         OutputStateId>(new_subset,
                                                        new_state_id)).second;
-      assert(ans);
+      assert(ans); (void)ans;
       output_arcs_.push_back(std::vector<TempArc>());
       if (allow_partial_ == false) {
         // If --allow-partial is not requested, we do the old way.
@@ -924,7 +925,7 @@ void DeterminizerStar<F>::Output(MutableFst<Arc> *ofst, bool destroy) {
   // Add basic states-- but will add extra ones to account for strings on output.
   for (OutputStateId s = 0; s < num_states; s++) {
     OutputStateId news = ofst->AddState();
-    assert(news == s);
+    assert(news == s); (void)news;
   }
   ofst->SetStart(0);
   for (OutputStateId this_state = 0; this_state < num_states; this_state++) {

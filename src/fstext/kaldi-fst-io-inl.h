@@ -120,15 +120,18 @@ void ReadFstKaldi(std::istream &is, bool binary,
 
       bool ok = true;
       Arc arc;
-      Weight w;
+
       StateId d = s;
       switch (col.size()) {
         case 1:
           fst->SetFinal(s, Weight::One());
           break;
         case 2:
-          if (!StrToWeight(col[1], true, &w)) ok = false;
-          else fst->SetFinal(s, w);
+          {
+        	Weight w;
+            if (!StrToWeight(col[1], true, &w)) ok = false;
+            else fst->SetFinal(s, w);
+          }
           break;
         case 3: // 3 columns not ok for Lattice format; it's not an acceptor.
           ok = false;

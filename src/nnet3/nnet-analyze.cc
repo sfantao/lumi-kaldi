@@ -761,6 +761,8 @@ void ComputationChecker::CheckComputationCompression() const {
                      kDecompressMatrix &&
                      command_index < middle_command &&
                      next_command_index > middle_command);
+        (void)next_command_index;
+        (void)middle_command;
         if (command.alpha == 0.0) {
           // alpha == 0.0 means we're only retaining the sign; we should
           // only do this if this is the output of a ReLU.
@@ -777,6 +779,7 @@ void ComputationChecker::CheckComputationCompression() const {
           KALDI_ASSERT(next_command.command_type == kBackprop &&
                        nnet_.GetComponent(next_command.arg1)->Type() ==
                        "RectifiedLinearComponent");
+          (void)next_command;
         }
       }
     }
@@ -1279,7 +1282,7 @@ int32 ComputationAnalysis::LastAccess(int32 s) const {
       CommandType command_type =
           computation_.commands[command_index].command_type;
       // deallocation command should not be listed here.
-      KALDI_ASSERT(command_type != kDeallocMatrix);
+      KALDI_ASSERT(command_type != kDeallocMatrix); (void)command_type;
       ans = std::max(ans, command_index);
       break;  // break from access_iter loop (an optimization)
     }
@@ -1309,7 +1312,7 @@ int32 ComputationAnalysis::LastWriteAccess(int32 s) const {
       CommandType command_type =
           computation_.commands[command_index].command_type;
       // deallocation command should not be listed here.
-      KALDI_ASSERT(command_type != kDeallocMatrix);
+      KALDI_ASSERT(command_type != kDeallocMatrix); (void)command_type;
       if (access_iter->access_type != kReadAccess) {
         // If this operation is of type kWriteAccess or kReadWriteAccess
         ans = std::max(ans, command_index);

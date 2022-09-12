@@ -472,6 +472,9 @@ static void UnitTestSetRandn() {
       Real lower_bound = expected_moment - allowed_deviation,
           upper_bound = expected_moment + allowed_deviation;
       KALDI_ASSERT(observed_moment >= lower_bound && observed_moment <= upper_bound);
+      (void)observed_moment;
+      (void)lower_bound;
+      (void)upper_bound;
     }
   }
 }
@@ -508,6 +511,9 @@ static void UnitTestSetRandUniform() {
       Real lower_bound = expected_moment - allowed_deviation,
           upper_bound = expected_moment + allowed_deviation;
       KALDI_ASSERT(observed_moment >= lower_bound && observed_moment <= upper_bound);
+      (void)observed_moment;
+      (void)lower_bound;
+      (void)upper_bound;
     }
   }
 }
@@ -636,7 +642,7 @@ static void UnitTestVectorMax() {
   for (int32 i = 1; i < dimM; i++) m = std::max(m, V(i));
   KALDI_ASSERT(m == V.Max());
   MatrixIndexT i;
-  KALDI_ASSERT(m == V.Max(&i));
+  KALDI_ASSERT(m == V.Max(&i)); (void)i;
   KALDI_ASSERT(m == V(i));
 }
 
@@ -649,7 +655,7 @@ static void UnitTestVectorMin() {
   for (int32 i = 1; i < dimM; i++) m = std::min(m, V(i));
   KALDI_ASSERT(m == V.Min());
   MatrixIndexT i;
-  KALDI_ASSERT(m == V.Min(&i));
+  KALDI_ASSERT(m == V.Min(&i)); (void)i;
   KALDI_ASSERT(m == V(i));
 }
 
@@ -693,11 +699,11 @@ static void UnitTestNorm() {  // test some simple norm properties: scaling.  als
     M.Scale(scalar);
     S.Scale(scalar);
     V.Scale(scalar);
-    KALDI_ASSERT(ApproxEqual(M.FrobeniusNorm(), Mnorm*scalar));
-    KALDI_ASSERT(ApproxEqual(S.FrobeniusNorm(), Snorm*scalar));
-    KALDI_ASSERT(ApproxEqual(V.Norm(1.0), Vnorm1 * scalar));
-    KALDI_ASSERT(ApproxEqual(V.Norm(2.0), Vnorm2 * scalar));
-    KALDI_ASSERT(ApproxEqual(V.Norm(3.0), Vnorm3 * scalar));
+    KALDI_ASSERT(ApproxEqual(M.FrobeniusNorm(), Mnorm*scalar)); (void)Mnorm;
+    KALDI_ASSERT(ApproxEqual(S.FrobeniusNorm(), Snorm*scalar)); (void)Snorm;
+    KALDI_ASSERT(ApproxEqual(V.Norm(1.0), Vnorm1 * scalar)); (void)Vnorm1;
+    KALDI_ASSERT(ApproxEqual(V.Norm(2.0), Vnorm2 * scalar)); (void)Vnorm2;
+    KALDI_ASSERT(ApproxEqual(V.Norm(3.0), Vnorm3 * scalar)); (void)Vnorm3;
 
     KALDI_ASSERT(V.ApproxEqual(V));
     KALDI_ASSERT(M.ApproxEqual(M));
@@ -902,6 +908,7 @@ static void UnitTestSimpleForMat() {  // test some simple operates on all kinds 
     Real tmp1 = sqrt(M1.Sum());
     Real tmp2 = N.FrobeniusNorm();
     KALDI_ASSERT(std::abs(tmp1 - tmp2) < 0.00001);
+    (void)tmp1; (void)tmp2;
 
     // for LargestAbsElem() function
     Vector<Real> V(dimM);
@@ -939,6 +946,7 @@ static void UnitTestSimpleForMat() {  // test some simple operates on all kinds 
   Real tmp;
   Real *DetSign = &tmp;
   KALDI_ASSERT(std::abs(B.LogDet(DetSign) - x.LogPosDefDet()) < 0.00001);
+  (void)DetSign;
 
   for (MatrixIndexT p = 0; p < 10; p++) {  // test for sp and tp matrix's AddSp() and AddTp() function
     MatrixIndexT dimM = 10 + Rand() % 10;
@@ -1127,6 +1135,7 @@ template<typename Real> static void UnitTestHeaviside() {
         if (x < 0.0) KALDI_ASSERT(y == 0.0);
         if (x > 0.0) KALDI_ASSERT(y == 1.0);
         if (x == 0.0) { KALDI_ASSERT(y >= 0.0 && y <= 1.0); }
+        (void)y;
       }
     }
   }
@@ -1192,6 +1201,9 @@ template<typename Real> static void UnitTestDeterminant() {  // also tests matri
     logdet2 = N.LogDet(&sign2);
     logdet3 = S.LogDet(&sign3);
     KALDI_ASSERT(sign2 == 1.0 && sign3 == 1.0 && std::abs(logdet2-logdet) < 0.1 && std::abs(logdet2 - logdet3) < 0.1);
+    (void)logdet;
+    (void)logdet2;
+    (void)logdet3;
     Matrix<Real> tmp(dimM, dimM); tmp.SetZero();
     tmp.AddMat(1.0, N);
     tmp.AddMat(-1.0, N, kTrans);
@@ -1204,6 +1216,7 @@ template<typename Real> static void UnitTestDeterminant() {  // also tests matri
 
     Real a = TraceSpSp(S, S), b = TraceMatMat(N, N), c = TraceMatMat(N, N, kTrans);
     KALDI_ASSERT(std::abs(a-b) < 0.1 && std::abs(b-c) < 0.1);
+    (void)a;(void)b;(void)c;
   }
 }
 
@@ -1223,7 +1236,7 @@ template<typename Real> static void UnitTestDeterminantSign() {
     logdet2 = N.LogDet(&sign2);
     logdet3 = S.LogDet(&sign3);
     KALDI_ASSERT(sign2 == 1.0 && sign3 == 1.0 && std::abs(logdet2-logdet) < 0.01 && std::abs(logdet2 - logdet3) < 0.01);
-
+    (void)logdet2;(void)logdet3;
     MatrixIndexT num_sign_changes = Rand() % 5;
     for (MatrixIndexT change = 0; change < num_sign_changes; change++) {
       // Change sign of S's det by flipping one eigenvalue, and N by flipping one row.
@@ -1847,9 +1860,9 @@ template<typename Real> static void UnitTestDotprod() {
     Real f = VecVec(w, v), f2 = VecVec(wd, v), f3 = VecVec(v, wd);
     Real sum = 0.0;
     for (MatrixIndexT i = 0;i < dimM;i++) sum += v(i)*w(i);
-    KALDI_ASSERT(std::abs(f-sum) < 0.001);
-    KALDI_ASSERT(std::abs(f2-sum) < 0.001);
-    KALDI_ASSERT(std::abs(f3-sum) < 0.001);
+    KALDI_ASSERT(std::abs(f-sum) < 0.001); (void)f;
+    KALDI_ASSERT(std::abs(f2-sum) < 0.001); (void)f2;
+    KALDI_ASSERT(std::abs(f3-sum) < 0.001); (void)f3;
   }
 }
 
@@ -3271,6 +3284,7 @@ template<typename Real> static void UnitTestLinearCgd() {
         }
       } else {
         KALDI_ASSERT(error <= wiggle_room * opts.max_error);
+        (void)wiggle_room;
       }
     }
   }
@@ -3366,6 +3380,8 @@ template<typename Real> static void UnitTestTrace() {
     KALDI_ASSERT((std::abs(t1-t2) < tol) && (std::abs(t2-t3) < tol) && (std::abs(t3-t4) < tol)
                  && (std::abs(t4-t5) < tol) && (std::abs(t5-t6) < tol) && (std::abs(t6-t7) < tol)
                  && (std::abs(t7-t8) < tol) && (std::abs(t8-t9) < tol));
+    (void)t1;(void)t2;(void)t3;(void)t4;(void)t5;(void)t6;(void)t7;(void)t8;(void)t9;
+    (void)tol;
   }
 
   for (MatrixIndexT i = 0;i < 5;i++) {
@@ -3379,14 +3395,17 @@ template<typename Real> static void UnitTestTrace() {
     Real x1 = TraceMatMat(tM, tM);
     Real x2 = TraceSpMat(T, tM);
     KALDI_ASSERT(approx_equal(x1, x2) || fabs(x1-x2) < 0.1);
+    (void)x1; (void)x2;
 
     Real t1 = TraceMatMatMat(M, kNoTrans, tM, kNoTrans, M, kTrans);
     Real t2 = TraceMatSpMat(M, kNoTrans, T, M, kTrans);
     KALDI_ASSERT(approx_equal(t1, t2) || fabs(t1-12) < 0.1);
+    (void)t1; (void)t2;
 
     Real u1 = TraceMatSpMatSp(M, kNoTrans, T, O, kTrans, S);
     Real u2 = TraceMatMatMatMat(M, kNoTrans, tM, kNoTrans, O, kTrans, sM, kNoTrans);
     KALDI_ASSERT(approx_equal(u1, u2) || fabs(u1-u2) < 0.1);
+    (void)u1; (void)u2;
   }
 
 }
@@ -3705,7 +3724,7 @@ void UnitTestComplexPower() {
     Real power = RandGauss();
     Real x = 2.0, y = 0.0;
     bool ans = AttemptComplexPower(&x, &y, power);
-    KALDI_ASSERT(ans);
+    KALDI_ASSERT(ans); (void)ans;
     AssertEqual(std::pow(static_cast<Real>(2.0), power), x);
     AssertEqual(y, 0.0);
   }
@@ -3713,7 +3732,7 @@ void UnitTestComplexPower() {
     Real x, y;
     x = 0.5; y = -0.3;
     bool ans = AttemptComplexPower(&x, &y, static_cast<Real>(2.21));
-    KALDI_ASSERT(ans);
+    KALDI_ASSERT(ans); (void)ans;
     ans = AttemptComplexPower(&x, &y, static_cast<Real>(1.0/2.21));
     KALDI_ASSERT(ans);
     AssertEqual(x, 0.5);
@@ -3723,7 +3742,7 @@ void UnitTestComplexPower() {
     Real x, y;
     x = 0.5; y = -0.3;
     bool ans = AttemptComplexPower(&x, &y, static_cast<Real>(2.0));
-    KALDI_ASSERT(ans);
+    KALDI_ASSERT(ans); (void)ans;
     AssertEqual(x, 0.5*0.5 - 0.3*0.3);
     AssertEqual(y, -0.3*0.5*2.0);
   }
@@ -3732,7 +3751,7 @@ void UnitTestComplexPower() {
     Real x, y;
     x = 1.0/std::sqrt(2.0); y = -1.0/std::sqrt(2.0);
     bool ans = AttemptComplexPower(&x, &y, static_cast<Real>(-1.0));
-    KALDI_ASSERT(ans);
+    KALDI_ASSERT(ans); (void)ans;
     AssertEqual(x, 1.0/std::sqrt(2.0));
     AssertEqual(y, 1.0/std::sqrt(2.0));
   }
@@ -3741,13 +3760,13 @@ void UnitTestComplexPower() {
     Real x, y;
     x = 0.0; y = 0.0;
     bool ans = AttemptComplexPower(&x, &y, static_cast<Real>(-2.0));
-    KALDI_ASSERT(!ans);  // zero; negative pow.
+    KALDI_ASSERT(!ans); (void)ans;  // zero; negative pow.
   }
   {
     Real x, y;
     x = -2.0; y = 0.0;
     bool ans = AttemptComplexPower(&x, &y, static_cast<Real>(1.5));
-    KALDI_ASSERT(!ans);  // negative real case
+    KALDI_ASSERT(!ans); (void)ans;  // negative real case
   }
 }
 template<typename Real>
@@ -3765,7 +3784,7 @@ void UnitTestNonsymmetricPower() {
 
     Matrix<Real> MM2(MM);
     bool b = MM2.Power(1.0);
-    KALDI_ASSERT(b);
+    KALDI_ASSERT(b); (void)b;
     AssertEqual(MM2, MM);
     Matrix<Real> MMMM2(MM);
     b = MMMM2.Power(2.0);

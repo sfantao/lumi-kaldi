@@ -753,7 +753,7 @@ bool LatticeBoost(const TransitionInformation &trans,
   vector<int32> state_times;
   int32 num_states = lat->NumStates();
   int32 num_frames = LatticeStateTimes(*lat, &state_times);
-  KALDI_ASSERT(num_frames == static_cast<int32>(alignment.size()));
+  KALDI_ASSERT(num_frames == static_cast<int32>(alignment.size())); (void)num_frames;
   for (int32 state = 0; state < num_states; state++) {
     int32 cur_time = state_times[state];
     for (fst::MutableArcIterator<Lattice> aiter(lat, state); !aiter.Done();
@@ -1158,7 +1158,7 @@ void ExpandCompactLattice(const CompactLattice &clat,
   state_queue.push(start_pair);
   std::pair<IterType, bool> result =
     state_map.insert(std::make_pair(start_pair, start_state));
-  KALDI_ASSERT(result.second == true);
+  KALDI_ASSERT(result.second == true); (void)result;
 
   // Expand <clat> and update forward logprobs alphas in <expand_clat>.
   while (!state_queue.empty()) {
@@ -1188,7 +1188,7 @@ void ExpandCompactLattice(const CompactLattice &clat,
         StatePair next_pair(orig_state, copy_state);
         std::pair<IterType, bool> result =
           state_map.insert(std::make_pair(next_pair, copy_state));
-        KALDI_ASSERT(result.second == true);
+        KALDI_ASSERT(result.second == true); (void)result;
         state_queue.push(next_pair);
       } else {
         unordered_map<StateId, StateId>::iterator iter = states.find(orig_state);
@@ -1198,7 +1198,7 @@ void ExpandCompactLattice(const CompactLattice &clat,
           StatePair next_pair(orig_state, copy_state);
           std::pair<IterType, bool> result =
             state_map.insert(std::make_pair(next_pair, copy_state));
-          KALDI_ASSERT(result.second == true);
+          KALDI_ASSERT(result.second == true); (void)result;
           state_queue.push(next_pair);
           states[orig_state] = copy_state;
         } else {
@@ -1674,7 +1674,7 @@ void ComposeCompactLatticeDeterministic(
   state_queue.push(start_pair);
   std::pair<IterType, bool> result =
       state_map.insert(std::make_pair(start_pair, start_state));
-  KALDI_ASSERT(result.second == true);
+  KALDI_ASSERT(result.second == true); (void)result;
 
   // Starts composition here.
   while (!state_queue.empty()) {
@@ -1742,7 +1742,7 @@ void ComposeCompactLatticeDeterministic(
           std::pair<const StatePair, StateId> next_state_map(next_state_pair,
                                                              next_state);
           std::pair<IterType, bool> result = state_map.insert(next_state_map);
-          KALDI_ASSERT(result.second);
+          KALDI_ASSERT(result.second); (void)result;
           state_queue.push(next_state_pair);
         } else {
           // If the composed state is already in <state_map>, we can directly

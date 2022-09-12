@@ -61,7 +61,7 @@ void ConvertLattice(
   StateId num_states = ffst.NumStates();
   for (StateId s = 0; s < num_states; s++) {
     StateId news = ofst->AddState();
-    assert(news == s);
+    assert(news == s); (void)news;
   }
   ofst->SetStart(ffst.Start());
   for (StateId s = 0; s < num_states; s++) {
@@ -102,7 +102,7 @@ void ConvertLattice(
   StateId num_states = ifst.NumStates();
   for (StateId s = 0; s < num_states; s++) {
     StateId news = ofst->AddState();
-    assert(news == s);
+    assert(news == s); (void)news;
   }
   ofst->SetStart(ifst.Start());
   for (StateId s = 0; s < num_states; s++) {
@@ -166,7 +166,7 @@ void ConvertLattice(
   StateId num_states = ifst.NumStates();
   for (StateId s = 0; s < num_states; s++) {
     StateId news = ofst->AddState();
-    assert(news == s);
+    assert(news == s); (void)news;
   }
   ofst->SetStart(ifst.Start());
   for (StateId s = 0; s < num_states; s++) {

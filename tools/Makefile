@@ -87,6 +87,8 @@ openfst-$(OPENFST_VERSION)/Makefile: openfst-$(OPENFST_VERSION)
 
 openfst-$(OPENFST_VERSION): openfst-$(OPENFST_VERSION).tar.gz
 	tar xozf openfst-$(OPENFST_VERSION).tar.gz
+	sed -i 's#FloatWeightTpl() noexcept {}#FloatWeightTpl() noexcept : value_(0.0) {}#g' \
+	  openfst-$(OPENFST_VERSION)/src/include/fst/float-weight.h 
 
 openfst-$(OPENFST_VERSION).tar.gz:
 	if [ -d "$(DOWNLOAD_DIR)" ]; then \

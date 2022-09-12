@@ -169,7 +169,7 @@ void Xent::Eval(const VectorBase<BaseFloat> &frame_weights,
                 CuMatrix<BaseFloat> *diff) {
   int32 num_frames = net_out.NumRows(),
     num_pdf = net_out.NumCols();
-  KALDI_ASSERT(num_frames == post.size());
+  KALDI_ASSERT(num_frames == post.size()); (void)num_frames;
 
   // convert posterior to matrix,
   PosteriorToMatrix(post, num_pdf, &tgt_mat_);
@@ -286,7 +286,7 @@ void Mse::Eval(const VectorBase<BaseFloat> &frame_weights,
                CuMatrix<BaseFloat>* diff) {
   int32 num_frames = net_out.NumRows(),
     num_nn_outputs = net_out.NumCols();
-  KALDI_ASSERT(num_frames == post.size());
+  KALDI_ASSERT(num_frames == post.size()); (void)num_frames;
 
   // convert posterior to matrix,
   PosteriorToMatrix(post, num_nn_outputs, &tgt_mat_);

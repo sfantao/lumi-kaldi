@@ -28,7 +28,7 @@ void SamplingLm::ConsumeNGram(const NGram& ngram) {
   int32 cur_order = ngram.words.size(),
       max_order = Order();
   int32 word = ngram.words.back();  // word is the last word in a ngram term
-  KALDI_ASSERT(cur_order > 0 && word > 0);
+  KALDI_ASSERT(cur_order > 0 && word > 0); (void)max_order;
 
   if (cur_order == 1) {
     // unigram
@@ -182,6 +182,7 @@ void SamplingLm::AddBackoffToHistoryStates(
     BaseFloat weight = histories_iter->second;
     total_weight += weight;
     KALDI_ASSERT(history.size() <= max_order - 1 && weight > 0);
+    (void)max_order;
 
     // back off until the history exists or until we reached the unigram state.
     while (cur_hist_len > 0 &&

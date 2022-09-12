@@ -25,7 +25,7 @@
 
 #ifdef __IS_HIP_COMPILE__
 #include <hip/hip_runtime_api.h>
-#include <hipblas/hipblas.h>
+#include <hipblas.h>
 #include "hipify.h"
 #else
 #include <cublas_v2.h>
@@ -151,7 +151,7 @@ void CuMemoryAllocator::RemoveFromFreeBlocks(MemoryBlock *block) {
   size_t block_size = block->end - block->begin;
   std::pair<size_t, MemoryBlock*> p(block_size, block);
   size_t num_removed = subregion->free_blocks.erase(p);
-  KALDI_ASSERT(num_removed != 0);
+  KALDI_ASSERT(num_removed != 0); (void)num_removed;
   // Update largest_free_block_, if needed.
   size_t subregion_index = subregion->subregion_index;
   if (block_size == largest_free_block_[subregion_index]) {

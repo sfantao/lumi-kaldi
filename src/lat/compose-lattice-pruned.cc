@@ -812,7 +812,7 @@ void PrunedCompactLatticeComposer::ProcessTransition(int32 src_composed_state,
       // the rest of this block deals with the consequences of adding a new
       // state.
       int32 ans = clat_out_->AddState();
-      KALDI_ASSERT(ans == new_composed_state);
+      KALDI_ASSERT(ans == new_composed_state); (void)ans;
       dest_composed_state = new_composed_state;
       composed_state_info_.resize(dest_composed_state + 1);
       dest_info = &(composed_state_info_[dest_composed_state]);

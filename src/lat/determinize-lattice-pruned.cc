@@ -70,7 +70,7 @@ template<class Weight, class IntType> class LatticeDeterminizerPruned {
     }
     for (StateId s = 0;s < nStates;s++) {
       OutputStateId news = ofst->AddState();
-      KALDI_ASSERT(news == s);
+      KALDI_ASSERT(news == s); (void)news;
     }
     ofst->SetStart(0);
     // now process transitions.
@@ -121,7 +121,7 @@ template<class Weight, class IntType> class LatticeDeterminizerPruned {
     // Add basic states-- but we will add extra ones to account for strings on output.
     for (OutputStateId s = 0; s< nStates;s++) {
       OutputStateId news = ofst->AddState();
-      KALDI_ASSERT(news == s);
+      KALDI_ASSERT(news == s); (void)news;
     }
     ofst->SetStart(0);
     for (OutputStateId this_state_id = 0; this_state_id < nStates; this_state_id++) {

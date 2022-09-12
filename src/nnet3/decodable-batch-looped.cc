@@ -351,6 +351,7 @@ void NnetBatchLoopedComputer::AdvanceChunk(
                                  info_.num_chunk1_ivector_frames : 
                                  info_.num_ivector_frames;
     KALDI_ASSERT(num_ivectors == num_ivectors_request);
+    (void)num_ivectors_request;
     CuMatrix<BaseFloat> ivectors_chunk(batch_size * num_ivectors, 
                                        dim_ivectors, 
                                        kUndefined);

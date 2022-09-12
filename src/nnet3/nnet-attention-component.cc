@@ -170,6 +170,7 @@ void RestrictedAttentionComponent::PropagateOneHead(
                in.NumCols() == (key_dim_ + value_dim_ + query_dim) &&
                io.t_step_in == io.t_step_out &&
                (io.start_t_out - io.start_t_in) % io.t_step_in == 0);
+  (void)full_value_dim;
 
   // 'steps_left_context' is the number of time-steps the input has on the left
   // that don't appear in the output.
@@ -350,6 +351,7 @@ void RestrictedAttentionComponent::BackpropOneHead(
                SameDim(in_value, *in_deriv) &&
                c.NumRows() == out_deriv.NumRows() &&
                c.NumCols() == context_dim_);
+  (void)full_value_dim;
 
   // 'steps_left_context' is the number of time-steps the input has on the left
   // that don't appear in the output.
@@ -431,6 +433,9 @@ void RestrictedAttentionComponent::GetComputationStructure(
                last_t_in <= last_requested_input &&
                io->start_t_in <= first_required_input &&
                last_t_in >= last_required_input);
+  (void)first_required_input;
+  (void)last_t_in;
+  (void)last_required_input;
 
   // For the inputs that were requested, but not required,
   // we pad with zeros.  We pad the 'io' object, adding these

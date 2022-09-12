@@ -261,9 +261,9 @@ void GenerateRandomAlignment(const ContextDependencyInterface &ctx_dep,
           self_loop_pdf_class = entry[hmm_state].self_loop_pdf_class,
           forward_pdf_id, self_loop_pdf_id;
       bool ans = ctx_dep.Compute(context_window, forward_pdf_class, &forward_pdf_id);
-      KALDI_ASSERT(ans && "context-dependency computation failed.");
+      KALDI_ASSERT(ans && "context-dependency computation failed."); (void)ans;
       ans = ctx_dep.Compute(context_window, self_loop_pdf_class, &self_loop_pdf_id);
-      KALDI_ASSERT(ans && "context-dependency computation failed.");
+      KALDI_ASSERT(ans && "context-dependency computation failed."); (void)ans;
       int32 transition_state = trans_model.TupleToTransitionState(
                                phone, hmm_state, forward_pdf_id, self_loop_pdf_id),
           transition_id = trans_model.PairToTransitionId(transition_state,

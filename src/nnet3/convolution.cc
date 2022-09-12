@@ -366,6 +366,7 @@ void ConvolutionComputation::Check() const {
     const ConvolutionStep &step = steps[s];
     KALDI_ASSERT(step.input_time_shift >= 0 &&
                  step.input_time_shift <= num_extra_input_times);
+    (void)num_extra_input_times;
     if (step.input_time_shift < smallest_time_shift)
       smallest_time_shift = step.input_time_shift;
     if (step.input_time_shift > largest_time_shift)
@@ -407,7 +408,7 @@ void ConvolutionComputation::Check() const {
       temp_mat_required = true;
       KALDI_ASSERT(columns.size() <= temp_cols);
     }
-    KALDI_ASSERT(!all_negative);
+    KALDI_ASSERT(!all_negative); (void)all_negative;
 
     std::vector<int32> columns_reconstructed(columns.size(), -1);
     // reconstruct 'columns' from backward_columns as a way to
@@ -436,7 +437,7 @@ void ConvolutionComputation::Check() const {
                largest_time_shift == num_extra_input_times);
 
   // check that the temp matrix is only allocated if it is required.
-  KALDI_ASSERT((temp_cols != 0) == temp_mat_required);
+  KALDI_ASSERT((temp_cols != 0) == temp_mat_required); (void)temp_mat_required;
 }
 
 
@@ -461,6 +462,7 @@ static void ConvolveForwardInternal(
   KALDI_ASSERT(output_rows <= input_rows &&
                input_rows % cc.num_images == 0 &&
                output_rows % cc.num_images == 0);
+  (void)input_rows;
 
   int32 num_steps = cc.steps.size();
   for (int32 s = 0; s < num_steps; s++) {
@@ -616,6 +618,7 @@ static void ConvolveBackwardDataInternal(
   KALDI_ASSERT(output_rows <= input_rows &&
                input_rows % cc.num_images == 0 &&
                output_rows % cc.num_images == 0);
+  (void)input_rows;
 
   int32 num_steps = cc.steps.size();
   for (int32 s = 0; s < num_steps; s++) {
@@ -777,6 +780,7 @@ static void ConvolveBackwardParamsInternal(
   KALDI_ASSERT(output_rows <= input_rows &&
                input_rows % cc.num_images == 0 &&
                output_rows % cc.num_images == 0);
+  (void)input_rows;
 
   int32 num_steps = cc.steps.size();
   for (int32 s = 0; s < num_steps; s++) {
@@ -1339,6 +1343,8 @@ void CheckModelAndIo(const ConvolutionModel &model,
         last_t_out = io.start_t_out + io.t_step_out * (io.num_t_out - 1);
     KALDI_ASSERT(last_t_in <= last_t_out +
                  *model.all_time_offsets.rbegin());
+    (void)last_t_in;
+    (void)last_t_out;
   }
 
   std::set<int32> input_times_to_check;
@@ -1615,6 +1621,7 @@ void MakeComputation(const ConvolutionModel &model,
                  modified_time_offset % t_step == 0);
     step.input_time_shift = modified_time_offset / t_step;
     KALDI_ASSERT(step.input_time_shift <= num_t_extra);
+    (void)num_t_extra;
     step.params_start_col = model.num_filters_in * cur_start_offset;
     step.height_map.clear();
     step.height_map.reserve(model.height_out * this_num_offsets);

@@ -265,7 +265,7 @@ void ConvolutionComponent::InputToInputPatches(
       for (int32 x = 0, index = patch_start_index; x < filt_x_dim; x++)  {
         for (int32 y = 0; y < filt_y_dim; y++)  {
           for (int32 z = 0; z < input_z_dim; z++, index++)  {
-            KALDI_ASSERT(index < column_map_size);
+            KALDI_ASSERT(index < column_map_size); (void)column_map_size;
             if (input_vectorization_ == kZyx)  {
               column_map[index] = ZyxVectorIndex(x_step * filt_x_step + x,
                                                  y_step * filt_y_step + y, z,
@@ -423,7 +423,7 @@ void ConvolutionComponent::InderivPatchesToInderiv(
                                             input_x_dim, input_y_dim,
                                             input_z_dim);
             }
-            KALDI_ASSERT(vector_index < rev_col_map_size);
+            KALDI_ASSERT(vector_index < rev_col_map_size); (void)rev_col_map_size;
             reverse_column_map[vector_index].push_back(index);
           }
         }
@@ -781,7 +781,7 @@ void MaxpoolingComponent::InputToInputPatches(
         for (int32 x_pool = 0; x_pool < num_pools_x; x_pool++) {
           for (int32 y_pool = 0; y_pool < num_pools_y; y_pool++) {
             for (int32 z_pool = 0; z_pool < num_pools_z; z_pool++, index++) {
-              KALDI_ASSERT(index < column_map_size);
+              KALDI_ASSERT(index < column_map_size); (void)column_map_size;
               column_map[index] = (x_pool * pool_x_step_ + x) * input_y_dim_ * input_z_dim_ +
                                   (y_pool * pool_y_step_ + y) * input_z_dim_ +
                                   (z_pool * pool_z_step_ + z);
@@ -846,7 +846,7 @@ void MaxpoolingComponent::InderivPatchesToInderiv(
                                   (y_pool * pool_y_step_ + y) * input_z_dim_ +
                                   (z_pool * pool_z_step_ + z);
 
-              KALDI_ASSERT(vector_index < rev_col_map_size);
+              KALDI_ASSERT(vector_index < rev_col_map_size); (void)rev_col_map_size;
               reverse_column_map[vector_index].push_back(index);
             }
           }

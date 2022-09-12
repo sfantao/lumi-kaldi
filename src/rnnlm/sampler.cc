@@ -207,7 +207,7 @@ void Sampler::SampleWords(
   int32 vocab_size = unigram_cdf_.size();
   KALDI_ASSERT(IsSortedAndUniq(words_we_must_sample) &&
                num_words_to_sample > 0 && num_words_to_sample < vocab_size);
-
+  (void)vocab_size;
   int32 num_words_we_must_sample = words_we_must_sample.size();
   if (num_words_we_must_sample > 0) {
     KALDI_ASSERT(num_words_we_must_sample < vocab_size &&
@@ -300,6 +300,7 @@ void Sampler::SampleWords(
   if (!higher_order_probs.empty()) {
     KALDI_ASSERT(higher_order_probs.front().first >= 0 &&
                  higher_order_probs.back().first < vocab_size);
+    (void)vocab_size;
   }
   if (GetVerboseLevel() >= 2) {
     CheckDistribution(higher_order_probs);

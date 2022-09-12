@@ -1082,7 +1082,7 @@ const CompactLattice& LatticeIncrementalDecoderTpl<FST, Token>::GetLattice(
         /* Some tokens may not have survived the pruned determinization. */
         Label token_label = iter->second;
         bool ret = token_label2final_cost.insert({token_label, cost}).second;
-        KALDI_ASSERT(ret); /* Make sure it was inserted. */
+        KALDI_ASSERT(ret); (void)ret; /* Make sure it was inserted. */
       }
     }
   }
@@ -1183,7 +1183,7 @@ void LatticeIncrementalDeterminizer::IdentifyTokenFinalStates(
         StateId nextstate = arc.nextstate;
         auto r = token_map->insert({nextstate, arc.olabel});
         // Check consistency of labels on incoming arcs
-        KALDI_ASSERT(r.first->second == arc.olabel);
+        KALDI_ASSERT(r.first->second == arc.olabel); (void)r;
       }
     }
   }
@@ -1261,7 +1261,7 @@ void LatticeIncrementalDeterminizer::InitializeRawLatticeChunk(
       auto r = redet_state_map.insert({nextstate, lat_nextstate});
       if (r.second) {  // Was inserted.
         LatticeArc::StateId s = olat->AddState();
-        KALDI_ASSERT(s == lat_nextstate);
+        KALDI_ASSERT(s == lat_nextstate); (void)s;
       } else {
         // was not inserted -> was already there.
         lat_nextstate = r.first->second;
@@ -1290,7 +1290,7 @@ void LatticeIncrementalDeterminizer::InitializeRawLatticeChunk(
     LatticeArc::StateId dest_lat_state = r.first->second;
     if (r.second) { // was inserted
       LatticeArc::StateId new_state = olat->AddState();
-      KALDI_ASSERT(new_state == dest_lat_state);
+      KALDI_ASSERT(new_state == dest_lat_state); (void)new_state;
     }
     CompactLatticeArc new_arc;
     new_arc.nextstate = dest_lat_state;
@@ -1623,7 +1623,7 @@ bool LatticeIncrementalDeterminizer::AcceptRawLatticeChunk(
     if (state_map.insert({state, new_clat_state}).second) {
       // If it was inserted then we need to actually allocate that state
       StateId s = AddStateToClat();
-      KALDI_ASSERT(s == new_clat_state);
+      KALDI_ASSERT(s == new_clat_state); (void)s;
     }   // else do nothing; it would have been a redeterminized-state and no
   }     // allocation is needed since they already exist in clat_. and
         // in state_map.

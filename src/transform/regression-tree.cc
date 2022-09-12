@@ -254,7 +254,7 @@ bool RegressionTree::GatherStats(const vector<AffineXformStats*> &stats_in,
     } else {
       bool found = GetActiveParents(bclass, parents_, generate_xform,
                                     &active_parents);
-      KALDI_ASSERT(found);  // must have active parents
+      KALDI_ASSERT(found); (void)found;  // must have active parents
       for (vector<int32>::const_iterator p = active_parents.begin(),
           endp = active_parents.end(); p != endp; ++p) {
         KALDI_ASSERT(regclasses[*p] > -1);

@@ -415,6 +415,7 @@ BaseFloat ClusterBottomUp(const std::vector<Clusterable*> &points,
   // make sure fits in uint_smaller and does not hit the -1 which is reserved.
   KALDI_ASSERT(sizeof(uint_smaller)==sizeof(uint32) ||
                npoints < static_cast<int32>(static_cast<uint_smaller>(-1)));
+  (void)npoints;
 
   KALDI_VLOG(2) << "Initializing clustering object.";
   BottomUpClusterer bc(points, max_merge_thresh, min_clust, clusters_out, assignments_out);

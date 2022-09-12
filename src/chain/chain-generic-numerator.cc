@@ -177,7 +177,7 @@ BaseFloat GenericNumeratorComputation::AlphaRemainingFrames(int seq,
   const int32 num_sequences = supervision_.num_sequences,
               num_frames = supervision_.frames_per_sequence;
 
-  KALDI_ASSERT(seq >= 0 && seq < num_sequences);
+  KALDI_ASSERT(seq >= 0 && seq < num_sequences); (void)num_sequences;
 
   // variables for log_likelihood computation
   double log_scale_product = 0,
@@ -358,7 +358,7 @@ void GenericNumeratorComputation::BetaRemainingFrames(int seq,
       num_sequences = supervision_.num_sequences,
       num_frames = supervision_.frames_per_sequence,
       num_states = supervision_.e2e_fsts[seq].NumStates();
-  KALDI_ASSERT(seq >= 0 && seq < num_sequences);
+  KALDI_ASSERT(seq >= 0 && seq < num_sequences); (void)num_sequences;
 
   for (int t = num_frames - 1; t >= 0; --t) {
     const BaseFloat *alpha_t = alpha.RowData(t),

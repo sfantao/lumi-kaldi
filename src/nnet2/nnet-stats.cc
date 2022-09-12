@@ -63,7 +63,7 @@ void NnetStats::AddStats(BaseFloat avg_deriv, BaseFloat avg_value) {
 void NnetStats::AddStatsFromNnet(const Nnet &nnet) {
   const AffineComponent *ac = dynamic_cast<const AffineComponent*>(
       &(nnet.GetComponent(affine_component_index_)));
-  KALDI_ASSERT(ac != NULL); // would be an error in calling code.
+  KALDI_ASSERT(ac != NULL); (void)ac;// would be an error in calling code.
   const NonlinearComponent *nc = dynamic_cast<const NonlinearComponent*>(
       &(nnet.GetComponent(affine_component_index_ + 1)));
   KALDI_ASSERT(nc != NULL); // would be an error in calling code.

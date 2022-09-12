@@ -482,7 +482,7 @@ void Compiler::ComputeInputLocationsList(
       bool ans = descriptor.IsComputable(index, cindex_set, &input_cindexes);
       // earlier compilation stages should have checked that it is computable,
       // and the graph should still contain required inputs.
-      KALDI_ASSERT(ans);
+      KALDI_ASSERT(ans); (void)ans;
       std::sort(input_cindexes.begin(), input_cindexes.end());
       int32 size = input_cindexes.size();
       input_cindex_ids.resize(size);
@@ -1087,7 +1087,7 @@ void Compiler::AddForwardStepInput(int32 step,
 
   const NetworkNode &node = nnet_.GetNode(node_index);
   // actually currently the node type would always be kInput.
-  KALDI_ASSERT(node.node_type == kInput || node.node_type == kComponent);
+  KALDI_ASSERT(node.node_type == kInput || node.node_type == kComponent); (void)node;
 
   NnetComputation::Command c(kAcceptInput, submatrix_index, node_index);
   computation->commands.push_back(c);
@@ -1139,7 +1139,7 @@ void Compiler::AddBackwardStepInput(int32 step,
   KALDI_ASSERT(computation->IsWholeMatrix(deriv_submatrix_index));
   const NetworkNode &node = nnet_.GetNode(node_index);
   // actually, currently the node type would always be kInput.
-  KALDI_ASSERT(node.node_type == kInput || node.node_type == kComponent);
+  KALDI_ASSERT(node.node_type == kInput || node.node_type == kComponent); (void)node;
 
   NnetComputation::Command c(kProvideOutput, deriv_submatrix_index, node_index);
   computation->commands.push_back(c);
@@ -1253,7 +1253,7 @@ void Compiler::SetUpPrecomputedIndexes(
     const StepInfo &input_step_info = steps_[step - 1];
     int32 component_index = node.u.component_index;
     int32 input_node_index = input_step_info.node_index;
-    KALDI_ASSERT(input_node_index == node_index - 1);
+    KALDI_ASSERT(input_node_index == node_index - 1); (void)input_node_index;
     const std::vector<Index> &input_indexes = input_step_info.output_indexes;
     const std::vector<Index> &output_indexes = step_info.output_indexes;
 

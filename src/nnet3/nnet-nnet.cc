@@ -119,25 +119,25 @@ bool Nnet::IsOutputNode(int32 node) const {
 
 bool Nnet::IsInputNode(int32 node) const {
   int32 size = nodes_.size();
-  KALDI_ASSERT(node >= 0 && node < size);
+  KALDI_ASSERT(node >= 0 && node < size); (void)size;
   return (nodes_[node].node_type == kInput);
 }
 
 bool Nnet::IsDescriptorNode(int32 node) const {
   int32 size = nodes_.size();
-  KALDI_ASSERT(node >= 0 && node < size);
+  KALDI_ASSERT(node >= 0 && node < size); (void)size;
   return (nodes_[node].node_type == kDescriptor);
 }
 
 bool Nnet::IsComponentNode(int32 node) const {
   int32 size = nodes_.size();
-  KALDI_ASSERT(node >= 0 && node < size);
+  KALDI_ASSERT(node >= 0 && node < size); (void)size;
   return (nodes_[node].node_type == kComponent);
 }
 
 bool Nnet::IsDimRangeNode(int32 node) const {
   int32 size = nodes_.size();
-  KALDI_ASSERT(node >= 0 && node < size);
+  KALDI_ASSERT(node >= 0 && node < size); (void)size;
   return (nodes_[node].node_type == kDimRange);
 }
 
@@ -767,6 +767,7 @@ void Nnet::Check(bool warn_for_orphans) const {
     const std::string &component_name = component_names_[c];
     KALDI_ASSERT(GetComponentIndex(component_name) == c &&
                  "Duplicate component names?");
+    (void)component_name;
   }
   KALDI_ASSERT(num_input_nodes > 0);
   KALDI_ASSERT(num_output_nodes > 0);

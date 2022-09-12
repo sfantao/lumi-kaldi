@@ -30,7 +30,7 @@ void LogisticRegression::Train(const Matrix<BaseFloat> &xs,
 
   int32 xs_num_rows = xs.NumRows(), xs_num_cols = xs.NumCols(),
                      num_ys = ys.size();
-  KALDI_ASSERT(xs_num_rows == num_ys);
+  KALDI_ASSERT(xs_num_rows == num_ys); (void)num_ys;
 
   // Adding on extra column for each x to handle the prior.
   Matrix<BaseFloat> xs_with_prior(xs_num_rows, xs_num_cols + 1);

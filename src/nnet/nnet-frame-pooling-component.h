@@ -143,6 +143,7 @@ class FramePoolingComponent : public UpdatableComponent {
     for (int32 p = 0; p < num_pools; p++) {
       KALDI_ASSERT(offset_[p] >= 0);
       KALDI_ASSERT(offset_[p] + (weight_[p].Dim()-1) < total_frame);
+      (void)total_frame;
     }
     //
   }

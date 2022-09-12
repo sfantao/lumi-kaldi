@@ -216,13 +216,17 @@ void TransitionModel::Check() const {
   for (int32 tid = 1; tid <= NumTransitionIds(); tid++) {
     int32 tstate = TransitionIdToTransitionState(tid),
         index = TransitionIdToTransitionIndex(tid);
-    KALDI_ASSERT(tstate > 0 && tstate <=NumTransitionStates() && index >= 0);
+    KALDI_ASSERT(tstate > 0 && tstate <=NumTransitionStates() && index >= 0); (void)index;
     KALDI_ASSERT(tid == PairToTransitionId(tstate, index));
     int32 phone = TransitionStateToPhone(tstate),
         hmm_state = TransitionStateToHmmState(tstate),
         forward_pdf = TransitionStateToForwardPdf(tstate),
         self_loop_pdf = TransitionStateToSelfLoopPdf(tstate);
     KALDI_ASSERT(tstate == TupleToTransitionState(phone, hmm_state, forward_pdf, self_loop_pdf));
+   (void)phone;
+   (void)hmm_state;
+   (void)forward_pdf;
+   (void)self_loop_pdf;
     KALDI_ASSERT(log_probs_(tid) <= 0.0 && log_probs_(tid) - log_probs_(tid) == 0.0);
     // checking finite and non-positive (and not out-of-bounds).
   }

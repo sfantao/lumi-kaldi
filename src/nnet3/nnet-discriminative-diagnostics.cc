@@ -163,7 +163,7 @@ bool NnetDiscriminativeComputeObjf::PrintTotalStats() const {
   for (; iter != end; ++iter) {
     const std::string &name = iter->first;
     int32 node_index = nnet_.GetNodeIndex(name);
-    KALDI_ASSERT(node_index >= 0);
+    KALDI_ASSERT(node_index >= 0); (void)node_index;
     const discriminative::DiscriminativeObjectiveInfo &info = iter->second;
     BaseFloat tot_weight = info.tot_t_weighted;
     BaseFloat tot_objective = info.TotalObjf(

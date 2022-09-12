@@ -179,9 +179,9 @@ class ConvolutionalComponent : public UpdatableComponent {
     KALDI_ASSERT(output_dim_ % num_patches == 0);
     int32 num_filters = output_dim_ / num_patches;
     // check parameter dims:
-    KALDI_ASSERT(num_filters == filters_.NumRows());
+    KALDI_ASSERT(num_filters == filters_.NumRows()); (void)num_filters;
     KALDI_ASSERT(num_filters == bias_.Dim());
-    KALDI_ASSERT(filter_dim == filters_.NumCols());
+    KALDI_ASSERT(filter_dim == filters_.NumCols()); (void)filter_dim;
     //
   }
 

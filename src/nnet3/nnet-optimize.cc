@@ -238,7 +238,7 @@ void MoveSizingCommands(const Nnet &nnet, NnetComputation *computation) {
     NnetComputation::Command &old_command = computation->commands[old_index];
     // the following assert is because this optimization is not allowed
     // after looped optimization.
-    KALDI_ASSERT(old_command.command_type != kGotoLabel);
+    KALDI_ASSERT(old_command.command_type != kGotoLabel); (void)old_command;
     if (old_index > 0 && is_command_pair[old_index - 1]) {
       // If the old command-index was a zeroing command that follows
       // an allocation command, ignore it; it will be reordered to

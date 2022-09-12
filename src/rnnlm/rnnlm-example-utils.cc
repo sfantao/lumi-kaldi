@@ -604,6 +604,8 @@ void ProcessRnnlmOutput(
   KALDI_ASSERT(nnet_output.NumRows() == num_chunks * chunk_length &&
                nnet_output.NumCols() == word_embedding.NumCols() &&
                minibatch.vocab_size == word_embedding.NumRows());
+  (void)num_chunks;
+  (void)chunk_length;
 
   bool using_sampling = !(minibatch.sampled_words.empty());
   if (using_sampling) {

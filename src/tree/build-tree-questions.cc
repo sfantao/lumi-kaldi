@@ -98,7 +98,7 @@ void Questions::InitRand(const BuildTreeStatsType &stats, int32 num_quest, int32
     EventKeyType key = all_keys[i];
     std::vector<EventValueType> all_values;
     bool b = PossibleValues(key, stats, &all_values);  // get possible values.
-    if (all_keys_type != kAllKeysUnion) KALDI_ASSERT(b);
+    if (all_keys_type != kAllKeysUnion) KALDI_ASSERT(b); (void)b;
     KALDI_ASSERT(all_values.size() != 0);  // since key exists in stats, must have some value defined.
     QuestionsForKey q_for_key;
     q_for_key.refine_opts.num_iters = num_iters_refine;

@@ -2682,7 +2682,7 @@ void SpliceComponent::Backprop(const ChunkInfo &in_info,
             output_dim = out_deriv.NumCols(),
              input_dim = InputDim();
 
-  KALDI_ASSERT(OutputDim() == output_dim);
+  KALDI_ASSERT(OutputDim() == output_dim); (void)output_dim;
 
   int32 num_splice = context_.size(),
       const_dim = const_component_dim_;
@@ -3548,7 +3548,7 @@ void DropoutComponent::Propagate(const ChunkInfo &in_info,
       high_scale = (1.0 - (dp * low_scale)) / (1.0 - dp),
       average = (low_scale * dp) +
                 (high_scale * (1.0 - dp));
-  KALDI_ASSERT(fabs(average - 1.0) < 0.01);
+  KALDI_ASSERT(fabs(average - 1.0) < 0.01); (void)average;
 
   // This const_cast is only safe assuming you don't attempt
   // to use multi-threaded code with the GPU.
@@ -4267,6 +4267,7 @@ void MaxpoolingComponent::Init(int32 input_dim, int32 output_dim,
   int32 num_pools = num_patches / pool_size_;
   // check output dim
   KALDI_ASSERT(output_dim_ == num_pools * pool_stride_);
+  (void)num_pools;
 }
 
 void MaxpoolingComponent::InitFromString(std::string args) {

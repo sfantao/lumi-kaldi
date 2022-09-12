@@ -196,7 +196,7 @@ void NnetDiscriminativeUpdater::LatticeComputations() {
 
   KALDI_ASSERT(posteriors.NumRows() == num_frames);
   int32 num_pdfs = posteriors.NumCols();
-  KALDI_ASSERT(num_pdfs == priors.Dim());
+  KALDI_ASSERT(num_pdfs == priors.Dim()); (void)num_pdfs;
   
   // We need to look up the posteriors of some pdf-ids in the matrix
   // "posteriors".  Rather than looking them all up using operator (), which is
@@ -221,7 +221,7 @@ void NnetDiscriminativeUpdater::LatticeComputations() {
 
   std::vector<int32> state_times;
   int32 T = LatticeStateTimes(lat_, &state_times);
-  KALDI_ASSERT(T == num_frames);
+  KALDI_ASSERT(T == num_frames); (void)T;
   
   StateId num_states = lat_.NumStates();
   for (StateId s = 0; s < num_states; s++) {

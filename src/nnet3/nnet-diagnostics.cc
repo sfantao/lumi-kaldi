@@ -213,6 +213,7 @@ void ComputeAccuracy(const GeneralMatrix &supervision,
       num_cols = nnet_output.NumCols();
   KALDI_ASSERT(supervision.NumRows() == num_rows &&
                supervision.NumCols() == num_cols);
+  (void)num_cols;
 
   if (tot_accuracy_vec || tot_weight_vec)
     KALDI_ASSERT(tot_accuracy_vec && tot_weight_vec &&
